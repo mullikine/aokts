@@ -143,6 +143,7 @@
 				AdditionalDependencies="zlib1.lib comctl32.lib libexpatw.lib"
 				LinkIncremental="1"
 				AdditionalLibraryDirectories="&quot;C:\Program Files (x86)\Expat 2.1.0\Bin&quot;;&quot;C:\Users\shane\Downloads\zlib-1.2.3-lib\lib&quot;;&quot;$(ProjectDir)deps\lib&quot;"
+				AdditionalManifestDependencies="&quot;type=&apos;win32&apos; name=&apos;Microsoft.Windows.Common-Controls&apos; version=&apos;6.0.0.0&apos; processorArchitecture=&apos;*&apos; publicKeyToken=&apos;6595b64144ccf1df&apos; language=&apos;*&apos;&quot;"
 				IgnoreAllDefaultLibraries="false"
 				GenerateDebugInformation="true"
 				SubSystem="2"
