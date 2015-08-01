@@ -2649,10 +2649,10 @@ AOKTS_ERROR Scenario::up_to_hd() {
 	    // conditions
 	    for (vector<Condition>::iterator iter = trig->conds.begin(); iter != trig->conds.end(); ++iter) {
 	        if (iter->reserved == -1) {
-	            iter->reverse_hd == 0;
+	            iter->reverse_hd = 0;
 	        } else if (iter->reserved == -256) {
-	            iter->reserved == -1;
-	            iter->reverse_hd == 1;
+	            iter->reserved = -1;
+	            iter->reverse_hd = 1;
 	        }
 		}
 
