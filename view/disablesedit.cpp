@@ -214,6 +214,7 @@ void SaveDisables(HWND dialog)
 	case DIS_bldg:
 		if (count > scen.perversion->max_disables2)
 			count = scen.perversion->max_disables2;
+
 		propdata.p->ndis_b = count;
 		array = propdata.p->dis_bldg;
 		break;
@@ -316,9 +317,9 @@ static void reset(HWND dialog)
 	Combo_Fill(dialog, IDC_D_STYPE, dtypes, NUM_TYPES);
 
 	propdata.sel0 = 0;
-	LoadDisables(dialog);
 	SendDlgItemMessage(dialog, IDC_D_SPLY, CB_SETCURSEL, propdata.pindex, 0);
 	SendDlgItemMessage(dialog, IDC_D_STYPE, CB_SETCURSEL, 0, 0);
+	LoadDisables(dialog);
 }
 
 INT_PTR CALLBACK DisDlgProc(HWND dialog, UINT msg, WPARAM wParam, LPARAM lParam)
