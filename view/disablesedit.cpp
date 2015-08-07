@@ -27,6 +27,16 @@ const char *dtypes[NUM_TYPES] = { "Buildings", "Units", "Techs" };
 
 const char d_title[] = "Disables Editor";
 
+// function prototypes
+static void MoveToDisabled(HWND dialog, int index);
+static void DisableItem(HWND dialog, int id);
+void DisableSelectedItem(HWND dialog);
+void Disables_HandleDel(HWND dialog);
+void Disables_HandleClear(HWND dialog);
+void LoadDisables(HWND dialog);
+void SaveDisables(HWND dialog);
+void CopyDisables(HWND dialog, int src_pindex, int target_pindex);
+
 /**
  * Directly moves an entry for the "all" listbox to the "disabled" listbox by
  * listbox index.
@@ -239,10 +249,70 @@ void SaveDisables(HWND dialog)
 
 	for (int i = 0; i < count; i++)
 	{
-		const Link *t = LinkListBox_Get(list_sel, i);
+		const Link* t = LinkListBox_Get(list_sel, i);
 		if (t) // TODO: error handling?
 			*array++ = t->id();
 	}
+}
+
+/** Copies the disabled list of one player into another. Note that target's list will be overwritten. */
+void CopyDisables(HWND dialog, int src_pindex, int target_pindex)
+{
+	// No need to copy anything to ourselves
+	if (src_pindex == target_pindex) return;
+
+	Player* src = &scen.players[src_pindex];
+	Player* target = &scen.players[target_pindex];
+
+	if (src == NULL) {
+		// Error message to user to nofify them something went wrong.
+		MessageBox(
+			dialog,
+			"ERROR! The source player was NULL! Please report this as a bug to the developer.",
+			"Disables Editor",
+			MB_ICONWARNING);
+		return;
+	}
+	if (target == NULL) {
+		// Error message to user to nofify them something went wrong.
+		MessageBox(
+			dialog,
+			"ERROR! The target player was NULL! Please report this as a bug to the developer.",
+			"Disables Editor",
+			MB_ICONWARNING);
+		return;
+	}
+
+	// Save the source's list before we do anything.
+	SaveDisables(dialog);
+
+	// Override target's disabled list with source's disabled list.
+	// I'm really thinking that "60" should be a constant. Why isn't it?
+	for (int i = 0; i < 60; i++)
+	{
+		// Only copy the list we're on.
+		switch (propdata.sel0)
+		{
+		case DIS_bldg:
+			target->dis_bldg[i] = src->dis_bldg[i];
+			break;
+		
+		case DIS_tech:
+			target->dis_tech[i] = src->dis_tech[i];
+			break;
+		
+		case DIS_unit:
+			target->dis_unit[i] = src->dis_unit[i];
+			break;
+		}
+	}
+
+	// Change the player to the target, save his list.
+	propdata.p = target;
+	SaveDisables(dialog);
+
+	// Reset back to the source player's list.
+	propdata.p = src;
 }
 
 void Disables_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
@@ -276,6 +346,37 @@ void Disables_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
 
 		case IDC_D_CLR:
 			Disables_HandleClear(dialog);
+			break;
+
+		case IDC_D_COPY_INTO_P1:
+			CopyDisables(dialog, propdata.pindex, 0);
+			break;
+		case IDC_D_COPY_INTO_P2:
+			CopyDisables(dialog, propdata.pindex, 1);
+			break;
+		case IDC_D_COPY_INTO_P3:
+			CopyDisables(dialog, propdata.pindex, 2);
+			break;
+		case IDC_D_COPY_INTO_P4:
+			CopyDisables(dialog, propdata.pindex, 3);
+			break;
+		case IDC_D_COPY_INTO_P5:
+			CopyDisables(dialog, propdata.pindex, 4);
+			break;
+		case IDC_D_COPY_INTO_P6:
+			CopyDisables(dialog, propdata.pindex, 5);
+			break;
+		case IDC_D_COPY_INTO_P7:
+			CopyDisables(dialog, propdata.pindex, 6);
+			break;
+		case IDC_D_COPY_INTO_P8:
+			CopyDisables(dialog, propdata.pindex, 7);
+			break;
+		case IDC_D_COPY_INTO_ALL:
+			for (int i = 0; i < 8; i++)
+			{
+				CopyDisables(dialog, propdata.pindex, i);
+			}
 			break;
 
 		case ID_TS_EDIT_COPY:

@@ -50,246 +50,246 @@
 #define IDC_M_EXPORT                                  1041
 #define IDC_M_SEL                                     1042
 #define IDC_M_SELC                                    1043
-#define IDC_G_VER                                     1044
-#define IDC_S_PLAYERS                                 1045
-#define IDC_G_GAME                                    1046
-#define IDC_G_TIMESTAMP                               1047
-#define IDC_S_TRIGGERS                                1048
-#define IDC_G_ONAME                                   1049
-#define IDC_S_CONDITIONS                              1050
-#define IDC_S_EFFECTS                                 1051
-#define IDC_S_MAPSIZE                                 1052
-#define IDC_G_ALLTECHS                                1053
-#define IDC_G_X                                       1054
-#define IDC_S_UNITS                                   1055
-#define IDC_G_Y                                       1056
-#define IDC_S_UNITS1                                  1057
-#define IDC_S_UNITS2                                  1058
-#define IDC_S_UNITS3                                  1059
-#define IDC_S_UNITS4                                  1060
-#define IDC_S_UNITS5                                  1061
-#define IDC_S_UNITS6                                  1062
-#define IDC_S_UNITS7                                  1063
-#define IDC_S_UNITS8                                  1064
-#define IDC_S_UNITS9                                  1065
-#define IDC_G_NEXTID                                  1066
-#define IDC_G_LOCKTEAMS                               1067
-#define IDC_M_USERPATCH                               1068
-#define IDC_G_CHOOSETEAMS                             1069
-#define IDC_G_RANDPOSITIONS                           1070
-#define IDC_S_DISABLE                                 1071
-#define IDC_S_DISABLE1                                1072
-#define IDC_S_DISABLE2                                1073
-#define IDC_S_DISABLE3                                1074
-#define IDC_S_DISABLE4                                1075
-#define IDC_S_DISABLE5                                1076
-#define IDC_S_DISABLE6                                1077
-#define IDC_S_DISABLE7                                1078
-#define IDC_S_DISABLE8                                1079
-#define IDC_S_DISABLE9                                1080
-#define IDC_P_SP1                                     1081
-#define IDC_P_SP2                                     1082
-#define IDC_P_SP3                                     1083
-#define IDC_P_SP4                                     1084
-#define IDC_P_SP5                                     1085
-#define IDC_P_SP6                                     1086
-#define IDC_P_SP7                                     1087
-#define IDC_P_SP8                                     1088
-#define IDC_P_SG                                      1089
-#define IDC_P_CTY_SP1                                 1090
-#define IDC_P_CTY_SP2                                 1091
-#define IDC_P_CTY_SP3                                 1092
-#define IDC_P_CTY_SP4                                 1093
-#define IDC_P_CTY_SP5                                 1094
-#define IDC_P_CTY_SP6                                 1095
-#define IDC_P_CTY_SP7                                 1096
-#define IDC_P_CTY_SP8                                 1097
-#define IDC_P_CTY_SG                                  1098
-#define IDC_P_VC_SP1                                  1099
-#define IDC_P_VC_SP2                                  1100
-#define IDC_P_VC_SP3                                  1101
-#define IDC_P_VC_SP4                                  1102
-#define IDC_P_VC_SP5                                  1103
-#define IDC_P_VC_SP6                                  1104
-#define IDC_P_VC_SP7                                  1105
-#define IDC_P_VC_SP8                                  1106
-#define IDC_P_VC_SG                                   1107
-#define IDC_P_STABLE                                  1108
-#define IDC_P_ACTIVE                                  1109
-#define IDC_P_NAME1                                   1110
-#define IDC_P_NAME2                                   1111
-#define IDC_P_NAME3                                   1112
-#define IDC_P_NAME4                                   1113
-#define IDC_P_NAME5                                   1114
-#define IDC_P_NAME6                                   1115
-#define IDC_P_NAME7                                   1116
-#define IDC_P_NAME8                                   1117
-#define IDC_P_NAME9                                   1118
-#define IDC_P_HUMAN1                                  1119
-#define IDC_P_HUMAN2                                  1120
-#define IDC_P_HUMAN3                                  1121
-#define IDC_P_HUMAN4                                  1122
-#define IDC_P_HUMAN5                                  1123
-#define IDC_P_HUMAN6                                  1124
-#define IDC_P_HUMAN7                                  1125
-#define IDC_P_HUMAN8                                  1126
-#define IDC_P_HUMAN9                                  1127
-#define IDC_P_FOOD1                                   1128
-#define IDC_P_FOOD2                                   1129
-#define IDC_P_FOOD3                                   1130
-#define IDC_P_FOOD4                                   1131
-#define IDC_P_FOOD5                                   1132
-#define IDC_P_FOOD6                                   1133
-#define IDC_P_FOOD7                                   1134
-#define IDC_P_FOOD8                                   1135
-#define IDC_P_FOOD9                                   1136
-#define IDC_P_WOOD1                                   1137
-#define IDC_P_WOOD2                                   1138
-#define IDC_P_WOOD3                                   1139
-#define IDC_P_WOOD4                                   1140
-#define IDC_P_WOOD5                                   1141
-#define IDC_P_WOOD6                                   1142
-#define IDC_P_WOOD7                                   1143
-#define IDC_P_WOOD8                                   1144
-#define IDC_P_WOOD9                                   1145
-#define IDC_P_GOLD1                                   1146
-#define IDC_P_GOLD2                                   1147
-#define IDC_P_GOLD3                                   1148
-#define IDC_P_GOLD4                                   1149
-#define IDC_P_GOLD5                                   1150
-#define IDC_P_GOLD6                                   1151
-#define IDC_P_GOLD7                                   1152
-#define IDC_P_GOLD8                                   1153
-#define IDC_P_GOLD9                                   1154
-#define IDC_P_STONE1                                  1155
-#define IDC_P_STONE2                                  1156
-#define IDC_P_STONE3                                  1157
-#define IDC_P_STONE4                                  1158
-#define IDC_P_STONE5                                  1159
-#define IDC_P_STONE6                                  1160
-#define IDC_P_STONE7                                  1161
-#define IDC_P_STONE8                                  1162
-#define IDC_P_STONE9                                  1163
-#define IDC_P_POP1                                    1164
-#define IDC_P_POP2                                    1165
-#define IDC_P_POP3                                    1166
-#define IDC_P_POP4                                    1167
-#define IDC_P_POP5                                    1168
-#define IDC_P_POP6                                    1169
-#define IDC_P_POP7                                    1170
-#define IDC_P_POP8                                    1171
-#define IDC_P_POP9                                    1172
-#define IDC_P_COLOR1                                  1173
-#define IDC_P_COLOR2                                  1174
-#define IDC_P_COLOR3                                  1175
-#define IDC_P_COLOR4                                  1176
-#define IDC_P_COLOR5                                  1177
-#define IDC_P_COLOR6                                  1178
-#define IDC_P_COLOR7                                  1179
-#define IDC_P_COLOR8                                  1180
-#define IDC_P_COLOR9                                  1181
-#define IDC_P_AGE1                                    1182
-#define IDC_P_AGE2                                    1183
-#define IDC_P_AGE3                                    1184
-#define IDC_P_AGE4                                    1185
-#define IDC_P_AGE5                                    1186
-#define IDC_P_AGE6                                    1187
-#define IDC_P_AGE7                                    1188
-#define IDC_P_AGE8                                    1189
-#define IDC_P_AGE9                                    1190
-#define IDC_P_CIV1                                    1191
-#define IDC_P_CIV2                                    1192
-#define IDC_P_CIV3                                    1193
-#define IDC_P_CIV4                                    1194
-#define IDC_P_CIV5                                    1195
-#define IDC_P_CIV6                                    1196
-#define IDC_P_CIV7                                    1197
-#define IDC_P_CIV8                                    1198
-#define IDC_P_CIV9                                    1199
-#define IDC_P_P1_NUM                                  1200
-#define IDC_P_P2_NUM                                  1201
-#define IDC_P_P3_NUM                                  1202
-#define IDC_P_P4_NUM                                  1203
-#define IDC_P_P5_NUM                                  1204
-#define IDC_P_P6_NUM                                  1205
-#define IDC_P_P7_NUM                                  1206
-#define IDC_P_P8_NUM                                  1207
-#define IDC_P_P9_NUM                                  1208
-#define IDC_P_SWAPP1                                  1209
-#define IDC_P_SWAPP2                                  1210
-#define IDC_P_SWAPP3                                  1211
-#define IDC_P_SWAPP4                                  1212
-#define IDC_P_SWAPP5                                  1213
-#define IDC_P_SWAPP6                                  1214
-#define IDC_P_SWAPP7                                  1215
-#define IDC_P_SWAPP8                                  1216
-#define IDC_P_SWAPGA                                  1217
-#define IDC_P_TEAM1                                   1218
-#define IDC_P_TEAM2                                   1219
-#define IDC_P_TEAM3                                   1220
-#define IDC_P_TEAM4                                   1221
-#define IDC_P_TEAM5                                   1222
-#define IDC_P_TEAM6                                   1223
-#define IDC_P_TEAM7                                   1224
-#define IDC_P_TEAM8                                   1225
-#define IDC_P_TEAM9                                   1226
-#define IDC_P_AI                                      1227
-#define IDC_P_X                                       1228
-#define IDC_P_Y                                       1229
-#define IDC_P_EXAI                                    1230
-#define IDC_P_OREX                                    1231
-#define IDC_P_SPDIP                                   1232
-#define IDC_P_DSTATE                                  1233
-#define IDC_P_AV                                      1234
-#define IDC_P_IMAI                                    1235
-#define IDC_P_AIMODE                                  1236
-#define IDC_P_DSTATE1                                 1237
-#define IDC_P_DSTATE2                                 1238
-#define IDC_P_DSTATE3                                 1239
-#define IDC_P_DSTATE4                                 1240
-#define IDC_P_DSTATE5                                 1241
-#define IDC_P_DSTATE6                                 1242
-#define IDC_P_DSTATE7                                 1243
-#define IDC_P_DSTATE8                                 1244
-#define IDC_P_DSTATE9                                 1245
-#define IDC_P_UF                                      1246
-#define IDC_P_US0                                     1247
-#define IDC_P_US1                                     1248
-#define IDC_P_LBL_FOOD                                1249
-#define IDC_P_LBL_WOOD                                1250
-#define IDC_P_LBL_GOLD                                1251
-#define IDC_P_LBL_STONE                               1252
-#define IDC_P_LBL_OREX                                1253
-#define IDC_P_AISCRIPT                                1254
-#define IDC_P_CLEARAI                                 1255
-#define IDC_P_RANDOMGAME                              1256
-#define IDC_P_PROMISORY                               1257
-#define IDC_P_AIMODE_VAL                              1258
-#define IDC_P_CLEARVC                                 1259
-#define IDC_P_IMVC                                    1260
-#define IDC_P_EXVC                                    1261
-#define IDC_P_CLEARCTY                                1262
-#define IDC_P_IMCTY                                   1263
-#define IDC_P_EXCTY                                   1264
-#define IDC_P_VCSCRIPT                                1265
-#define IDC_P_CTYSCRIPT                               1266
-#define IDC_P_CTY                                     1267
-#define IDC_P_VC                                      1268
-#define IDC_P_OREY                                    1269
-#define IDC_P_LBL_OREY                                1270
-#define IDC_P_NUM_PLAYERS                             1271
-#define IDC_P_MAX_TEAMS                               1272
+#define IDC_G_VER                                     1044	// Info: (Text) Version
+#define IDC_S_PLAYERS                                 1045	// Scenario Statistics: (Text) Max Players
+#define IDC_G_GAME                                    1046	// Info: (Text) Game
+#define IDC_G_TIMESTAMP                               1047	// Info: Timestamp
+#define IDC_S_TRIGGERS                                1048	// Scenario Statistics: (Text) Triggers
+#define IDC_G_ONAME                                   1049	// Info: (Text) Original Filename
+#define IDC_S_CONDITIONS                              1050	// Scenario Statistics: (Text) Conditions
+#define IDC_S_EFFECTS                                 1051	// Scenario Statistics: (Text) Effects
+#define IDC_S_MAPSIZE                                 1052	// Scenario Statistics: (Text) Map Size
+#define IDC_G_ALLTECHS                                1053	// Info: (Textbox) All Techs
+#define IDC_G_X                                       1054	// Info: (Text) Editor View Coordinates (X)
+#define IDC_S_UNITS                                   1055	// Scenario Statistics, Units: (Text) All
+#define IDC_G_Y                                       1056	// Info: (Text) Editor View Coordinates (Y)
+#define IDC_S_UNITS1                                  1057	// Scenario Statistics, Units: (Text) Player 1
+#define IDC_S_UNITS2                                  1058	// Scenario Statistics, Units: (Text) Player 2
+#define IDC_S_UNITS3                                  1059	// Scenario Statistics, Units: (Text) Player 3
+#define IDC_S_UNITS4                                  1060	// Scenario Statistics, Units: (Text) Player 4
+#define IDC_S_UNITS5                                  1061	// Scenario Statistics, Units: (Text) Player 5
+#define IDC_S_UNITS6                                  1062	// Scenario Statistics, Units: (Text) Player 6
+#define IDC_S_UNITS7                                  1063	// Scenario Statistics, Units: (Text) Player 7
+#define IDC_S_UNITS8                                  1064	// Scenario Statistics, Units: (Text) Player 8
+#define IDC_S_UNITS9                                  1065	// Scenario Statistics, Units: (Text) Gaia
+#define IDC_G_NEXTID                                  1066	// Info: (Textbox) Next object ID
+#define IDC_G_LOCKTEAMS                               1067	// Info: (Checkbox) Lock Teams
+#define IDC_M_USERPATCH                               1068	// Info: (Checkbox) Enable UserPatch features
+#define IDC_G_CHOOSETEAMS                             1069	// Info: (Checkbox) Choose Teams
+#define IDC_G_RANDPOSITIONS                           1070	// Info: (Checkbox) Random Start Pos
+#define IDC_S_DISABLE                                 1071	// Scenario Statistics, Disabled: (Text) All
+#define IDC_S_DISABLE1                                1072	// Scenario Statistics, Disabled: (Text) Player 1
+#define IDC_S_DISABLE2                                1073	// Scenario Statistics, Disabled: (Text) Player 2
+#define IDC_S_DISABLE3                                1074	// Scenario Statistics, Disabled: (Text) Player 3
+#define IDC_S_DISABLE4                                1075	// Scenario Statistics, Disabled: (Text) Player 4
+#define IDC_S_DISABLE5                                1076	// Scenario Statistics, Disabled: (Text) Player 5
+#define IDC_S_DISABLE6                                1077	// Scenario Statistics, Disabled: (Text) Player 6
+#define IDC_S_DISABLE7                                1078	// Scenario Statistics, Disabled: (Text) Player 7
+#define IDC_S_DISABLE8                                1079	// Scenario Statistics, Disabled: (Text) Player 8
+#define IDC_S_DISABLE9                                1080	// Scenario Statistics, Disabled: (Text) Gaia
+#define IDC_P_SP1                                     1081	// Player Details: (Radio Button) Player 1
+#define IDC_P_SP2                                     1082	// Player Details: (Radio Button) Player 2
+#define IDC_P_SP3                                     1083	// Player Details: (Radio Button) Player 3
+#define IDC_P_SP4                                     1084	// Player Details: (Radio Button) Player 4
+#define IDC_P_SP5                                     1085	// Player Details: (Radio Button) Player 5
+#define IDC_P_SP6                                     1086	// Player Details: (Radio Button) Player 6
+#define IDC_P_SP7                                     1087	// Player Details: (Radio Button) Player 7
+#define IDC_P_SP8                                     1088	// Player Details: (Radio Button) Player 8
+#define IDC_P_SG                                      1089	// Player Details: (Radio Button) Gaia
+#define IDC_P_CTY_SP1                                 1090	// City Plan: (Radio Button) Player 1
+#define IDC_P_CTY_SP2                                 1091	// City Plan: (Radio Button) Player 2
+#define IDC_P_CTY_SP3                                 1092	// City Plan: (Radio Button) Player 3
+#define IDC_P_CTY_SP4                                 1093	// City Plan: (Radio Button) Player 4
+#define IDC_P_CTY_SP5                                 1094	// City Plan: (Radio Button) Player 5
+#define IDC_P_CTY_SP6                                 1095	// City Plan: (Radio Button) Player 6
+#define IDC_P_CTY_SP7                                 1096	// City Plan: (Radio Button) Player 7
+#define IDC_P_CTY_SP8                                 1097	// City Plan: (Radio Button) Player 8
+#define IDC_P_CTY_SG                                  1098	// City Plan: (Radio Button) Gaia
+#define IDC_P_VC_SP1                                  1099	// Victory: (Radio Button) Player 1
+#define IDC_P_VC_SP2                                  1100	// Victory: (Radio Button) Player 2
+#define IDC_P_VC_SP3                                  1101	// Victory: (Radio Button) Player 3
+#define IDC_P_VC_SP4                                  1102	// Victory: (Radio Button) Player 4
+#define IDC_P_VC_SP5                                  1103	// Victory: (Radio Button) Player 5
+#define IDC_P_VC_SP6                                  1104	// Victory: (Radio Button) Player 6
+#define IDC_P_VC_SP7                                  1105	// Victory: (Radio Button) Player 7
+#define IDC_P_VC_SP8                                  1106	// Victory: (Radio Button) Player 8
+#define IDC_P_VC_SG                                   1107	// Victory: (Radio Button) Gaia
+#define IDC_P_STABLE                                  1108	// Player Details: (Textbox) String Table
+#define IDC_P_ACTIVE                                  1109	// Player Details: (Checkbox) Is current player active?
+#define IDC_P_NAME1                                   1110	// Players: (Textbox) Name of Player 1
+#define IDC_P_NAME2                                   1111	// Players: (Textbox) Name of Player 2
+#define IDC_P_NAME3                                   1112	// Players: (Textbox) Name of Player 3
+#define IDC_P_NAME4                                   1113	// Players: (Textbox) Name of Player 4
+#define IDC_P_NAME5                                   1114	// Players: (Textbox) Name of Player 5
+#define IDC_P_NAME6                                   1115	// Players: (Textbox) Name of Player 6
+#define IDC_P_NAME7                                   1116	// Players: (Textbox) Name of Player 7
+#define IDC_P_NAME8                                   1117	// Players: (Textbox) Name of Player 8
+#define IDC_P_NAME9                                   1118	// Players: (Textbox) Name of Gaia
+#define IDC_P_HUMAN1                                  1119	// Players: (Checkbox) Is Player 1 human?
+#define IDC_P_HUMAN2                                  1120	// Players: (Checkbox) Is Player 2 human?
+#define IDC_P_HUMAN3                                  1121	// Players: (Checkbox) Is Player 3 human?
+#define IDC_P_HUMAN4                                  1122	// Players: (Checkbox) Is Player 4 human?
+#define IDC_P_HUMAN5                                  1123	// Players: (Checkbox) Is Player 5 human?
+#define IDC_P_HUMAN6                                  1124	// Players: (Checkbox) Is Player 6 human?
+#define IDC_P_HUMAN7                                  1125	// Players: (Checkbox) Is Player 7 human?
+#define IDC_P_HUMAN8                                  1126	// Players: (Checkbox) Is Player 8 human?
+#define IDC_P_HUMAN9                                  1127	// Players: (Checkbox) Is Gaia human?
+#define IDC_P_FOOD1                                   1128	// Players: (Textbox) Starting Food Amount of Player 1
+#define IDC_P_FOOD2                                   1129	// Players: (Textbox) Starting Food Amount of Player 2
+#define IDC_P_FOOD3                                   1130	// Players: (Textbox) Starting Food Amount of Player 3
+#define IDC_P_FOOD4                                   1131	// Players: (Textbox) Starting Food Amount of Player 4
+#define IDC_P_FOOD5                                   1132	// Players: (Textbox) Starting Food Amount of Player 5
+#define IDC_P_FOOD6                                   1133	// Players: (Textbox) Starting Food Amount of Player 6
+#define IDC_P_FOOD7                                   1134	// Players: (Textbox) Starting Food Amount of Player 7
+#define IDC_P_FOOD8                                   1135	// Players: (Textbox) Starting Food Amount of Player 8
+#define IDC_P_FOOD9                                   1136	// Players: (Textbox) Starting Food Amount of Gaia
+#define IDC_P_WOOD1                                   1137	// Players: (Textbox) Starting Wood Amount of Player 1
+#define IDC_P_WOOD2                                   1138	// Players: (Textbox) Starting Wood Amount of Player 2
+#define IDC_P_WOOD3                                   1139	// Players: (Textbox) Starting Wood Amount of Player 3
+#define IDC_P_WOOD4                                   1140	// Players: (Textbox) Starting Wood Amount of Player 4
+#define IDC_P_WOOD5                                   1141	// Players: (Textbox) Starting Wood Amount of Player 5
+#define IDC_P_WOOD6                                   1142	// Players: (Textbox) Starting Wood Amount of Player 6
+#define IDC_P_WOOD7                                   1143	// Players: (Textbox) Starting Wood Amount of Player 7
+#define IDC_P_WOOD8                                   1144	// Players: (Textbox) Starting Wood Amount of Player 8
+#define IDC_P_WOOD9                                   1145	// Players: (Textbox) Starting Wood Amount of Gaia
+#define IDC_P_GOLD1                                   1146	// Players: (Textbox) Starting Gold Amount of Player 1
+#define IDC_P_GOLD2                                   1147	// Players: (Textbox) Starting Gold Amount of Player 2
+#define IDC_P_GOLD3                                   1148	// Players: (Textbox) Starting Gold Amount of Player 3
+#define IDC_P_GOLD4                                   1149	// Players: (Textbox) Starting Gold Amount of Player 4
+#define IDC_P_GOLD5                                   1150	// Players: (Textbox) Starting Gold Amount of Player 5
+#define IDC_P_GOLD6                                   1151	// Players: (Textbox) Starting Gold Amount of Player 6
+#define IDC_P_GOLD7                                   1152	// Players: (Textbox) Starting Gold Amount of Player 7
+#define IDC_P_GOLD8                                   1153	// Players: (Textbox) Starting Gold Amount of Player 8
+#define IDC_P_GOLD9                                   1154	// Players: (Textbox) Starting Gold Amount of Gaia
+#define IDC_P_STONE1                                  1155	// Players: (Textbox) Starting Stone Amount of Player 1
+#define IDC_P_STONE2                                  1156	// Players: (Textbox) Starting Stone Amount of Player 2
+#define IDC_P_STONE3                                  1157	// Players: (Textbox) Starting Stone Amount of Player 3
+#define IDC_P_STONE4                                  1158	// Players: (Textbox) Starting Stone Amount of Player 4
+#define IDC_P_STONE5                                  1159	// Players: (Textbox) Starting Stone Amount of Player 5
+#define IDC_P_STONE6                                  1160	// Players: (Textbox) Starting Stone Amount of Player 6
+#define IDC_P_STONE7                                  1161	// Players: (Textbox) Starting Stone Amount of Player 7
+#define IDC_P_STONE8                                  1162	// Players: (Textbox) Starting Stone Amount of Player 8
+#define IDC_P_STONE9                                  1163	// Players: (Textbox) Starting Stone Amount of Gaia
+#define IDC_P_POP1                                    1164	// Players: (Textbox) Population Limit of Player 1
+#define IDC_P_POP2                                    1165	// Players: (Textbox) Population Limit of Player 2
+#define IDC_P_POP3                                    1166	// Players: (Textbox) Population Limit of Player 3
+#define IDC_P_POP4                                    1167	// Players: (Textbox) Population Limit of Player 4
+#define IDC_P_POP5                                    1168	// Players: (Textbox) Population Limit of Player 5
+#define IDC_P_POP6                                    1169	// Players: (Textbox) Population Limit of Player 6
+#define IDC_P_POP7                                    1170	// Players: (Textbox) Population Limit of Player 7
+#define IDC_P_POP8                                    1171	// Players: (Textbox) Population Limit of Player 8
+#define IDC_P_POP9                                    1172	// Players: (Textbox) Population Limit of Gaia
+#define IDC_P_COLOR1                                  1173	// Players: (Dropdown) Player Color of Player 1
+#define IDC_P_COLOR2                                  1174	// Players: (Dropdown) Player Color of Player 2
+#define IDC_P_COLOR3                                  1175	// Players: (Dropdown) Player Color of Player 3
+#define IDC_P_COLOR4                                  1176	// Players: (Dropdown) Player Color of Player 4
+#define IDC_P_COLOR5                                  1177	// Players: (Dropdown) Player Color of Player 5
+#define IDC_P_COLOR6                                  1178	// Players: (Dropdown) Player Color of Player 6
+#define IDC_P_COLOR7                                  1179	// Players: (Dropdown) Player Color of Player 7
+#define IDC_P_COLOR8                                  1180	// Players: (Dropdown) Player Color of Player 8
+#define IDC_P_COLOR9                                  1181	// Players: (Dropdown) Player Color of Gaia
+#define IDC_P_AGE1                                    1182	// Players: (Dropdown) Starting Age of Player 1
+#define IDC_P_AGE2                                    1183	// Players: (Dropdown) Starting Age of Player 2
+#define IDC_P_AGE3                                    1184	// Players: (Dropdown) Starting Age of Player 3
+#define IDC_P_AGE4                                    1185	// Players: (Dropdown) Starting Age of Player 4
+#define IDC_P_AGE5                                    1186	// Players: (Dropdown) Starting Age of Player 5
+#define IDC_P_AGE6                                    1187	// Players: (Dropdown) Starting Age of Player 6
+#define IDC_P_AGE7                                    1188	// Players: (Dropdown) Starting Age of Player 7
+#define IDC_P_AGE8                                    1189	// Players: (Dropdown) Starting Age of Player 8
+#define IDC_P_AGE9                                    1190	// Players: (Dropdown) Starting Age of Gaia
+#define IDC_P_CIV1                                    1191	// Players: (Dropdown) Civilization of Player 1
+#define IDC_P_CIV2                                    1192	// Players: (Dropdown) Civilization of Player 2
+#define IDC_P_CIV3                                    1193	// Players: (Dropdown) Civilization of Player 3
+#define IDC_P_CIV4                                    1194	// Players: (Dropdown) Civilization of Player 4
+#define IDC_P_CIV5                                    1195	// Players: (Dropdown) Civilization of Player 5
+#define IDC_P_CIV6                                    1196	// Players: (Dropdown) Civilization of Player 6
+#define IDC_P_CIV7                                    1197	// Players: (Dropdown) Civilization of Player 7
+#define IDC_P_CIV8                                    1198	// Players: (Dropdown) Civilization of Player 8
+#define IDC_P_CIV9                                    1199	// Players: (Dropdown) Civilization of Gaia
+#define IDC_P_P1_NUM                                  1200	// Players: (Dropdown) Mystery Number of Player 1
+#define IDC_P_P2_NUM                                  1201	// Players: (Dropdown) Mystery Number of Player 2
+#define IDC_P_P3_NUM                                  1202	// Players: (Dropdown) Mystery Number of Player 3
+#define IDC_P_P4_NUM                                  1203	// Players: (Dropdown) Mystery Number of Player 4
+#define IDC_P_P5_NUM                                  1204	// Players: (Dropdown) Mystery Number of Player 5
+#define IDC_P_P6_NUM                                  1205	// Players: (Dropdown) Mystery Number of Player 6
+#define IDC_P_P7_NUM                                  1206	// Players: (Dropdown) Mystery Number of Player 7
+#define IDC_P_P8_NUM                                  1207	// Players: (Dropdown) Mystery Number of Player 8
+#define IDC_P_P9_NUM                                  1208	// Players: (Dropdown) Mystery Number of Gaia
+#define IDC_P_SWAPP1                                  1209	// Player Details: (Button) Swap player with Player 1
+#define IDC_P_SWAPP2                                  1210	// Player Details: (Button) Swap player with Player 2
+#define IDC_P_SWAPP3                                  1211	// Player Details: (Button) Swap player with Player 3
+#define IDC_P_SWAPP4                                  1212	// Player Details: (Button) Swap player with Player 4
+#define IDC_P_SWAPP5                                  1213	// Player Details: (Button) Swap player with Player 5
+#define IDC_P_SWAPP6                                  1214	// Player Details: (Button) Swap player with Player 6
+#define IDC_P_SWAPP7                                  1215	// Player Details: (Button) Swap player with Player 7
+#define IDC_P_SWAPP8                                  1216	// Player Details: (Button) Swap player with Player 8
+#define IDC_P_SWAPGA                                  1217	// Player Details: (Button) Swap player with Gaia
+#define IDC_P_TEAM1                                   1218	// Players: (Dropdown) The "Diplomacy" for Player 1
+#define IDC_P_TEAM2                                   1219	// Players: (Dropdown) The "Diplomacy" for Player 2
+#define IDC_P_TEAM3                                   1220	// Players: (Dropdown) The "Diplomacy" for Player 3
+#define IDC_P_TEAM4                                   1221	// Players: (Dropdown) The "Diplomacy" for Player 4
+#define IDC_P_TEAM5                                   1222	// Players: (Dropdown) The "Diplomacy" for Player 5
+#define IDC_P_TEAM6                                   1223	// Players: (Dropdown) The "Diplomacy" for Player 6
+#define IDC_P_TEAM7                                   1224	// Players: (Dropdown) The "Diplomacy" for Player 7
+#define IDC_P_TEAM8                                   1225	// Players: (Dropdown) The "Diplomacy" for Player 8
+#define IDC_P_TEAM9                                   1226	// Players: (Dropdown) The "Diplomacy" for Gaia
+#define IDC_P_AI                                      1227	// AI: (Textbox) Filename
+#define IDC_P_X                                       1228	// Player Details: Initial Camera position - X
+#define IDC_P_Y                                       1229	// Player Details: Initial Camera position - Y
+#define IDC_P_EXAI                                    1230	// AI: (Button) Export AI
+#define IDC_P_OREX                                    1231	// Player Details: (Text) Ore X (huh?)
+#define IDC_P_SPDIP									  1232	// Unknown: Referenced in playerctyedit.cpp and victedit.cpp but not a UI element.
+#define IDC_P_DSTATE                                  1233	// Unknown: probably related to Diplomacy in Player Details
+#define IDC_P_AV                                      1234	// Player Details: (Checkbox) Allied Victory
+#define IDC_P_IMAI                                    1235	// AI: (Button) Import AI
+#define IDC_P_AIMODE                                  1236	// AI: (Checkbox) Standard
+#define IDC_P_DSTATE1                                 1237	// Player Details: (Checkbox) Diplomacy with Player 1
+#define IDC_P_DSTATE2                                 1238	// Player Details: (Checkbox) Diplomacy with Player 2
+#define IDC_P_DSTATE3                                 1239	// Player Details: (Checkbox) Diplomacy with Player 3
+#define IDC_P_DSTATE4                                 1240	// Player Details: (Checkbox) Diplomacy with Player 4
+#define IDC_P_DSTATE5                                 1241	// Player Details: (Checkbox) Diplomacy with Player 5
+#define IDC_P_DSTATE6                                 1242	// Player Details: (Checkbox) Diplomacy with Player 6
+#define IDC_P_DSTATE7                                 1243	// Player Details: (Checkbox) Diplomacy with Player 7
+#define IDC_P_DSTATE8                                 1244	// Player Details: (Checkbox) Diplomacy with Player 8
+#define IDC_P_DSTATE9                                 1245	// Player Details: (Checkbox) Diplomacy with Gaia
+#define IDC_P_UF                                      1246	// Player Details: (Textbox) Unknowns Ver (wtf?)
+#define IDC_P_US0                                     1247	// Player Details: (Textbox) Unknowns Ss 1 (wtf?)
+#define IDC_P_US1                                     1248	// Player Details: (Textbox) Unknowns Ss 2 (wtf?)
+#define IDC_P_LBL_FOOD                                1249	// Players: (Text) Label for Food
+#define IDC_P_LBL_WOOD                                1250	// Players: (Text) Label for Wood
+#define IDC_P_LBL_GOLD                                1251	// Players: (Text) Label for Gold
+#define IDC_P_LBL_STONE                               1252	// Players: (Text) Label for Stone
+#define IDC_P_LBL_OREX                                1253	// Player Details: (Text) Label for Ore X
+#define IDC_P_AISCRIPT                                1254	// AI: (Textbox) Contains the AI script code.
+#define IDC_P_CLEARAI                                 1255	// AI: (Button) No AI
+#define IDC_P_RANDOMGAME                              1256	// AI: (Button) RandomGame
+#define IDC_P_PROMISORY                               1257	// AI: (Button) Promisory (Huh?)
+#define IDC_P_AIMODE_VAL                              1258	// AI: (Text) AI mode (huh?)
+#define IDC_P_CLEARVC                                 1259	// Victory: (Button) No VC
+#define IDC_P_IMVC                                    1260	// Victory: (Button) Import
+#define IDC_P_EXVC                                    1261	// Victory: (Button) Export
+#define IDC_P_CLEARCTY                                1262	// City Plan: (Button) Clear City
+#define IDC_P_IMCTY                                   1263	// City Plan: (Button) Import
+#define IDC_P_EXCTY                                   1264	// City Plan: (Button) Export
+#define IDC_P_VCSCRIPT                                1265	// Victory: (Textbox) Victory Condition Script
+#define IDC_P_CTYSCRIPT                               1266	// City Plan: (Textbox) City Plan Script
+#define IDC_P_CTY                                     1267	// City Plan: Filename
+#define IDC_P_VC                                      1268	// Victory: Filename
+#define IDC_P_OREY                                    1269	// Player Details: Goods (huh?)
+#define IDC_P_LBL_OREY                                1270	// Player Details: Goods Label
+#define IDC_P_NUM_PLAYERS                             1271	// Players: Number of Players dropdown
+#define IDC_P_MAX_TEAMS                               1272	// Players: Max Teams dropdown
 #define IDC_T_TREE                                    1273
-#define IDC_P_TOAOFE                                  1274
+#define IDC_P_TOAOFE                                  1274	// Triggers -> Compability UP to AOFE
 #define IDC_TT_VIEW                                   1275
 #define IDC_T_NAME                                    1276
-#define IDC_P_TO1C                                    1277
+#define IDC_P_TO1C                                    1277	// Triggers -> Compability UP to 1.0 Conquerors
 #define IDC_TT_EXPORT                                 1278
 #define IDC_T_STATE                                   1279
-#define IDC_P_TOUP                                    1280
+#define IDC_P_TOUP                                    1280	// Triggers -> Compability HD to UserPatch
 #define IDC_TT_SEARCHTEXT                             1281
 #define IDC_T_LOOP                                    1282
-#define IDC_P_TOHD                                    1283
+#define IDC_P_TOHD                                    1283	// Triggers -> Compability UP to AOHD
 #define IDC_TT_FINDNEXT                               1284
 #define IDC_T_OBJ                                     1285
 #define IDC_TT_CONTEXT                                1286
@@ -425,14 +425,14 @@
 #define IDC_U_ROTATE_VAL                              1416
 #define IDC_U_DESELECT                                1417
 #define IDC_U_RESORT                                  1418
-#define IDC_D_SPLY                                    1419
-#define IDC_D_STYPE                                   1420
-#define IDC_D_ALL                                     1421
-#define IDC_D_SEL                                     1422
-#define IDC_D_CLR                                     1423
-#define IDC_D_DEL                                     1424
-#define IDC_D_ADD                                     1425
-#define IDC_D_FILL                                    1426
+#define IDC_D_SPLY                                    1419	// Disables: Player dropdown list
+#define IDC_D_STYPE                                   1420	// Disables: Disable type dropdown (Buildings, Units, Techs)
+#define IDC_D_ALL                                     1421	// Disables: The list of all available items to be disabled (on the left)
+#define IDC_D_SEL                                     1422	// Disables: The list of all disabled items (on the right)
+#define IDC_D_CLR                                     1423	// Disables: Move all items from the disabled list to the available list
+#define IDC_D_DEL                                     1424	// Disables: Move an item from the disabled list to the available list
+#define IDC_D_ADD                                     1425	// Disables: Move an item from the available list to the disabled list
+#define IDC_D_FILL                                    1426	// Disables: Move all items from the available list to the disabled list (does this work?)
 #define IDC_US_UNITS                                  1427
 #define IDC_US_SORT                                   1428
 #define IDC_US_PLAYER                                 1429
@@ -556,24 +556,38 @@
 #define ID_DRAW_TERRAIN                               1547
 #define ID_DRAW_ELEVATION                             1548
 #define ID_UNITS_TERRAIN_ELEV                         1549
-#define IDC_P_AI_SP1                                  1550
-#define IDC_P_AI_SP2                                  1551
-#define IDC_P_AI_SP3                                  1552
-#define IDC_P_AI_SP4                                  1553
-#define IDC_P_AI_SP5                                  1554
-#define IDC_P_AI_SP6                                  1555
-#define IDC_P_AI_SP7                                  1556
-#define IDC_P_AI_SP8                                  1557
-#define IDC_P_AI_SG                                   1558
-#define IDC_PS_SP1                                    1559
-#define IDC_PS_SP2                                    1560
-#define IDC_PS_SP3                                    1561
-#define IDC_PS_SP4                                    1562
-#define IDC_PS_SP5                                    1563
-#define IDC_PS_SP6                                    1564
-#define IDC_PS_SP7                                    1565
-#define IDC_PS_SP8                                    1566
-#define IDC_PS_SG                                     1567
+#define IDC_P_AI_SP1                                  1550	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP2                                  1551	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP3                                  1552	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP4                                  1553	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP5                                  1554	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP6                                  1555	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP7                                  1556	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SP8                                  1557	// AI: (Radio) Select Player 1
+#define IDC_P_AI_SG                                   1558	// AI: (Radio) Select Player 1
+// ------------------------------------------
+#define IDC_PS_SP1                                    1559	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP2                                    1560	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP3                                    1561	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP4                                    1562	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP5                                    1563	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP6                                    1564	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP7                                    1565	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SP8                                    1566	// Players: Seemingly unused, but referenced in playersedit.cpp
+#define IDC_PS_SG                                     1567	// Players: Seemingly unused, but referenced in playersedit.cpp
+
+// ------------------------------------------
+// Disabled list, new buttons
+#define IDC_D_COPY_INTO_P1                            1568	// Disables: Copy player's disabled list into Player 1
+#define IDC_D_COPY_INTO_P2                            1569	// Disables: Copy player's disabled list into Player 2
+#define IDC_D_COPY_INTO_P3                            1570	// Disables: Copy player's disabled list into Player 3
+#define IDC_D_COPY_INTO_P4                            1571	// Disables: Copy player's disabled list into Player 4
+#define IDC_D_COPY_INTO_P5                            1572	// Disables: Copy player's disabled list into Player 5
+#define IDC_D_COPY_INTO_P6                            1573	// Disables: Copy player's disabled list into Player 6
+#define IDC_D_COPY_INTO_P7                            1574	// Disables: Copy player's disabled list into Player 7
+#define IDC_D_COPY_INTO_P8                            1575	// Disables: Copy player's disabled list into Player 8
+#define IDC_D_COPY_INTO_ALL                           1576	// Disables: Copy player's disabled list into All Players
+// ------------------------------------------
 
 // Next default values for new objects
 // 
