@@ -646,12 +646,12 @@ WS - Work Speed
 <protounit id="45" name="Dock" />
 <protounit id="46" name="Janissary" />
 <protounit id="47" name="Dock 3" />
-<protounit id="48" name="Boar" />
+<protounit id="48" name="Wild Boar / Boar" />
 <protounit id="49" name="Siege Workshop" />
 <protounit id="50" name="Farm" />
 <protounit id="51" name="Dock 4" />
 <protounit id="52" name="Royal Janissary" />
-<protounit id="53" name="Fish (Perch)" />
+<protounit id="53" name="Fish, Perch" />
 <protounit id="54" name="Proj, VOL" />
 <protounit id="55" name="Fishing Ship, D" />
 <protounit id="56" name="Fisher, M" />
@@ -681,7 +681,7 @@ WS - Work Speed
 <protounit id="80" name="Gate, AC3" />
 <protounit id="81" name="Gate, AC2" />
 <protounit id="82" name="Castle" />
-<protounit id="83" name="Villager, M" />
+<protounit id="83" name="Villager, Male" />
 <protounit id="84" name="Market" />
 <protounit id="85" name="Gate, BA3" />
 <protounit id="86" name="Stable 3" />
@@ -786,12 +786,12 @@ WS - Work Speed
 <protounit id="185" name="Slinger" />
 <protounit id="186" name="Slinger, D" />
 <protounit id="187" name="Slinger, Proj." />
-<protounit id="188" name="Dragon" />
+<protounit id="188" name="Flamethrower" />
 <protounit id="189" name="Dragon, D" />
 <protounit id="190" name="Fire Tower" />
 <protounit id="191" name="Rubble 2 x 2" />
 <protounit id="192" name="Rubble 2 x 2" />
-<protounit id="193" name="TMISL" />
+<protounit id="193" name="Vlad Dracula / TMISL" />
 <protounit id="194" name="Trebuchet, D" />
 <protounit id="195" name="Kitabatake" />
 <protounit id="196" name="Minamoto" />
@@ -884,14 +884,14 @@ WS - Work Speed
 <protounit id="283" name="Cavalier" />
 <protounit id="284" name="Tree TD" />
 <protounit id="285" name="Relic" />
-<protounit id="286" name="Monk With Relic" />
+<protounit id="286" name="Monk with Relic" />
 <protounit id="287" name="British Relic" />
 <protounit id="288" name="Byzantine Relic" />
 <protounit id="289" name="Chinese Relic" />
 <protounit id="290" name="Frankish Relic" />
 <protounit id="291" name="Samurai" />
 <protounit id="292" name="Gothic Relic" />
-<protounit id="293" name="Villager, F" />
+<protounit id="293" name="Villager, Female" />
 <protounit id="294" name="Japanese Relic" />
 <protounit id="295" name="Persian Relic" />
 <protounit id="296" name="Saracen Relic" />
@@ -903,8 +903,8 @@ WS - Work Speed
 <protounit id="302" name="Bush" />
 <protounit id="303" name="Seagulls" />
 <protounit id="304" name="Bonfire" />
-<protounit id="305" name="Cactus" />
-<protounit id="306" name="Shadow" />
+<protounit id="305" name="Llama / Cactus" />
+<protounit id="306" name="Black Tile / Shadow" />
 <protounit id="307" name="Cactus" />
 <protounit id="308" name="Cactus" />
 <protounit id="309" name="Monk With Turkish Relic" />
@@ -1023,11 +1023,11 @@ WS - Work Speed
 <protounit id="422" name="Capped Ram" />
 <protounit id="423" name="Capped Ram, D" />
 <protounit id="424" name="Charles Martel" />
-<protounit id="425" name="Charles Martel, D" />
+<protounit id="425" name="Francisco de Orellana / Charles Martel, D" />
 <protounit id="426" name="Harald Hardraade" />
-<protounit id="427" name="Harald Hardraade, D" />
+<protounit id="427" name="Gonzalo Pizarro / Harald Hardraade, D" />
 <protounit id="428" name="Hrolf The Ganger" />
-<protounit id="429" name="Hrolf The Ganger, D" />
+<protounit id="429" name="Frederick Barbarossa / Hrolf The Ganger, D" />
 <protounit id="430" name="Joan The Maid" />
 <protounit id="431" name="Joan The Maid, D" />
 <protounit id="432" name="William Wallace" />
@@ -1035,21 +1035,21 @@ WS - Work Speed
 <protounit id="434" name="King" />
 <protounit id="435" name="King, D" />
 <protounit id="436" name="OMTBO" />
-<protounit id="437" name="OMTBO, D" />
+<protounit id="437" name="Prithviraj / OMTBO, D" />
 <protounit id="438" name="STRBO" />
-<protounit id="439" name="STRRBO, D" />
+<protounit id="439" name="Francesco Sforza / STRRBO, D" />
 <protounit id="440" name="Petard" />
 <protounit id="441" name="Hussar" />
 <protounit id="442" name="Galleon" />
 <protounit id="443" name="Galleon, Dead" />
 <protounit id="444" name="PTWC" />
-<protounit id="445" name="Church 4" />
+<protounit id="445" name="Poenari Castle / Church 4" />
 <protounit id="446" name="Port" />
 <protounit id="447" name="Purple Spots" />
 <protounit id="448" name="Scout Cavalry" />
 <protounit id="449" name="Scout Cavalry, D" />
-<protounit id="450" name="Marlin 1" />
-<protounit id="451" name="Marlin 2" />
+<protounit id="450" name="Great Fish, Marlin 1" />
+<protounit id="451" name="Great Fish, Marlin 2" />
 <protounit id="452" name="DOLP3" />
 <protounit id="453" name="DOLP4" />
 <protounit id="454" name="DOLP5" />
@@ -1084,7 +1084,7 @@ WS - Work Speed
 <protounit id="483" name="Town Center 3C" />
 <protounit id="484" name="Town Center 3X" />
 <protounit id="485" name="Arrow, Town Center" />
-<protounit id="486" name="Tiger" />
+<protounit id="486" name="Bear / Tiger" />
 <protounit id="487" name="Gate, AX2" />
 <protounit id="488" name="Gate, AX3" />
 <protounit id="489" name="Tiger, D" />
@@ -1221,7 +1221,7 @@ WS - Work Speed
 <protounit id="620" name="Town Center 1C" />
 <protounit id="621" name="Town Center 1X" />
 <protounit id="622" name="D Iron Boar" />
-<protounit id="623" name="Rock" />
+<protounit id="623" name="Rock 1" />
 <protounit id="624" name="Pavilion 1" />
 <protounit id="625" name="Pavilion 3" />
 <protounit id="626" name="Pavilion 2" />
@@ -1235,9 +1235,9 @@ WS - Work Speed
 <protounit id="634" name="Sieur De Metz" />
 <protounit id="635" name="Sieur De Metz, D" />
 <protounit id="636" name="Sieur Bertrand" />
-<protounit id="637" name="Sieur Bertrand, D" />
+<protounit id="637" name="Temple of Heaven / Sieur Bertrand, D" />
 <protounit id="638" name="Duke D'Alencon" />
-<protounit id="639" name="Duke D'Alencon, D" />
+<protounit id="639" name="Penguin / Duke D'Alencon, D" />
 <protounit id="640" name="La Hire" />
 <protounit id="641" name="La Hire, D" />
 <protounit id="642" name="Lord De Graville" />
@@ -1303,7 +1303,7 @@ WS - Work Speed
 <protounit id="702" name="Kushluk" />
 <protounit id="703" name="Kushluk, D" />
 <protounit id="704" name="Shah" />
-<protounit id="705" name="Shah, D" />
+<protounit id="705" name="Cow" />
 <protounit id="706" name="Saboteur" />
 <protounit id="707" name="Ornlu The Wolf" />
 <protounit id="708" name="Ornlu The Wolf, D" />
@@ -1356,7 +1356,7 @@ WS - Work Speed
 <protounit id="755" name="Tarkan" />
 <protounit id="756" name="Tarkan, D" />
 <protounit id="757" name="Elite Tarkan" />
-<protounit id="758" name="Disabled (758)" />
+<protounit id="758" name="Burned Building" />
 <protounit id="759" name="Huskarl 2" />
 <protounit id="760" name="Huskarl 2, Dead" />
 <protounit id="761" name="Elite Huskarl" />
@@ -1376,7 +1376,7 @@ WS - Work Speed
 <protounit id="775" name="Missionary" />
 <protounit id="776" name="Missionary, D" />
 <protounit id="777" name="Attila The Hun" />
-<protounit id="778" name="Atilla The Hun, D" />
+<protounit id="778" name="Canoe / Atilla The Hun, D" />
 <protounit id="779" name="Bleda The Hun" />
 <protounit id="780" name="Bleda The Hun, D" />
 <protounit id="781" name="Pope Leo I" />
@@ -1423,7 +1423,7 @@ WS - Work Speed
 <protounit id="822" name="Javelina" />
 <protounit id="823" name="Javelina, D" />
 <protounit id="824" name="El Cid Campeador" />
-<protounit id="825" name="El Cid Campeador, D" />
+<protounit id="825" name="Amazon Warrior / El Cid Campeador, D" />
 <protounit id="826" name="Monument (KotH)" />
 <protounit id="827" name="War Wagon" />
 <protounit id="828" name="War Wagon, D" />
@@ -1437,28 +1437,28 @@ WS - Work Speed
 <protounit id="836" name="Wild Horse, D" />
 <protounit id="837" name="Map Revealer" />
 <protounit id="838" name="King Sancho" />
-<protounit id="839" name="King Sancho, D" />
+<protounit id="839" name="Rock (Stone) / King Sancho, D" />
 <protounit id="840" name="King Alfonso" />
-<protounit id="841" name="King Alfonso, D" />
+<protounit id="841" name="Rock (Gold) / King Alfonso, D" />
 <protounit id="842" name="Imam" />
 <protounit id="843" name="Imam, D" />
 <protounit id="844" name="Admiral Yi Sun Shin" />
 <protounit id="845" name="Nobunaga" />
-<protounit id="846" name="Nobunaga, D" />
+<protounit id="846" name="Donkey / Nobunaga, D" />
 <protounit id="847" name="Henry V" />
 <protounit id="848" name="Henry V, D" />
 <protounit id="849" name="William The Conqueror" />
-<protounit id="850" name="William The Conqueror, D" />
+<protounit id="850" name="Amazon Archer / William The Conqueror, D" />
 <protounit id="851" name="Flag, ES" />
 <protounit id="852" name="Scythian Scout" />
 <protounit id="853" name="Scythian Scout, D" />
-<protounit id="854" name="Torch 2" />
+<protounit id="854" name="Torch (Converting)" />
 <protounit id="855" name="Old Stone Head" />
 <protounit id="856" name="Roman Ruins" />
 <protounit id="857" name="Hay Stack" />
 <protounit id="858" name="Broken Cart" />
 <protounit id="859" name="Flower Bed" />
-<protounit id="860" name="Furious The Monkey Boy" />
+<protounit id="860" name="Furious the Monkey Boy" />
 <protounit id="861" name="Furious The Monkey Boy, D" />
 <protounit id="862" name="Stormy Dog" />
 <protounit id="863" name="Rubble 1 X 1" />
@@ -1495,9 +1495,12 @@ WS - Work Speed
 <protounit id="894" name="Eastern Swordsman" />
 <protounit id="895" name="Eastern Swordsman, D" />
 <protounit id="896" name="Waterfall" />
-<protounit id="897" name="Camel 2" />
+<protounit id="897" name="Camel (Gaia)" />
 <protounit id="898" name="Camel 2, D" />
 <protounit id="899" name="Arch of Constantine" />
+<protounit id="900" name="Rain" />
+<protounit id="901" name="Flag F" />
+<protounit id="902" name="Smoke" />
 
 <protounit id="904" name="Wooden Bridge A Top" />
 <protounit id="905" name="Wooden Bridge A Middle" />
@@ -1505,6 +1508,34 @@ WS - Work Speed
 <protounit id="907" name="Wooden Bridge B Top" />
 <protounit id="908" name="Wooden Bridge B Middle" />
 <protounit id="909" name="Wooden Bridge B Bottom" />
+<protounit id="910" name="Impaled Corpse" />
+
+<protounit id="914" name="Quarry" />
+<protounit id="915" name="Lumber" />
+<protounit id="916" name="Goods" />
+<protounit id="917" name="Vulture" />
+<protounit id="918" name="Rock 2" />
+
+<protounit id="923" name="Queen" />
+
+<protounit id="925" name="Sanyogita" />
+<protounit id="926" name="Prithvi" />
+<protounit id="927" name="Chand Bhai" />
+
+<protounit id="930" name="Khosrau" />
+<protounit id="931" name="Jarl" />
+<protounit id="932" name="Savaran" />
+<protounit id="933" name="Barrels" />
+<protounit id="934" name="Alfred the Alpaca" />
+
+<protounit id="938" name="Dragon Ship" />
+<protounit id="939" name="Flame 1" />
+<protounit id="940" name="Flame 2" />
+<protounit id="941" name="Flame 3" />
+<protounit id="942" name="Flame 4" />
+<protounit id="943" name="Osman" />
+
+<protounit id="944" name="Relic Cart (SCX2)" />
 </units>
 
 <resources>
