@@ -325,6 +325,7 @@ public:
 	AOKTS_ERROR remove_trigger_names();
 	AOKTS_ERROR remove_trigger_descriptions();
 	AOKTS_ERROR save_pseudonyms();
+	AOKTS_ERROR prefix_display_order();
 	AOKTS_ERROR swap_trigger_names_descriptions();
 	AOKTS_ERROR up_to_hd();
 	AOKTS_ERROR aoc_to_hd4();

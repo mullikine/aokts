@@ -584,6 +584,7 @@
 #define IDC_D_COPY_INTO_P8                            1575	// Disables: Copy player's disabled list into Player 8
 #define IDC_D_COPY_INTO_ALL                           1576	// Disables: Copy player's disabled list into All Players
 #define IDC_G_TRIGSYSVER                              1577
+#define ID_TRIGGERS_PREFIX_DISPLAY_ORDER              1578
 
 // Next default values for new objects
 // 

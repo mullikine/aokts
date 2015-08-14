@@ -2550,6 +2550,27 @@ AOKTS_ERROR Scenario::save_pseudonyms()
 	return ERR_none;
 }
 
+AOKTS_ERROR Scenario::prefix_display_order()
+{
+	char tmp[128];
+	long num = triggers.size();
+	if (num > 0) {
+	    Trigger *trig = &(*triggers.begin());
+
+        // triggers
+	    long i = num;
+	    while (i--)
+	    {
+	        strncpy (tmp, trig->name, 128);
+	        _snprintf(trig->name, sizeof(char) * 128, "<%d> %s", trig->display_order, tmp);
+	        trig->name[128] = '\0';
+		    trig++;
+	    }
+	}
+
+	return ERR_none;
+}
+
 AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 {
 	long num = triggers.size();

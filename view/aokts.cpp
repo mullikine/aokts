@@ -1045,6 +1045,11 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 		SetWindowText(propdata.statusbar, "Pseudonyms saved");
 		break;
 
+	case ID_TRIGGERS_PREFIX_DISPLAY_ORDER:
+		scen.prefix_display_order();
+		SetWindowText(propdata.statusbar, "Prefixing display order to trigger names");
+		break;
+
 	case ID_TRIGGERS_HIDE_DESCRIPTIONS:
 		scen.remove_trigger_descriptions();
 		SetWindowText(propdata.statusbar, "Trigger descriptions removed");

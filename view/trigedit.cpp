@@ -1709,6 +1709,10 @@ INT_PTR Handle_WM_COMMAND(HWND dialog, WORD code, WORD id, HWND)
             }
             TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
             break;
+		case ID_TRIGGERS_SAVE_PSEUDONYMS:
+		case ID_TRIGGERS_PREFIX_DISPLAY_ORDER:
+            TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
+            break;
 		case ID_TS_EDIT_COPY:
 			SAFECHECK();
 			if (GetFocus() == treeview)
