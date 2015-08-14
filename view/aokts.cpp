@@ -1075,23 +1075,31 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 		break;
 
 	case IDC_P_TOUP:
-		scen.hd_to_up();
-		SetWindowText(propdata.statusbar, "Trigger effects converted from AoHD to UserPatch");
+        if (MessageBox(sheet, "Normally, you will be asked to do this later when you save the scenario to a different format.\nThis menu for fixing broken scenarios. Are you sure you want to do this?", "Convert", MB_YESNOCANCEL) == IDYES) {
+		    scen.hd_to_up();
+		    SetWindowText(propdata.statusbar, "Trigger effects converted from AoHD to UserPatch");
+		}
 		break;
 
 	case IDC_P_TOHD:
-		scen.up_to_hd();
-		SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to AoHD");
+        if (MessageBox(sheet, "Normally, you will be asked to do this later when you save the scenario to a different format.\nThis menu for fixing broken scenarios. Are you sure you want to do this?", "Convert", MB_YESNOCANCEL) == IDYES) {
+		    scen.up_to_hd();
+		    SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to AoHD");
+		}
 		break;
 
 	case IDC_P_TOAOFE:
-		scen.up_to_aofe();
-		SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to AoFE");
+        if (MessageBox(sheet, "Normally, you will be asked to do this later when you save the scenario to a different format.\nThis menu for fixing broken scenarios. Are you sure you want to do this?", "Convert", MB_YESNOCANCEL) == IDYES) {
+		    scen.up_to_aofe();
+		    SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to AoFE");
+		}
 		break;
 
 	case IDC_P_TO1C:
-		scen.up_to_10c();
-		SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to 1.0c");
+        if (MessageBox(sheet, "Normally, you will be asked to do this later when you save the scenario to a different format.\nThis menu for fixing broken scenarios. Are you sure you want to do this?", "Convert", MB_YESNOCANCEL) == IDYES) {
+		    scen.up_to_10c();
+		    SetWindowText(propdata.statusbar, "Trigger effects converted from UserPatch to 1.0c");
+		}
 		break;
 
 	case ID_FILE_RECENT1:
