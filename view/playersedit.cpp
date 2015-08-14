@@ -364,6 +364,16 @@ BOOL Players_Init(HWND dialog)
 	return TRUE;
 }
 
+BOOL Players_Load(HWND dialog) {
+	CheckRadioButton(dialog, IDC_PS_SP1, IDC_PS_SG, IDC_PS_SP1 + propdata.pindex);
+	LoadPlayers(dialog);
+	LoadActive(dialog);
+	LoadMaxTeams(dialog);
+	LoadDiplomacy(dialog);
+
+	return TRUE;
+}
+
 INT_PTR CALLBACK PlayersDlgProc(HWND dialog, UINT msg, WPARAM wParam, LPARAM lParam)
 {
 	INT_PTR ret = FALSE;
@@ -389,7 +399,8 @@ INT_PTR CALLBACK PlayersDlgProc(HWND dialog, UINT msg, WPARAM wParam, LPARAM lPa
 				{
 
 				case PSN_SETACTIVE:
-					LoadDiplomacy(dialog);
+			        ret = Players_Init(dialog);
+			        ret = Players_Load(dialog);
 				    break;
 
 				case PSN_KILLACTIVE:
@@ -401,11 +412,7 @@ INT_PTR CALLBACK PlayersDlgProc(HWND dialog, UINT msg, WPARAM wParam, LPARAM lPa
 
 		case AOKTS_Loading:
 			ret = Players_Init(dialog);
-			CheckRadioButton(
-				dialog, IDC_PS_SP1, IDC_PS_SG, IDC_PS_SP1 + propdata.pindex);
-			LoadPlayers(dialog);
-	        LoadActive(dialog);
-	        LoadMaxTeams(dialog);
+			ret = Players_Load(dialog);
 			return ret;
 
 		case AOKTS_Saving:

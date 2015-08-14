@@ -71,9 +71,9 @@ extern struct PropSheetData
 	will be true only for 1, that is, the _SELCHANGEs.
 */
 
+INT_PTR CALLBACK PlayersDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK IMsgsDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK PlayerDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
-INT_PTR CALLBACK PlayersDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK AIDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK CTYDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK VictDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
