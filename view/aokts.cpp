@@ -588,6 +588,7 @@ void FileClose(HWND sheet, HWND control)
 			return;	//stop closing
 	}
 	scen.reset();
+	*setts.ScenPath = '\0';
 
 	if (!control)
 		SendMessage(page, AOKTS_Loading, 0, 0);
