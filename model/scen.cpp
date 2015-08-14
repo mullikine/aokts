@@ -334,7 +334,8 @@ void Scenario::reset()
 	memset(&vict, 0, sizeof(vict));
 	map.reset();
 
-	trigver = 1.6;
+    // do not reset trigger system version
+	//trigver = 1.6;
 	objstate = 0;
 	triggers.clear();
 	t_order.clear();
@@ -1365,9 +1366,9 @@ void Scenario::read_data(const char *path)	//decompressed data
 
 	if (setts.intense)
 		printf_log("Debug 5.\n");
-	/* Triggers */
 
-	readunk<double>(dc2in.get(), 1.6, "Trigger system version");
+	/* Triggers */
+	readbin(dc2in.get(), &trigver);
 	readbin(dc2in.get(), &objstate);
 
 	if (setts.intense)
