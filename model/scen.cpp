@@ -428,6 +428,7 @@ void Scenario::adapt_game() {
         ver1 = SV1_AOE1;
 	    ver2 = SV2_AOE1;
 	    version2 = 0.00F;
+	    trigver=0.0;
 	    perversion = &pv1_15;
 	    pergame = &pgAOE;
         Condition::types = Condition::types_aok;
@@ -442,6 +443,7 @@ void Scenario::adapt_game() {
         ver1 = SV1_AOK;
 	    ver2 = SV2_AOK;
 	    version2 = 1.20F;
+	    trigver=1.6;
 		perversion = &pv1_18;
 	    pergame = &pgAOK;
         Condition::types = Condition::types_aok;
@@ -456,6 +458,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOC_SWGB;
 	    version2 = 1.22F;
+	    trigver=1.6;
 		perversion = &pv1_22;
 	    pergame = &pgAOC;
         Condition::types = Condition::types_aok;
@@ -470,6 +473,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOC_SWGB;
 	    version2 = 1.22F;
+	    trigver=1.6;
 		perversion = &pv1_22;
 		pergame = &pgUP;
         Condition::types = Condition::types_aok;
@@ -484,6 +488,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF;
 	    version2 = 1.23F;
+	    trigver=1.6;
 		perversion = &pv1_23;
 	    pergame = &pgAOF;
         Condition::types = Condition::types_aok;
@@ -498,6 +503,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF;
 	    version2 = 1.23F;
+	    trigver=1.6;
 		perversion = &pv1_23;
 	    pergame = &pgAOHD;
         Condition::types = Condition::types_aok;
@@ -512,6 +518,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF4;
 	    version2 = 1.24F;
+	    trigver=1.6;
 		perversion = &pv1_24;
 	    pergame = &pgAOF4;
         Condition::types = Condition::types_aok;
@@ -526,6 +533,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF4;
 	    version2 = 1.24F;
+	    trigver=1.6;
 		perversion = &pv1_24;
 	    pergame = &pgAOHD4;
         Condition::types = Condition::types_aok;
@@ -540,6 +548,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF6;
 	    version2 = 1.26F;
+	    trigver=1.6;
 		perversion = &pv1_26;
 	    pergame = &pgAOF6;
         Condition::types = Condition::types_aok;
@@ -554,6 +563,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOHD_AOF6;
 	    version2 = 1.26F;
+	    trigver=1.6;
 		perversion = &pv1_26;
 	    pergame = &pgAOHD6;
         Condition::types = Condition::types_aok;
@@ -568,6 +578,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_AOC_SWGB;
 	    version2 = 1.22F;
+	    trigver=1.6;
 		perversion = &pv1_22;
 	    pergame = &pgSWGB;
         Condition::types = Condition::types_swgb;
@@ -582,6 +593,7 @@ void Scenario::adapt_game() {
 	    ver1 = SV1_AOC_SWGB;
 	    ver2 = SV2_SWGBCC;
 	    version2 = 1.30F;
+	    trigver=1.6;
 		perversion = &pv1_30;
 	    pergame = &pgSWGBCC;
         Condition::types = Condition::types_cc;

@@ -96,6 +96,8 @@ void IMsgs_Reset(HWND dialog)
 	ENABLE_WND(IDC_G_RANDPOSITIONS, scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6);
 
 	SetDlgItemText(dialog, IDC_G_VER, string);
+	sprintf(string, "%.2f", scen.trigver);
+	SetDlgItemText(dialog, IDC_G_TRIGSYSVER, string);
 	SetDlgItemText(dialog, IDC_G_GAME, gameName(scen.game));
 	SetDlgItemText(dialog, IDC_G_TIMESTAMP, _ctime32(&scen.header.timestamp));
 	SetDlgItemText(dialog, IDC_G_ONAME, scen.origname);

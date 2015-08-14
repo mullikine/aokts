@@ -565,7 +565,6 @@
 #define IDC_P_AI_SP7                                  1556	// AI: (Radio) Select Player 1
 #define IDC_P_AI_SP8                                  1557	// AI: (Radio) Select Player 1
 #define IDC_P_AI_SG                                   1558	// AI: (Radio) Select Player 1
-// ------------------------------------------
 #define IDC_PS_SP1                                    1559	// Players: Seemingly unused, but referenced in playersedit.cpp
 #define IDC_PS_SP2                                    1560	// Players: Seemingly unused, but referenced in playersedit.cpp
 #define IDC_PS_SP3                                    1561	// Players: Seemingly unused, but referenced in playersedit.cpp
@@ -575,9 +574,6 @@
 #define IDC_PS_SP7                                    1565	// Players: Seemingly unused, but referenced in playersedit.cpp
 #define IDC_PS_SP8                                    1566	// Players: Seemingly unused, but referenced in playersedit.cpp
 #define IDC_PS_SG                                     1567	// Players: Seemingly unused, but referenced in playersedit.cpp
-
-// ------------------------------------------
-// Disabled list, new buttons
 #define IDC_D_COPY_INTO_P1                            1568	// Disables: Copy player's disabled list into Player 1
 #define IDC_D_COPY_INTO_P2                            1569	// Disables: Copy player's disabled list into Player 2
 #define IDC_D_COPY_INTO_P3                            1570	// Disables: Copy player's disabled list into Player 3
@@ -587,7 +583,7 @@
 #define IDC_D_COPY_INTO_P7                            1574	// Disables: Copy player's disabled list into Player 7
 #define IDC_D_COPY_INTO_P8                            1575	// Disables: Copy player's disabled list into Player 8
 #define IDC_D_COPY_INTO_ALL                           1576	// Disables: Copy player's disabled list into All Players
-// ------------------------------------------
+#define IDC_G_TRIGSYSVER                              1577
 
 // Next default values for new objects
 // 
