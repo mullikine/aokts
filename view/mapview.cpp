@@ -460,8 +460,8 @@ void PaintTriggers(HDC dc)
 			            //GradientFill(dc, rectRgn, color_array);
 			            StrokeAndFillPath(dc);
 			            rotate(data.scen->map.x/2, data.scen->map.y/2, (int)iter->area.left, (int)iter->area.bottom, rx, ry);
-                        midpoint.x = rx + setts.zoom / 2;
-                        midpoint.y = ry + setts.zoom / 2;
+						midpoint.x = float(rx + setts.zoom / 2);
+						midpoint.y = float(ry + setts.zoom / 2);
 			            area.left = rx + setts.zoom / 4;
 			            area.bottom = ry + 3 * setts.zoom / 4;
 			            area.top = ry + setts.zoom / 4;
@@ -480,7 +480,7 @@ void PaintTriggers(HDC dc)
 			            LineTo(dc, rx + setts.zoom / 2, ry + setts.zoom / 2);
 			            StrokeAndFillPath(dc);
 			            FrameRect(dc, &area, pBrushes[scen.players[1].color]);
-			            SetPixel(dc, midpoint.x, midpoint.y, RGB(255,255,255));
+			            SetPixel(dc, int(midpoint.x), int(midpoint.y), RGB(255,255,255));
 			        }
 			    }
 			}
@@ -488,8 +488,8 @@ void PaintTriggers(HDC dc)
 	            if (iter->location.x >=0 && iter->location.y >=0) {
 	                if (iter->area.left >=0 && iter->area.right >= 0 && iter->area.bottom >=0 && iter->area.top >= 0) {
 			            rotate(data.scen->map.x/2, data.scen->map.y/2, (int)iter->area.left, (int)iter->area.bottom, rx, ry);
-                        midpoint.x = rx + setts.zoom / 2;
-                        midpoint.y = ry + setts.zoom / 2;
+						midpoint.x = float(rx + setts.zoom / 2);
+						midpoint.y = float(ry + setts.zoom / 2);
 			            rotate(data.scen->map.x/2, data.scen->map.y/2, (int)iter->area.right, (int)iter->area.top, rx, ry);
                         midpoint.x += rx + setts.zoom / 2;
                         midpoint.y += ry + setts.zoom / 2;
@@ -529,8 +529,8 @@ void PaintTriggers(HDC dc)
 			            LineTo(dc, rx + setts.zoom / 2, ry + setts.zoom / 2);
 			            StrokeAndFillPath(dc);
 			            rotate(data.scen->map.x/2, data.scen->map.y/2, (int)iter->area.left, (int)iter->area.bottom, rx, ry);
-                        midpoint.x = rx + setts.zoom / 2;
-                        midpoint.y = ry + setts.zoom / 2;
+						midpoint.x = float(rx + setts.zoom / 2);
+						midpoint.y = float(ry + setts.zoom / 2);
 			            area.left = rx + setts.zoom / 8;
 			            area.bottom = ry + 7 * setts.zoom / 8;
 			            area.top = ry + setts.zoom / 8;
@@ -548,7 +548,7 @@ void PaintTriggers(HDC dc)
 			            area.right = rx + 7 * setts.zoom / 8;
 			            LineTo(dc, rx + setts.zoom / 2, ry + setts.zoom / 2);
 			            StrokeAndFillPath(dc);
-			            SetPixel(dc, midpoint.x, midpoint.y, RGB(255,255,255));
+			            SetPixel(dc, int(midpoint.x), int(midpoint.y), RGB(255,255,255));
 			            FrameRect(dc, &area, pBrushes[scen.players[5].color]);
 			        }
 			    }
@@ -613,9 +613,12 @@ HBRUSH TSCreateBrush(long cnst, BYTE elev, BrushStyle::Value style=BrushStyle::F
 {
     switch (style) {
     case BrushStyle::FILL:
-        return CreateSolidBrush(GetTerrainColor(cnst, elev));
+		return CreateSolidBrush(GetTerrainColor(cnst, elev));
     case BrushStyle::HATCHED:
-        return CreateHatchBrush(HS_DIAGCROSS, GetTerrainColor(cnst, elev));
+		return CreateHatchBrush(HS_DIAGCROSS, GetTerrainColor(cnst, elev));
+	default:
+		return 0;
+		
     }
 }
 
@@ -978,9 +981,10 @@ HWND makestatus(HWND parent)
 void OnWM_Setup()
 {
 	ColorLink *parse;
-	int i, j;
-	hsv_t * hsv;
-    COLORREF tmp;
+	int i;
+	//int j;
+	//hsv_t * hsv;
+    //COLORREF tmp;
 
 	/* init window data */
 	data.mapbmp = NULL;
@@ -1383,11 +1387,11 @@ LRESULT CALLBACK MapWndProc(HWND window, UINT msg, WPARAM wParam, LPARAM lParam)
 	}
 
     case WM_MOUSEWHEEL:
-        OnWM_SWIPE(window, GetKeyState(VK_SHIFT) & MOD_ON, GetKeyState(VK_MENU) & MOD_ON, GET_WHEEL_DELTA_WPARAM(wParam), LOWORD(wParam), HIWORD(wParam));
+		OnWM_SWIPE(window, (GetKeyState(VK_SHIFT) & MOD_ON) ? true : false, (GetKeyState(VK_MENU) & MOD_ON) ? true : false, GET_WHEEL_DELTA_WPARAM(wParam), LOWORD(wParam), HIWORD(wParam));
         break;
 
     case WM_MOUSEHWHEEL:
-        OnWM_SWIPE(window, !(GetKeyState(VK_SHIFT) & MOD_ON), GetKeyState(VK_MENU) & MOD_ON, GET_WHEEL_DELTA_WPARAM(wParam), LOWORD(wParam), HIWORD(wParam));
+		OnWM_SWIPE(window, !((GetKeyState(VK_SHIFT) & MOD_ON) ? true : false), (GetKeyState(VK_MENU) & MOD_ON) ? true : false, GET_WHEEL_DELTA_WPARAM(wParam), LOWORD(wParam), HIWORD(wParam));
         break;
 
 	case WM_SIZE:
