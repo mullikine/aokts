@@ -637,10 +637,10 @@ std::string Effect::getName(bool tip, NameFlags::Value flags, int recursion) con
                     std::vector<PlayersUnit> other (num_sel);
 
                     std::vector<PlayersUnit>::iterator it;
-                    it = copy_if (all.begin(), all.end(), farms.begin(), playersunit_ucnst_equals(50) );
+                    it = std::copy_if (all.begin(), all.end(), farms.begin(), playersunit_ucnst_equals(50) );
                     farms.resize(std::distance(farms.begin(),it));  // shrink container to new size
 
-                    it = copy_if (all.begin(), all.end(), other.begin(), playersunit_ucnst_notequals(50) );
+                    it = std::copy_if (all.begin(), all.end(), other.begin(), playersunit_ucnst_notequals(50) );
                     other.resize(std::distance(other.begin(),it));  // shrink container to new size
 
                     if (farms.size() > 0) {
