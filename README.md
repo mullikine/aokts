@@ -44,6 +44,23 @@ Code
 
 It is written in C++ using the standard Win32 API.
 
+Compile on VS2005 or VS2008
+---------------------------
+
+Make sure target is set to Release, not Debug.
+
+Compile on newer versions of Visual Studio
+------------------------------------------
+
+Make sure target is set to Release, not Debug.
+
+Delete ccpp11compat.h
+Change copy_if to std::copy_if
+
+std::bad_alloc error:
+    Remove the string parameter.
+    http://stackoverflow.com/questions/11133438/why-the-bad-allocconst-char-was-made-private-in-visual-c-2012
+
 Credit
 ------
 
