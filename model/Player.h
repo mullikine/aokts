@@ -42,7 +42,7 @@ class Player
 public:
 	Player();
 
-	void reset();
+	void reset(unsigned int id);
 
 	/**
 	 * @return the index of the unit with the provided ID, or units.size() if

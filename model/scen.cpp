@@ -302,7 +302,7 @@ void Scenario::reset()
 	/* Internal */
 	mod_status = false;
 
-	game = AOK;
+	game = AOC;
     // Hint about whether to open as AOC or SGWB
 	if (setts.recent_first) {
 	    game = (Game)setts.recent_first->game;
@@ -311,6 +311,7 @@ void Scenario::reset()
 
 	next_uid = 0;
 	memset(origname, 0, sizeof(origname));
+	strcpy(origname, "Trigger Studio 1.2.0"); // is this needed?
 
 	for (i = 0; i < 6; i++)
 	{
@@ -324,12 +325,13 @@ void Scenario::reset()
 	else
 	    bBitmap = 0;
 
+    set_number_active_players(8);
 	lock_teams = 0;
-	player_choose_teams = 0;
+	player_choose_teams = 1;
 	random_start_points = 0;
-	max_teams = 0;
+	max_teams = 4;
 	for (i = 0; i < NUM_PLAYERS; i++)
-		players[i].reset();
+		players[i].reset(i);
 	players[0].enable = true;
 	players[0].human = true;
 	Player::num_players = EC_NUM_PLAYERS;

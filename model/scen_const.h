@@ -108,6 +108,8 @@ enum Diplomacy
 extern size_t MapSizes[8]; //conversion from standard sizes to tiles (see scen.cpp for values)
 extern size_t Elevations[9]; //conversion from standard sizes to tiles (see scen.cpp for values)
 
+const size_t N_PLAYERS = 8;
+
 const size_t NUM_STYPES   = 4;   // number of stockpile resource types
 const size_t NUM_CINEM	  = 4;
 const size_t MAX_TRIGNAME = 128;
