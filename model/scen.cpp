@@ -2564,7 +2564,7 @@ AOKTS_ERROR Scenario::save_pseudonyms()
 
 AOKTS_ERROR Scenario::prefix_display_order()
 {
-	char tmp[MAX_TRIGNAME];
+	char tmp[MAX_TRIGNAME+1];
 	long num = triggers.size();
 	if (num > 0) {
 	    Trigger *trig = &(*triggers.begin());
@@ -2585,9 +2585,9 @@ AOKTS_ERROR Scenario::prefix_display_order()
 
 AOKTS_ERROR Scenario::remove_display_order_prefix()
 {
-	char tmpdo[MAX_TRIGNAME];
-	char tmpname[MAX_TRIGNAME];
-	char tmpnamedo[MAX_TRIGNAME];
+	char tmpdo[MAX_TRIGNAME+1];
+	char tmpname[MAX_TRIGNAME+1];
+	char tmpnamedo[MAX_TRIGNAME+1];
 	int lendo=0;
 	int lenname=0;
 	long num = triggers.size();
@@ -2628,7 +2628,7 @@ AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 	    long i = num;
 	    while (i--)
 	    {
-	        char buffer[MAX_TRIGNAME];
+	        char buffer[MAX_TRIGNAME+1];
 		    char *cstr = trig->description.unlock(MAX_TRIGNAME);
 	        strncpy ( buffer, cstr, MAX_TRIGNAME );
 	        buffer[MAX_TRIGNAME] = '\0';

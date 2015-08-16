@@ -553,6 +553,7 @@ void FileOpen(HWND sheet, bool ask, int recent)
 		// unless it's a debug build, clear the bad data
 	#ifndef _DEBUG
 		scen.reset();
+		SendMessage(page, AOKTS_Closing, 0, 0);
 	#endif
 
 	    /* Updates*/

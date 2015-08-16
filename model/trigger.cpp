@@ -1055,7 +1055,7 @@ void Trigger::write(FILE *out)
 
 	fwrite(&state, 18, 1, out);	//state, loop, u1, obj, obj_order, obj_str_id
 	description.write(out, sizeof(long), true);
-	num = strlen(name) + 1;
+	num = strlen(name);
 	fwrite(&num, 4, 1, out);
 	fwrite(name, sizeof(char), num, out);
 

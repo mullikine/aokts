@@ -172,7 +172,9 @@ template <class T> void readcs(FILE * in, char * dest, size_t space)
 
 	readbin(in, &len);
 
-	if (len >= space) // need one for NULL term
+	if (len == space)
+	    len = space - 1;
+	else if (len > space)
 		throw std::length_error("readcs: not enough space in dest string");
 
 	readbin(in, dest, len);
