@@ -64,6 +64,7 @@ void Player::reset(unsigned int id)
             diplomacy[i] = ((i < 4 && id < 4) || (i >=4 && id >=4)) ? DIP_ally : DIP_enemy;
         }
         diplomacy[N_PLAYERS] = DIP_neutral;
+	    age = 1;
 	}
 	if (id <= N_PLAYERS) {
 	    color = id;
@@ -72,13 +73,13 @@ void Player::reset(unsigned int id)
         for (unsigned int i = 0; i < N_PLAYERS; i++) {
             diplomacy[i] = DIP_ally;
         }
+	    age = 0;
     }
     diplomacy[id] = DIP_enemy;
 	ndis_t = ndis_b = ndis_u = 0;
 	memset(dis_tech, 0, sizeof(dis_tech));
 	memset(dis_unit, 0, sizeof(dis_unit));
 	memset(dis_bldg, 0, sizeof(dis_bldg));
-	age = 1;
 	camera[0] = 0;
 	camera[1] = 0;
 	avictory = false;
