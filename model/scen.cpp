@@ -1022,8 +1022,13 @@ void Scenario::_header::reset()
 
 bool Scenario::is_userpatch()
 {
-	Trigger *trig = &(*triggers.begin());
 	long num = triggers.size();
+
+	if (num < 1) {
+	    return false;
+	}
+
+	Trigger *trig = &(*triggers.begin());
 
     bool is_userpatch = false;
 
