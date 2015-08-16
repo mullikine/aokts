@@ -1318,6 +1318,10 @@ void Scenario::read_data(const char *path)	//decompressed data
 
 	readbin(dc2in.get(), &vict);
 
+    // this is to fix broken scenarios
+	if (vict.score == 4294967295)
+	    vict.score = 14000;
+
 	/* Diplomacy */
 
 	FEP(p)
