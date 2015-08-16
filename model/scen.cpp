@@ -1218,10 +1218,10 @@ void Scenario::read_data(const char *path)	//decompressed data
 	/* Bitmap */
 	readbin(dc2in.get(), &bBitmap);
 	SKIP(dc2in.get(), sizeof(long) * 2);	//x, y (duplicate)
-	readunk<short>(dc2in.get(), bBitmap ? -1 : 1,
-		"bitmap unknown");
+	readunk<short>(dc2in.get(), bBitmap ? -1 : 1, "bitmap unknown");
 
-	if (bBitmap)
+    // bBitmap default is 3 in 1.26 even if there is no bitmap
+	if (bBitmap && !(( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
 		bitmap.read(dc2in.get());
 
 	/* Player Data 2 */
@@ -1229,22 +1229,31 @@ void Scenario::read_data(const char *path)	//decompressed data
 	if (setts.intense)
 		printf_log("Debug 3.\n");
 
-	FEP(p)
+	FEP(p) {
  		readcs<unsigned short>(dc2in.get(), p->vc, sizeof(p->vc));
-	FEP(p)
+        printf_log("P%d VCname: %s.\n", i, p->vc);
+ 	}
+	FEP(p) {
  		readcs<unsigned short>(dc2in.get(), p->cty, sizeof(p->cty));
-	FEP(p)
+        printf_log("P%d CTYname: %s.\n", i, p->cty);
+    }
+	FEP(p) {
  		readcs<unsigned short>(dc2in.get(), p->ai, sizeof(p->ai));
+        printf_log("P%d AIname: %s.\n", i, p->ai);
+    }
 
 	FEP(p) {
         unsigned long len_vc;
 	    fread(&len_vc, sizeof(unsigned long), 1, dc2in.get());
+        printf_log("P%d Len VC: %d.\n", i, len_vc);
 
         unsigned long len_cty;
 	    fread(&len_cty, sizeof(unsigned long), 1, dc2in.get());
+        printf_log("P%d Len CTY: %d.\n", i, len_cty);
 
         unsigned long len_ai;
 	    fread(&len_ai, sizeof(unsigned long), 1, dc2in.get());
+        printf_log("P%d Len AI: %d.\n", i, len_ai);
 
 	    if (len_vc)
 	        p->vcfile.read(dc2in.get(), sizeof(unsigned long), len_vc);
