@@ -54,7 +54,7 @@ void ExportBitmap(HWND dialog)
 	OPENFILENAME ofn;
 	bool success = true;
 
-	if (scen.bBitmap)
+    if (scen.bBitmap && !(( scen.game == AOHD6 || scen.game == AOF6 ) && scen.bBitmap == 3))
 	{
 		strcpy(path, scen.cinem[3]);
 

@@ -284,7 +284,7 @@ inline int myround(float n)
 
 Scenario::Scenario()
 :	mod_status(false),
-	next_uid(0), bBitmap(false), files(NULL)
+	next_uid(0), bBitmap(0), files(NULL)
 {
 //	strcpy(mark, "DGT");
 	strcpy(players[GAIA_INDEX].name, "GAIA");
@@ -319,7 +319,10 @@ void Scenario::reset()
 	}
 
 	memset(cinem, 0, sizeof(cinem));
-	bBitmap = false;
+	if ( game == AOHD6 || game == AOF6 )
+	    bBitmap = 3;
+	else
+	    bBitmap = 0;
 
 	lock_teams = 0;
 	player_choose_teams = 0;
@@ -1221,7 +1224,7 @@ void Scenario::read_data(const char *path)	//decompressed data
 	readunk<short>(dc2in.get(), bBitmap ? -1 : 1, "bitmap unknown");
 
     // bBitmap default is 3 in 1.26 even if there is no bitmap
-	if (bBitmap && !(( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
+	if (bBitmap > 0 && !(( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
 		bitmap.read(dc2in.get());
 
 	/* Player Data 2 */
@@ -1587,7 +1590,7 @@ int Scenario::write_data(const char *path)
 
 	fwrite(&bBitmap, 4, 1, dcout);
 	fwrite(&bitmap.info_hdr.biWidth, 8, 1, dcout);	//width, height
-	if (!bBitmap)
+	if (bBitmap == 0 || (( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
 	{
 		num = 1;
 		fwrite(&num, 2, 1, dcout);
@@ -1778,7 +1781,7 @@ int Scenario::write_data(const char *path)
 
 bool Scenario::export_bmp(const char *path)
 {
-	if (!bBitmap)
+	if (bBitmap == 0 || (( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
 		return false;
 
 	return bitmap.toFile(path);
@@ -2605,7 +2608,7 @@ AOKTS_ERROR Scenario::remove_display_order_prefix()
 
             // check if the D.O. and D.O. substring are equal
 	        if (strcmp(tmpdo, tmpnamedo) == 0) {
-	            strncpy(trig->name, &tmpname[0], 128);
+	            strncpy(trig->name, &tmpname[lendo], 128);
 	            trig->name[128] = '\0';
 		        trig++;
 		    }

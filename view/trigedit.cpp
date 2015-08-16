@@ -1711,6 +1711,7 @@ INT_PTR Handle_WM_COMMAND(HWND dialog, WORD code, WORD id, HWND)
             break;
 		case ID_TRIGGERS_SAVE_PSEUDONYMS:
 		case ID_TRIGGERS_PREFIX_DISPLAY_ORDER:
+		case ID_TRIGGERS_REMOVE_DISPLAY_ORDER_PREFIX:
             TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
             break;
 		case ID_TS_EDIT_COPY:

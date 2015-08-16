@@ -56,8 +56,8 @@ IDI_LOGO                ICON                    "aokts.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,2,0,65
- PRODUCTVERSION 1,2,0,65
+ FILEVERSION 1,2,0,66
+ PRODUCTVERSION 1,2,0,66
  FILEFLAGSMASK 0x0L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -74,13 +74,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Created by David Tombs (DiGiT)"
             VALUE "FileDescription", "TS executable"
-            VALUE "FileVersion", "1.2.0.65"
+            VALUE "FileVersion", "1.2.0.66"
             VALUE "InternalName", "ts"
             VALUE "LegalCopyright", "Copyright (c) David Tombs 2010. See readme.txt."
             VALUE "LegalTrademarks", "Age of Empires II is a legal trademark of Microsoft Corporation."
             VALUE "OriginalFilename", "ts.exe"
             VALUE "ProductName", "Trigger Studio"
-            VALUE "ProductVersion", "1.2.0.65"
+            VALUE "ProductVersion", "1.2.0.66"
         END
     END
     BLOCK "VarFileInfo"
@@ -142,14 +142,14 @@ BEGIN
     POPUP "&Triggers"
     BEGIN
         MENUITEM "Expand all",                  ID_TRIGGERS_EXPAND_ALL
-        MENUITEM "Clear names",                 ID_TRIGGERS_HIDENAMES
-        MENUITEM "Clear descriptions",          ID_TRIGGERS_HIDE_DESCRIPTIONS
+        MENUITEM "Clear all trigger names",                 ID_TRIGGERS_HIDENAMES
+        MENUITEM "Clear all trigger descriptions",          ID_TRIGGERS_HIDE_DESCRIPTIONS
         MENUITEM "Sort conditions and effects", ID_TRIGGERS_SORT_CONDS_EFFECTS
-        MENUITEM "Swap names and descriptions", ID_TRIGGERS_SWAP_NAMES_DESCRIPTIONS
-        MENUITEM "Save pseudonyms",             ID_TRIGGERS_SAVE_PSEUDONYMS
-        MENUITEM "Prefix trigger names with display order", ID_TRIGGERS_PREFIX_DISPLAY_ORDER
+        MENUITEM "Swap names with descriptions", ID_TRIGGERS_SWAP_NAMES_DESCRIPTIONS
+        MENUITEM "Save pseudonyms to trigger names (so can use in in-game editor)",             ID_TRIGGERS_SAVE_PSEUDONYMS
+        MENUITEM "Prefix trigger names with display order (so can find triggers in in-game editor)", ID_TRIGGERS_PREFIX_DISPLAY_ORDER
         MENUITEM "Remove display order prefix from trigger names", ID_TRIGGERS_REMOVE_DISPLAY_ORDER_PREFIX
-        POPUP "Compatibility"
+        POPUP "Compatibility (for fixing scenarios only)"
         BEGIN
             MENUITEM "AoHD to UserPatch",           IDC_P_TOUP
             MENUITEM "UserPatch to AoHD",           IDC_P_TOHD
@@ -218,7 +218,7 @@ BEGIN
     CONTROL         1025,IDC_STATIC,"Static",SS_BITMAP,8,8,21,20
     LTEXT           "Trigger Studio",IDC_STATIC,48,8,122,10
     LTEXT           "Version:",IDC_STATIC,179,8,48,8
-    LTEXT           "1.2.0.65",IDC_STATIC,179,16,52,8
+    LTEXT           "1.2.0.66",IDC_STATIC,179,16,52,8
     DEFPUSHBUTTON   "OK",IDOK,179,54,48,14
     LTEXT           "Created by David Tombs (DiGiT)",IDC_STATIC,48,21,122,11
     LTEXT           "1.0.2 by danielpereira",IDC_STATIC,48,34,122,9
