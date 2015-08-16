@@ -917,6 +917,33 @@ void OnCompressOrDecompress(HWND sheet, bool compress)
 		"Raw Compression/Decompression", MB_ICONWARNING);
 }
 
+void SetDrawTriggerCheckboxes(HWND sheet)
+{
+    if (setts.drawconds && setts.draweffects && setts.drawlocations) {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_TRIGGERS, MF_BYCOMMAND | MF_CHECKED);
+    } else {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_TRIGGERS, MF_BYCOMMAND);
+	}
+
+    if (setts.drawconds) {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_CONDITIONS, MF_BYCOMMAND | MF_CHECKED);
+    } else {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_CONDITIONS, MF_BYCOMMAND);
+	}
+
+    if (setts.draweffects) {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_EFFECTS, MF_BYCOMMAND | MF_CHECKED);
+    } else {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_EFFECTS, MF_BYCOMMAND);
+	}
+
+    if (setts.drawlocations) {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_LOCATIONS, MF_BYCOMMAND | MF_CHECKED);
+    } else {
+		CheckMenuItem(GetMenu(sheet), ID_DRAW_LOCATIONS, MF_BYCOMMAND);
+	}
+}
+
 /*
 	Sheet_HandleCommand: Handles all commands routed to property sheet (mostly menuitem stuff).
 */
@@ -1184,6 +1211,62 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 		SendMessage(propdata.mapview, MAP_Reset, 0, 0);
 		break;
 
+	case ID_DRAW_TRIGGERS:
+		if (GetMenuState(GetMenu(sheet), ID_DRAW_TRIGGERS, MF_BYCOMMAND) & MF_CHECKED)
+		{
+		    setts.drawconds = false;
+		    setts.draweffects = false;
+		    setts.drawlocations = false;
+		}
+		else
+		{
+		    setts.drawconds = true;
+		    setts.draweffects = true;
+		    setts.drawlocations = true;
+		}
+		SetDrawTriggerCheckboxes(sheet);
+		SendMessage(propdata.mapview, MAP_Reset, 0, 0);
+		break;
+
+	case ID_DRAW_CONDITIONS:
+		if (GetMenuState(GetMenu(sheet), ID_DRAW_CONDITIONS, MF_BYCOMMAND) & MF_CHECKED)
+		{
+		    setts.drawconds = false;
+		}
+		else
+		{
+		    setts.drawconds = true;
+		}
+		SetDrawTriggerCheckboxes(sheet);
+		SendMessage(propdata.mapview, MAP_Reset, 0, 0);
+		break;
+
+	case ID_DRAW_EFFECTS:
+		if (GetMenuState(GetMenu(sheet), ID_DRAW_EFFECTS, MF_BYCOMMAND) & MF_CHECKED)
+		{
+		    setts.draweffects = false;
+		}
+		else
+		{
+		    setts.draweffects = true;
+		}
+		SetDrawTriggerCheckboxes(sheet);
+		SendMessage(propdata.mapview, MAP_Reset, 0, 0);
+		break;
+
+	case ID_DRAW_LOCATIONS:
+		if (GetMenuState(GetMenu(sheet), ID_DRAW_LOCATIONS, MF_BYCOMMAND) & MF_CHECKED)
+		{
+		    setts.drawlocations = false;
+		}
+		else
+		{
+		    setts.drawlocations = true;
+		}
+		SetDrawTriggerCheckboxes(sheet);
+		SendMessage(propdata.mapview, MAP_Reset, 0, 0);
+		break;
+
 	case ID_EDIT_ALL:
 		if (GetMenuState(GetMenu(sheet), ID_EDIT_ALL, MF_BYCOMMAND) & MF_CHECKED)
 		{
@@ -1279,6 +1362,10 @@ INT_PTR CALLBACK MainDlgProc(HWND sheet, UINT msg, WPARAM wParam, LPARAM lParam)
 		SendMessage(
 			PropSheet_GetCurrentPageHwnd(sheet),
 			MAP_Click, wParam, lParam);
+		break;
+
+	case MAP_ChangeDrawOptions:
+	    SetDrawTriggerCheckboxes(sheet);
 		break;
 
 	default:

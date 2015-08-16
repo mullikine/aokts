@@ -775,6 +775,7 @@ void HandleToggleTriggers(HWND window)
     bool ALLON = true;
     ALLON = setts.drawconds && setts.draweffects && setts.drawlocations;
     setts.drawconds = setts.draweffects = setts.drawlocations = !ALLON;
+	SendMessage(GetWindow(window, GW_OWNER), MAP_ChangeDrawOptions, 0, 0);
 	Refresh(window, FALSE);
 }
 
@@ -1309,14 +1310,17 @@ LRESULT CALLBACK MapWndProc(HWND window, UINT msg, WPARAM wParam, LPARAM lParam)
 		    break;
 		case 0x45: // E key
 		    setts.draweffects = !setts.draweffects;
+		    SendMessage(GetWindow(window, GW_OWNER), MAP_ChangeDrawOptions, 0, 0);
 		    Refresh(window, FALSE);
 		    break;
 		case 0x4C: // L key
 		    setts.drawlocations = !setts.drawlocations;
+		    SendMessage(GetWindow(window, GW_OWNER), MAP_ChangeDrawOptions, 0, 0);
 		    Refresh(window, FALSE);
 		    break;
 		case 0x43: // C key
 		    setts.drawconds = !setts.drawconds;
+		    SendMessage(GetWindow(window, GW_OWNER), MAP_ChangeDrawOptions, 0, 0);
 		    Refresh(window, FALSE);
 		    break;
 		case 0x54: // T key

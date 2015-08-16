@@ -128,6 +128,10 @@ BEGIN
         MENUITEM "&Map Viewer",                 ID_VIEW_MAP, CHECKED
         MENUITEM "&Draw Terrain (A)",           ID_DRAW_TERRAIN, CHECKED
         MENUITEM "&Draw Elevation (V)",         ID_DRAW_ELEVATION, CHECKED
+        MENUITEM "&Draw Triggers (T)",          ID_DRAW_TRIGGERS, CHECKED
+        MENUITEM "&Draw Conditions (C)",        ID_DRAW_CONDITIONS, CHECKED
+        MENUITEM "&Draw Effects (E)",           ID_DRAW_EFFECTS, CHECKED
+        MENUITEM "&Draw Locations (L)",         ID_DRAW_LOCATIONS, CHECKED
         MENUITEM SEPARATOR
         MENUITEM "&Statistics...",              ID_VIEW_STATISTICS
     END

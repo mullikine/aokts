@@ -26,6 +26,7 @@ enum Map_Msgs
 	/* In */
 	MAP_Close = WM_APP + 0x150,
 	MAP_Recreate,
+	MAP_ChangeDrawOptions,
 	MAP_HighlightPoint,	//x, y
 	MAP_UnhighlightPoint, //x, y (see MAP_UNHIGHLIGHT_ALL below)
 	MAP_Reset,
