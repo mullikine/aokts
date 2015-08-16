@@ -2571,6 +2571,41 @@ AOKTS_ERROR Scenario::prefix_display_order()
 	return ERR_none;
 }
 
+AOKTS_ERROR Scenario::remove_display_order_prefix()
+{
+	char tmpdo[128];
+	char tmpname[128];
+	char tmpnamedo[128];
+	int lendo=0;
+	int lenname=0;
+	long num = triggers.size();
+	if (num > 0) {
+	    Trigger *trig = &(*triggers.begin());
+
+        // triggers
+	    long i = num;
+	    while (i--)
+	    {
+	        _snprintf(tmpdo, sizeof(char) * 128, "<%d> ", trig->display_order);
+	        strncpy(tmpname, trig->name, 128);
+	        strncpy(tmpnamedo, trig->name, 128);
+	        lendo=strlen(tmpdo);
+	        lenname=strlen(tmpname);
+
+	        tmpnamedo[lendo]='\0';
+
+            // check if the D.O. and D.O. substring are equal
+	        if (strcmp(tmpdo, tmpnamedo) == 0) {
+	            strncpy(trig->name, &tmpname[0], 128);
+	            trig->name[128] = '\0';
+		        trig++;
+		    }
+	    }
+	}
+
+	return ERR_none;
+}
+
 AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 {
 	long num = triggers.size();

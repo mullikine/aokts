@@ -148,6 +148,7 @@ BEGIN
         MENUITEM "Swap names and descriptions", ID_TRIGGERS_SWAP_NAMES_DESCRIPTIONS
         MENUITEM "Save pseudonyms",             ID_TRIGGERS_SAVE_PSEUDONYMS
         MENUITEM "Prefix trigger names with display order", ID_TRIGGERS_PREFIX_DISPLAY_ORDER
+        MENUITEM "Remove display order prefix from trigger names", ID_TRIGGERS_REMOVE_DISPLAY_ORDER_PREFIX
         POPUP "Compatibility"
         BEGIN
             MENUITEM "AoHD to UserPatch",           IDC_P_TOUP
