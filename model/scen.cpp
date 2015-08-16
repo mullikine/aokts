@@ -2553,8 +2553,8 @@ AOKTS_ERROR Scenario::save_pseudonyms()
 	    long i = num;
 	    while (i--)
 	    {
-	        strncpy ( trig->name, trig->getName(true, true, 2).c_str(), 128 );
-	        trig->name[128] = '\0';
+	        strncpy ( trig->name, trig->getName(true, true, 2).c_str(), MAX_TRIGNAME );
+	        trig->name[MAX_TRIGNAME] = '\0';
 		    trig++;
 	    }
 	}
@@ -2564,7 +2564,7 @@ AOKTS_ERROR Scenario::save_pseudonyms()
 
 AOKTS_ERROR Scenario::prefix_display_order()
 {
-	char tmp[128];
+	char tmp[MAX_TRIGNAME];
 	long num = triggers.size();
 	if (num > 0) {
 	    Trigger *trig = &(*triggers.begin());
@@ -2573,9 +2573,9 @@ AOKTS_ERROR Scenario::prefix_display_order()
 	    long i = num;
 	    while (i--)
 	    {
-	        strncpy (tmp, trig->name, 128);
-	        _snprintf(trig->name, sizeof(char) * 128, "<%d> %s", trig->display_order, tmp);
-	        trig->name[128] = '\0';
+	        strncpy (tmp, trig->name, MAX_TRIGNAME);
+	        _snprintf(trig->name, sizeof(char) * MAX_TRIGNAME, "<%d> %s", trig->display_order, tmp);
+	        trig->name[MAX_TRIGNAME] = '\0';
 		    trig++;
 	    }
 	}
@@ -2585,9 +2585,9 @@ AOKTS_ERROR Scenario::prefix_display_order()
 
 AOKTS_ERROR Scenario::remove_display_order_prefix()
 {
-	char tmpdo[128];
-	char tmpname[128];
-	char tmpnamedo[128];
+	char tmpdo[MAX_TRIGNAME];
+	char tmpname[MAX_TRIGNAME];
+	char tmpnamedo[MAX_TRIGNAME];
 	int lendo=0;
 	int lenname=0;
 	long num = triggers.size();
@@ -2598,9 +2598,9 @@ AOKTS_ERROR Scenario::remove_display_order_prefix()
 	    long i = num;
 	    while (i--)
 	    {
-	        _snprintf(tmpdo, sizeof(char) * 128, "<%d> ", trig->display_order);
-	        strncpy(tmpname, trig->name, 128);
-	        strncpy(tmpnamedo, trig->name, 128);
+	        _snprintf(tmpdo, sizeof(char) * MAX_TRIGNAME, "<%d> ", trig->display_order);
+	        strncpy(tmpname, trig->name, MAX_TRIGNAME);
+	        strncpy(tmpnamedo, trig->name, MAX_TRIGNAME);
 	        lendo=strlen(tmpdo);
 	        lenname=strlen(tmpname);
 
@@ -2608,8 +2608,8 @@ AOKTS_ERROR Scenario::remove_display_order_prefix()
 
             // check if the D.O. and D.O. substring are equal
 	        if (strcmp(tmpdo, tmpnamedo) == 0) {
-	            strncpy(trig->name, &tmpname[lendo], 128);
-	            trig->name[128] = '\0';
+	            strncpy(trig->name, &tmpname[lendo], MAX_TRIGNAME);
+	            trig->name[MAX_TRIGNAME] = '\0';
 		        trig++;
 		    }
 	    }
@@ -2628,15 +2628,15 @@ AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 	    long i = num;
 	    while (i--)
 	    {
-	        char buffer[128];
-		    char *cstr = trig->description.unlock(128);
-	        strncpy ( buffer, cstr, 128 );
-	        buffer[128] = '\0';
-	        strncpy ( cstr, trig->name, 128 );
-	        cstr[128] = '\0';
+	        char buffer[MAX_TRIGNAME];
+		    char *cstr = trig->description.unlock(MAX_TRIGNAME);
+	        strncpy ( buffer, cstr, MAX_TRIGNAME );
+	        buffer[MAX_TRIGNAME] = '\0';
+	        strncpy ( cstr, trig->name, MAX_TRIGNAME );
+	        cstr[MAX_TRIGNAME] = '\0';
 		    trig->description.lock();
-	        strncpy ( trig->name, buffer, 128 );
-	        trig->name[128] = '\0';
+	        strncpy ( trig->name, buffer, MAX_TRIGNAME );
+	        trig->name[MAX_TRIGNAME] = '\0';
 		    trig++;
 	    }
 	}

@@ -30,8 +30,6 @@ public:
 	void sort_conditions();
 	void sort_effects();
 
-	const static size_t MAX_TRIGNAME = 128;
-
     // each trigger must know what their id is in scen.triggers.
 	long id;
     // the display order is not written along with the rest of the

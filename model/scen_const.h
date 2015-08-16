@@ -108,25 +108,25 @@ enum Diplomacy
 extern size_t MapSizes[8]; //conversion from standard sizes to tiles (see scen.cpp for values)
 extern size_t Elevations[9]; //conversion from standard sizes to tiles (see scen.cpp for values)
 
-#define NUM_STYPES 4		//number of stockpile resource types
+const size_t NUM_STYPES   = 4;   // number of stockpile resource types
+const size_t NUM_CINEM	  = 4;
+const size_t MAX_TRIGNAME = 128;
 
-#define NUM_MSGS		6
-#define NUM_CINEM		4
-
+const size_t NUM_MSGS	  = 6;
 extern const char* message_names[NUM_MSGS];
 extern const char* cinem_names[NUM_CINEM];
 
-#define NUM_DIFFICULTIES 5
+const size_t NUM_DIFFICULTIES = 5;
 extern const char* difficulties_18[NUM_DIFFICULTIES];
 extern const char* difficulties_21[NUM_DIFFICULTIES];
 
-#define NUM_AGES 6
+const size_t  NUM_AGES = 6;
 extern const struct PAIR ages[NUM_AGES];
 
-#define NUM_GROUPS 63
+const size_t  NUM_GROUPS = 63;
 extern const struct PAIR groups[NUM_GROUPS];
 
-#define NUM_UTYPES 7
+const size_t  NUM_UTYPES = 7;
 extern const struct PAIR utypes[NUM_UTYPES];
 
 #endif //SCEN_CONST_H
