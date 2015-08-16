@@ -27,6 +27,7 @@ const char *max_teams_names[] = { "2 Teams", "3 Teams", "4 Teams" };
 const char *num_players_names[] = { "INVALID", "1", "2", "3", "4", "5", "6", "7", "8" };
 const char *players_number_names[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 const char *team_names[] = { "Unclear", "Team 1", "Team 2", "Team 3", "Team 4", "Neutral", "No ally", "Friendly" };
+const char *gaia_team_names[] = { "Unclear", "Team 1", "Team 2", "Team 3", "Team 4", "Neutral", "Hostile", "Friendly" };
 
 /*
  * Determines the teams based on the diplomacies.
@@ -53,9 +54,6 @@ void LoadDiplomacy(HWND dialog)
     bool hostile = true;
 
     // Gaia
-    neutral = true;
-    friendly = true;
-    allied_anyone = false;
     for (int i = 0; i < N_PLAYERS; i++) {
         if (scen.players[N_PLAYERS].diplomacy[i] != DIP_neutral) {
             neutral = false;
@@ -63,7 +61,7 @@ void LoadDiplomacy(HWND dialog)
         if (scen.players[N_PLAYERS].diplomacy[i] != DIP_ally) {
             friendly = false;
         }
-        if (scen.players[N_PLAYERS].diplomacy[i] != DIP_ally) {
+        if (scen.players[N_PLAYERS].diplomacy[i] != DIP_enemy) {
             hostile = false;
         }
     }
@@ -365,7 +363,10 @@ BOOL Players_Init(HWND dialog)
 	    SendDlgItemMessage(dialog, IDC_P_COLOR1 + i, CB_SETCURSEL, scen.players[i].color, 0);
 	    Combo_PairFill(GetDlgItem(dialog, IDC_P_AGE1 + i), NUM_AGES, ages);
 	    SendDlgItemMessage(dialog, IDC_P_AGE1 + i, CB_SETCURSEL, scen.players[i].age, 0);
-	    Combo_Fill(dialog, IDC_P_TEAM1 + i, team_names, NUM_TEAMS);
+	    if (i == N_PLAYERS)
+	        Combo_Fill(dialog, IDC_P_TEAM1 + i, gaia_team_names, NUM_TEAMS);
+	    else
+	        Combo_Fill(dialog, IDC_P_TEAM1 + i, team_names, NUM_TEAMS);
     }
 
     LoadDiplomacy(dialog);
