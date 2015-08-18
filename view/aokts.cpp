@@ -326,6 +326,32 @@ void FileSave(HWND sheet, bool as, bool write)
 	{
  		error = scen.save(setts.ScenPath, setts.TempPath, write, conv, flags);
 		SetCursor(previous);
+
+	    struct RecentFile *file = NULL;	//the file info will be stored here one way or another
+		struct RecentFile *r_parse;
+
+		/* Now check if file is already on recent list. */
+		r_parse = setts.recent_first;
+		while (r_parse)
+		{
+			if (!strcmp(r_parse->path, setts.ScenPath))
+			{
+				file = r_parse;
+				break;
+			}
+			r_parse = r_parse->next;
+		}
+
+        if (file) {
+            file->game = (int)conv;
+        } else {
+		    file = setts.recent_getnext();
+		    strcpy(file->path, setts.ScenPath);
+		    strcpy(file->display, PathFindFileName(setts.ScenPath));
+		    file->game = (int)conv;
+	        setts.recent_push(file);
+	    }
+	    UpdateRecentMenu(propdata.menu);
 	}
 	catch (std::exception &ex)
 	{
