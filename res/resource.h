@@ -3,7 +3,7 @@
 // Used by common.rc
 //
 #define VER_BUGFIX                      0x0000
-#define VER_BUILD                       0x0066
+#define VER_BUILD                       0x0068
 #define VER_MAJOR                       0x0001
 #define VER_MINOR                       0x00002
 #define IDD_DIALOG1                                   1000
