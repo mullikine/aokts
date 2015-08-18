@@ -63,6 +63,18 @@ const struct PAIR ages[] =
 	{  4, "Post-Imperial" }
 };
 
+const struct PAIR ages_hd6[] =
+{
+	{ -1, "Feudal" },
+	{  0, "Dark" },
+	{  1, "Feudal" },
+	{  2, "Castle" },
+	{  3, "Castle" },
+	{  4, "Castle" },
+	{  5, "Imperial" },
+	{  6, "Post-Imperial" }
+};
+
 const struct PAIR groups[] =
 {
 	{ -1, "None" },

@@ -44,7 +44,7 @@ public:
 	long obj_order;
 	long obj_str_id;
 	SString description;
-	char name[MAX_TRIGNAME+1]; // The null is not saved. Len is saved. //TODO: SString?
+	char name[MAX_TRIGNAME]; // The null IS saved. Len is also saved (including null). //TODO: SString?
 	std::vector<Effect> effects;
 	std::vector<Condition> conds;
 

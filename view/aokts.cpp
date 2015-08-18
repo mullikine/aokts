@@ -106,7 +106,7 @@ const char welcome[] =
 const char extOpen[] =
 "AoE 2 Scenarios (*.scn, *.scx, *.scx2)\0*.scn;*.scx;*.scx2\0Star Wars Scenarios (*.scx, *.sc1)\0*.scx;*.sc1\0All files (*.*)\0*.*\0";
 const char extSave[] =
-"AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.4RC Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.2 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
+"AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.4RC Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.3 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
 const char datapath_aok[] = "data_aok.xml";
 const char datapath_swgb[] = "data_swgb.xml";
 

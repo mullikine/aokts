@@ -283,7 +283,15 @@ void Player::read_dis_bldgs(FILE * in, const PerVersion& pv)
 
 void Player::read_age(FILE * in)
 {
-	readbin(in, &age);
+	if (scen.game == AOHD6 || scen.game == AOF6) {
+	    readbin(in, &age);
+	    readbin(in, &ending_age);
+	} else {
+        long tmp = 0;
+	    readbin(in, &tmp);
+	    age = (short)tmp;
+	    ending_age = 0;
+	}
 }
 
 void Player::read_camera_longs(FILE * in)

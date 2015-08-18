@@ -1696,8 +1696,19 @@ int Scenario::write_data(const char *path)
 
 	NULLS(dcout, 0x8);
 	fwrite(&all_techs, sizeof(long), 1, dcout);
-	FEP(p)
-		fwrite(&p->age, 4, 1, dcout);
+
+	if (game == AOHD6 || game == AOF6) {
+	    FEP(p) {
+		    fwrite(&p->age, sizeof(short), 1, dcout);
+		    fwrite(&p->ending_age, sizeof(short), 1, dcout);
+	    }
+	} else {
+	    long tmp;
+	    FEP(p) {
+	        tmp = p->age;
+		    fwrite(&tmp, sizeof(long), 1, dcout);
+		}
+	}
 
 	/* Map */
 
@@ -2575,7 +2586,7 @@ AOKTS_ERROR Scenario::save_pseudonyms()
 
 AOKTS_ERROR Scenario::prefix_display_order()
 {
-	char tmp[MAX_TRIGNAME+1];
+	char tmp[MAX_TRIGNAME];
 	long num = triggers.size();
 	if (num > 0) {
 	    Trigger *trig = &(*triggers.begin());
@@ -2586,7 +2597,6 @@ AOKTS_ERROR Scenario::prefix_display_order()
 	    {
 	        strncpy (tmp, trig->name, MAX_TRIGNAME);
 	        _snprintf(trig->name, sizeof(char) * MAX_TRIGNAME, "<%d> %s", trig->display_order, tmp);
-	        trig->name[MAX_TRIGNAME] = '\0';
 		    trig++;
 	    }
 	}
@@ -2596,9 +2606,9 @@ AOKTS_ERROR Scenario::prefix_display_order()
 
 AOKTS_ERROR Scenario::remove_display_order_prefix()
 {
-	char tmpdo[MAX_TRIGNAME+1];
-	char tmpname[MAX_TRIGNAME+1];
-	char tmpnamedo[MAX_TRIGNAME+1];
+	char tmpdo[MAX_TRIGNAME];
+	char tmpname[MAX_TRIGNAME];
+	char tmpnamedo[MAX_TRIGNAME];
 	int lendo=0;
 	int lenname=0;
 	long num = triggers.size();
@@ -2639,7 +2649,7 @@ AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 	    long i = num;
 	    while (i--)
 	    {
-	        char buffer[MAX_TRIGNAME+1];
+	        char buffer[MAX_TRIGNAME];
 		    char *cstr = trig->description.unlock(MAX_TRIGNAME);
 	        strncpy ( buffer, cstr, MAX_TRIGNAME );
 	        buffer[MAX_TRIGNAME] = '\0';

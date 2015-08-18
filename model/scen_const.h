@@ -113,6 +113,8 @@ const size_t N_PLAYERS = 8;
 const size_t NUM_STYPES   = 4;   // number of stockpile resource types
 const size_t NUM_CINEM	  = 4;
 const size_t MAX_TRIGNAME = 128;
+const size_t MAX_TRIGNAME_SAFE_AOC = 127;
+const size_t MAX_TRIGNAME_SAFE_HD = 126;
 
 const size_t NUM_MSGS	  = 6;
 extern const char* message_names[NUM_MSGS];
@@ -124,6 +126,9 @@ extern const char* difficulties_21[NUM_DIFFICULTIES];
 
 const size_t  NUM_AGES = 6;
 extern const struct PAIR ages[NUM_AGES];
+
+const size_t  NUM_AGES_HD6 = 8;
+extern const struct PAIR ages_hd6[NUM_AGES_HD6];
 
 const size_t  NUM_GROUPS = 63;
 extern const struct PAIR groups[NUM_GROUPS];

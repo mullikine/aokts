@@ -134,7 +134,8 @@ public:
 	long dis_tech[60], dis_unit[60], dis_bldg[60];
 	long ndis_t, ndis_u, ndis_b;
 
-	long age;	//starting age
+	short age;	//starting age
+	short ending_age;	//starting age
 
 	float pop;	//EX-only
 	float camera[2];	//initial camera position: x, y

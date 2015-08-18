@@ -972,7 +972,15 @@ void Trigger::read(FILE *in)
 	readbin(in, &obj_str_id);
 
 	description.read(in, sizeof(long));
-	readcs<unsigned long>(in, name, sizeof(name));
+
+	// number of characters (including null)
+    unsigned long len;
+	readbin(in, &len);
+	if (len > MAX_TRIGNAME) {
+	    throw std::length_error(toString<int>(len).c_str());
+	}
+	readbin(in, name, len);
+	name[len] = '\0'; // Scenario strings are not always null-terminated.
 
 	//read effects
 	readbin(in, &n_effects);
@@ -1051,13 +1059,19 @@ void Trigger::read(FILE *in)
 
 void Trigger::write(FILE *out)
 {
-	int num, i;
+	unsigned long num, i;
 
 	fwrite(&state, 18, 1, out);	//state, loop, u1, obj, obj_order, obj_str_id
 	description.write(out, sizeof(long), true);
-	num = strlen(name);
-	fwrite(&num, 4, 1, out);
-	fwrite(name, sizeof(char), num, out);
+
+	// don't use writecs here
+	num = strlen(name) + 1; // strlen is non-standard? includes '\0' in the count
+	if (num > MAX_TRIGNAME_SAFE_HD)
+	    num = MAX_TRIGNAME_SAFE_HD;
+	    //throw std::length_error("Trigger's name is more than 126 characters long?");
+	fwrite(&num, sizeof(long), 1, out);
+	name[num] = '\0';                     // num includes null character but don't rely on that
+	fwrite(name, sizeof(char), num, out); // string includes a null character. all is written
 
 	//Effects
 
