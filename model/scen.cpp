@@ -1652,14 +1652,15 @@ int Scenario::write_data(const char *path)
 	}
 
 	fwrite(&bBitmap, 4, 1, dcout);
-	fwrite(&bitmap.info_hdr.biWidth, 8, 1, dcout);	//width, height
 	if (bBitmap == 0 || (( game == AOHD6 || game == AOF6 ) && bBitmap == 3))
 	{
+	    NULLS(dcout, 8);
 		num = 1;
 		fwrite(&num, 2, 1, dcout);
 	}
 	else
 	{
+	    fwrite(&bitmap.info_hdr.biWidth, 8, 1, dcout);	//width, height
 		writeval(dcout, (short)-1);
 		bitmap.write(dcout);
 	}
