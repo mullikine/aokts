@@ -24,6 +24,7 @@
 #include <algorithm>
 #include <functional>
 #include <iterator>
+#include <stdexcept>
 
 const char datapath_aok[] = "data_aok.xml";
 const char datapath_swgb[] = "data_swgb.xml";
@@ -1062,6 +1063,31 @@ bool Scenario::is_userpatch()
     return is_userpatch;
 }
 
+void Scenario::next_sect(FILE * in) {
+	//readunk(dc2in.get(), sect, "Resources sect begin", true);
+
+    char buf[sizeof(sect)] = {0};
+
+    //readbin(dc2in.get(), &buf);
+    fread(&buf, sizeof(long), 1, in);
+
+    // Find next sect
+    int c = 0;
+    long test = *(reinterpret_cast<long *>(&buf));
+    //show_binrep(test);
+    while (test != sect) {
+        //show_binrep(buf);
+        //show_binrep(sect);
+        c++;
+        for (int i = 0; i < sizeof(sect) - 1; i++) {
+            buf[i] = buf[i+1];
+        }
+        readbin(in, &buf[sizeof(sect)-1]);
+        //printf_log("unfound_count: %d.\n", c);
+        test = *(reinterpret_cast<long *>(&buf));
+    }
+}
+
 /**
  * I suppose this is as good a place as any to document how I designed the
  * reading and writing of scenario data. The idea is that each class knows how
@@ -1239,6 +1265,7 @@ void Scenario::read_data(const char *path)	//decompressed data
 	if (setts.intense)
 		printf_log("Debug 3.\n");
 
+    try {
 	FEP(p) {
  		readcs<unsigned short>(dc2in.get(), p->vc, sizeof(p->vc));
         printf_log("P%d VCname: %s.\n", i, p->vc);
@@ -1283,9 +1310,18 @@ void Scenario::read_data(const char *path)	//decompressed data
 
 	FEP(p)
 		p->read_aimode(dc2in.get());
+    }
+    catch (const std::length_error& e) {
+        MessageBox(NULL, "VC, CTY or AI file corrupted. Skipping to next section.", "Error", MB_ICONERROR);
+        //cerr << e.what();
+    }
+    catch (...) {
+        MessageBox(NULL, "VC, CTY or AI file corrupted. Skipping to next section.", "Error", MB_ICONERROR);
+    }
 
-	readunk(dc2in.get(), sect, "Resources sect begin", true);
+    next_sect(dc2in.get());
 
+    try {
 	FEP(p) {
 		p->read_resources(dc2in.get());
         if (scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6) {
@@ -1311,11 +1347,17 @@ void Scenario::read_data(const char *path)	//decompressed data
 	    players[i].player_number = i;
 	    players[i].color = i;
 	}
+	}
+    catch (...) {
+        MessageBox(NULL, "Error reading player resources, number or color. Skipping to next section.", "Error", MB_ICONERROR);
+    }
 
 	/* Global Victory */
 
-	readunk(dc2in.get(), sect, "Global victory sect begin", true);
+	//readunk(dc2in.get(), sect, "Global victory sect begin", true);
+    next_sect(dc2in.get());
 
+    try {
 	readbin(dc2in.get(), &vict);
 
     // this is to fix broken scenarios
@@ -1328,9 +1370,15 @@ void Scenario::read_data(const char *path)	//decompressed data
 		p->read_diplomacy(dc2in.get());
 
 	SKIP(dc2in.get(), 0x2D00);	// 11520 should I check this? probably.
+	}
+    catch (...) {
+        MessageBox(NULL, "Error reading global victory section. Skipping to next section.", "Error", MB_ICONERROR);
+    }
 
-	readunk(dc2in.get(), sect, "diplomacy sect middle", true);
+	//readunk(dc2in.get(), sect, "diplomacy sect middle", true);
+    next_sect(dc2in.get());
 
+    try {
 	SKIP(dc2in.get(), sizeof(long) * NUM_PLAYERS);	//other allied victory
 
 	if (ver2 == SV2_AOHD_AOF || ver2 == SV2_AOHD_AOF4 || ver2 == SV2_AOHD_AOF6) {
@@ -1364,10 +1412,14 @@ void Scenario::read_data(const char *path)	//decompressed data
 	readbin(dc2in.get(), &all_techs);
 	FEP(p)
 		p->read_age(dc2in.get());
+	}
+    catch (...) {
+        MessageBox(NULL, "Error reading global victory section. Skipping to next section.", "Error", MB_ICONERROR);
+    }
 
 	//* Map */
-
-	readunk(dc2in.get(), sect, "map sect begin", true);
+    next_sect(dc2in.get());
+	//readunk(dc2in.get(), sect, "map sect begin", true);
 
 	players[0].read_camera_longs(dc2in.get());
 

@@ -161,6 +161,8 @@ class Scenario
 //	Internal Status Stuff (aka not in the SCX)
 	bool mod_status;
 
+    void next_sect(FILE * in);
+
 	/**
 	 * Reads decompressed scenario data from specified path.
 	 */

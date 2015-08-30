@@ -3,7 +3,7 @@
 #include "utilio.h"
 #include <cstdarg>
 
-void printf_log(char* fmt, ...)
+void printf_log(const char* fmt, ...)
 {
     va_list args;
     va_start(args,fmt);

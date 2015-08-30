@@ -65,7 +65,7 @@ struct ClipboardType {
     };
 };
 
-void printf_log(char* fmt, ...);
+void printf_log(const char* fmt, ...);
 
 /**
  * @return the file's size, in bytes.
@@ -171,20 +171,9 @@ template <class T> void readcs(FILE * in, char * dest, size_t space)
 	T len;
 
 	readbin(in, &len);
-
-	if (len >= space) // need one for NULL term
-		throw std::length_error("readcs: not enough space in dest string");
-
-	readbin(in, dest, len);
-	dest[len] = '\0'; // Scenario strings are not always null-terminated.
-}
-
-template <class T> void readcsDebug(FILE * in, char * dest, size_t space)
-{
-	T len;
-
-	readbin(in, &len);
-	printf("String length: "); show_binrep(len);
+	printf("String length: usigned short %hu\n", len);
+	show_binrep(len);
+	printf("Space: %lu\n", space);
 
 	if (len >= space) // need one for NULL term
 		throw std::length_error("readcs: not enough space in dest string");
@@ -232,6 +221,7 @@ void swapByteOrder(unsigned short& us);
 template<typename T>
 void show_binrep(const T& a)
 {
+    printf_log("binrep: ");
     const char* beg = reinterpret_cast<const char*>(&a);
     const char* end = beg + sizeof(a);
     while(beg != end)
