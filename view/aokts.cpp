@@ -104,9 +104,10 @@ const char *szTitle = "Trigger Studio";
 const char welcome[] =
 "Welcome to AOKTS! Please open a scenario or make a new one.";
 const char extOpen[] =
-"AoE 2 Scenarios (*.scn, *.scx, *.scx2)\0*.scn;*.scx;*.scx2\0Star Wars Scenarios (*.scx, *.sc1)\0*.scx;*.sc1\0All files (*.*)\0*.*\0";
+"AoE 2 Scenarios (*.scn, *.scx, *.scx2, *.aoe2scenario)\0*.scn;*.scx;*.scx2;*.aoe2scenario\0Star Wars Scenarios (*.scx, *.sc1)\0*.scx;*.sc1\0All files (*.*)\0*.*\0";
 const char extSave[] =
 "AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.4RC Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.3 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
+//"AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.4RC Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0AOAK Scenarios (*.aoe2scenario)\0*.aoe2scenario\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.3 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
 const char datapath_aok[] = "data_aok.xml";
 const char datapath_swgb[] = "data_swgb.xml";
 
@@ -251,6 +252,10 @@ void FileSave(HWND sheet, bool as, bool write)
 		    ofn.nFilterIndex =	9;
 		    ofn.lpstrDefExt =	"scx2";
 		    break;
+		case AOAK:
+		    ofn.nFilterIndex =	10;
+		    ofn.lpstrDefExt =	"aoe2scenario";
+		    break;
 		}
 
 		if (!GetSaveFileName(&ofn))
@@ -283,6 +288,9 @@ void FileSave(HWND sheet, bool as, bool write)
 		    break;
 		case 9:
 		    conv = AOF6;
+		    break;
+		case 10:
+		    conv = AOAK;
 		    break;
 		}
 
@@ -470,6 +478,7 @@ void FileOpen(HWND sheet, bool ask, int recent)
 		case AOF4:
 		case AOHD6:
 		case AOF6:
+		case AOAK:
 		    ofn.nFilterIndex =	1;
 		    ofn.lpstrDefExt =	"scx";
 		    break;

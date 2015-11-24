@@ -224,6 +224,12 @@ public:
 	{
 		char version[5];		//Version string (+ 1 for NULL)
 		long length;			//length of header (after this point)
+		long check;			//incremented in AOAK
+		unsigned long instruct_len;  	//Instructions string length
+		unsigned long n_players;
+		unsigned long original_game; // not sure about this
+		unsigned long n_datasets;
+		unsigned long datasets[5];  // the number of elements read and saved is given by n_datasets. 5 is an arbitrary number
 		__time32_t timestamp;	//last save
 		//left out instructions in header
 		UNREAD(long pcount);

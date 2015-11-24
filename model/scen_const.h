@@ -30,6 +30,7 @@ enum Game
 	AOF4    = 11,
 	AOHD6   = 12,
 	AOF6    = 13,
+	AOAK    = 14,
 	NOCONV  = 100
 };
 

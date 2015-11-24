@@ -675,7 +675,12 @@ Game Scenario::open(const char *path, const char *dpath, Game version)
 	}
 
 	/* Inflate and Read Compressed Data */
-	clen = fsize(path) - (header.length + 8);	//subtract header length
+	if (header.check == 3) {
+	    // length no longer indicates header length (or likely never truly did)
+	    clen = fsize(path) - ((8 + 2 + header.n_datasets) * 4 + header.instruct_len);
+	} else {
+	    clen = fsize(path) - (header.length + 8);	//subtract header length
+	}
 
 	if (clen <= 0)
 		throw bad_data_error("no compressed data");
@@ -940,22 +945,32 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 bool Scenario::_header::read(FILE *scx)
 {
 	bool ret = true;
-	long check;
-	unsigned long len;	//Instructions string length
-
+	printf_log("header:\n");
 	fread(version, sizeof(char), 4, scx);
+	version[5] = '\0';
+	printf_log("\tversion: %s.\n", version);
 
 	fread(&length, sizeof(long), 1, scx);
+	printf_log("\tlength: %ld.\n", length);
 
-	fread(&check, sizeof(long), 1, scx);
-	REPORTS(check == 2, ret = false, "Header check value invalid.\n");
-
+	fread(&check, sizeof(long), 1, scx); // version number I think
+	printf_log("\tcheck: %ld.\n", check);
+	REPORTS(check == 2 || check == 3, ret = false, "Header check value invalid.\n");
 	fread(&timestamp, sizeof(timestamp), 1, scx);
-
-	fread(&len, sizeof(long), 1, scx);
-	SKIP(scx, len);	//instructions
-
-	SKIP(scx, sizeof(long) * 2);	//unknown & playercount
+	fread(&instruct_len, sizeof(long), 1, scx);
+	printf_log("\tinstruct_len: %ld.\n", instruct_len);
+	SKIP(scx, instruct_len);             //instructions
+	SKIP(scx, sizeof(long));	//unknown
+	fread(&n_players, sizeof(long), 1, scx);
+	if (check == 2) {
+        ;
+	} else if (check == 3) {
+	    SKIP(scx, sizeof(long));	// new special AOAK variable
+	    fread(&original_game, sizeof(long), 1, scx);
+	    fread(&n_datasets, sizeof(long), 1, scx);
+	    for (int i = 0; i < n_datasets; i++)
+	        fread(&datasets[i], sizeof(long), 1, scx);
+	}
 
 	return ret;
 }
@@ -980,6 +995,7 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	case AOF4:
 	case AOHD6:
 	case AOF6:
+	case AOAK:
 		strcpy(version, "1.21");
 		break;
 	default:
@@ -988,11 +1004,16 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	}
 	fwrite(version, sizeof(char), 4, scx);
 
-	/* Length calculation is a little tricky */
-	length = 0x14 + instr->lwn();
-	fwrite(&length, sizeof(long), 1, scx);
+    if (g == AOAK) {
+	    NULLS(scx, sizeof(long));
+	    num = 3;
+    } else {
+	    /* Length calculation is a little tricky */
+	    length = 0x14 + instr->lwn();
+	    fwrite(&length, sizeof(long), 1, scx);
+	    num = 2;
+	}
 
-	num = 2;
 	fwrite(&num, sizeof(long), 1, scx);
 
 	fwrite(&timestamp, sizeof(timestamp), 1, scx);
@@ -1002,6 +1023,15 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	NULLS(scx, sizeof(long));
 
 	fwrite(&players, sizeof(long), 1, scx);
+
+	if (g == AOAK) {
+	    num = 1000;
+	    fwrite(&num, sizeof(long), 1, scx);
+	    fwrite(&original_game, sizeof(long), 1, scx);
+	    fwrite(&n_datasets, sizeof(long), 1, scx);
+	    for (int i = 0; i < n_datasets; i++)
+	        fwrite(&datasets[i], sizeof(long), 1, scx);
+	}
 }
 
 void Scenario::_header::reset()
@@ -1149,6 +1179,7 @@ void Scenario::read_data(const char *path)	//decompressed data
 		case AOHD6:
 		case AOF6:
 		case UP:
+		case AOAK:
 		    game = AOC;
 		    break;
 		case SWGB:

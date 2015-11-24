@@ -56,8 +56,8 @@ IDI_LOGO                ICON                    "aokts.ico"
 //
 
 VS_VERSION_INFO VERSIONINFO
- FILEVERSION 1,2,0,69
- PRODUCTVERSION 1,2,0,69
+ FILEVERSION 1,2,1,70
+ PRODUCTVERSION 1,2,1,70
  FILEFLAGSMASK 0x0L
 #ifdef _DEBUG
  FILEFLAGS 0x1L
@@ -74,13 +74,13 @@ BEGIN
         BEGIN
             VALUE "CompanyName", "Created by David Tombs (DiGiT)"
             VALUE "FileDescription", "TS executable"
-            VALUE "FileVersion", "1.2.0.69"
+            VALUE "FileVersion", "1.2.1.70"
             VALUE "InternalName", "ts"
             VALUE "LegalCopyright", "Copyright (c) David Tombs 2010. See readme.txt."
             VALUE "LegalTrademarks", "Age of Empires II is a legal trademark of Microsoft Corporation."
             VALUE "OriginalFilename", "ts.exe"
             VALUE "ProductName", "Trigger Studio"
-            VALUE "ProductVersion", "1.2.0.69"
+            VALUE "ProductVersion", "1.2.1.70"
         END
     END
     BLOCK "VarFileInfo"
@@ -222,12 +222,12 @@ BEGIN
     CONTROL         1025,IDC_STATIC,"Static",SS_BITMAP,8,8,21,20
     LTEXT           "Trigger Studio",IDC_STATIC,48,8,122,10
     LTEXT           "Version:",IDC_STATIC,179,8,48,8
-    LTEXT           "1.2.0.69",IDC_STATIC,179,16,52,8
+    LTEXT           "1.2.1.70",IDC_STATIC,179,16,52,8
     DEFPUSHBUTTON   "OK",IDOK,179,54,48,14
     LTEXT           "Created by David Tombs (DiGiT)",IDC_STATIC,48,21,122,11
     LTEXT           "1.0.2 by danielpereira",IDC_STATIC,48,34,122,9
     LTEXT           "1.1.0 by JustTesting1234",IDC_STATIC,48,47,122,9
-    LTEXT           "1.2.0 by Shane Mulligan",IDC_STATIC,48,59,122,11
+    LTEXT           "1.2.X by Shane Mulligan",IDC_STATIC,48,59,122,11
 END
 
 IDD_MSGS DIALOGEX 0, 0, 543, 321
