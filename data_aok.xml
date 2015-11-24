@@ -1,17 +1,19 @@
 <?xml version="1.0"?>
 <!DOCTYPE geniedata>
-
+ 
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
 Updated by DoctorWillCU - 09/08/15 18/08/15 03/09/15
+Updated by danielpereira - 18 November 2015
 -->
-
+ 
 <techs>
 <!--
 (A) - Make available
 (H) - Hidden tech
 (U) - Unimplemented/Unknown/Unused
+(D) - Disable
 (CIV) - Only available for that civilization
 AP - Attack Points
 HP - Hit Points
@@ -574,30 +576,86 @@ WS - Work Speed
 <tech id="550" name="Civ: Magyars (MAG)" />
 <tech id="551" name="Civ: Slavs (SLA)" />
 <tech id="552" name="Hunting Dogs (MON)" />
+<tech id="553" name="Villager cost -25% (IND)" />
+<tech id="554" name="C-Bonus, Start w/ 4 villagers (MAY)" />
+<tech id="555" name="Enable Sheep" />
+<tech id="556" name="Enable Llamas" />
+<tech id="557" name="Enable Cows" />
+<tech id="558" name="Enable Turkeys" />
+<tech id="559" name="All units -15% gold (POR)" />
+<tech id="560" name="Ships +10% faster (POR)" />
+<tech id="561" name="University +80% faster (POR)" />
+<tech id="562" name="Organ Gun (A) (POR)" />
+<tech id="563" name="Elite Organ Gun (POR)" />
+<tech id="564" name="Camel Archer (A) (BER)" />
+<tech id="565" name="Elite Camel Archer (BER)" />
+<tech id="566" name="Gbeto (A) (MAL)" />
+<tech id="567" name="Elite Gbeto (MAL)" />
+<tech id="568" name="Shotel Warrior (A) (ETH)" />
+<tech id="569" name="Elite Shotel Warrior (ETH)" />
+<tech id="570" name="Feitoria (A)" />
+<tech id="571" name="Ships +1/1 armor (BER)" />
+<tech id="572" name="Carrack (POR)" />
+<tech id="573" name="Arquebus (POR)" />
+<tech id="574" name="Royal Heirs (ETH)" />
+<tech id="575" name="Torsion Engines (ETH)" />
+<tech id="576" name="Tigui (MAL)" />
+<tech id="577" name="Farimba(MAL)" />
+<tech id="578" name="Kasbah (BER)" />
+<tech id="579" name="Maghrabi Camels (BER)" />
+<tech id="580" name="Civ: Portuguese (POR)" />
+<tech id="581" name="Civ: Ethiopians (ETH)" />
+<tech id="582" name="Civ: Malians (MAL)" />
+<tech id="583" name="Civ: Berbers (BER)" />
+<tech id="584" name="Villagers +10% faster (BER)" />
+<tech id="585" name="Ships +10% faster (BER)" />
+<tech id="586" name="Stable units cost -20% (BER)" />
+<tech id="587" name="+100 gold/food, Feudal (ETH)" />
+<tech id="588" name="+100 gold/food, Castle (ETH)" />
+<tech id="589" name="+100 gold/food, Imperial (ETH)" />
+<tech id="590" name="Free spear-line upgrades (ETH)" />
+<tech id="591" name="+1 pierce armor infantry, Feudal (MAL)" />
+<tech id="592" name="+1 pierce armor infantry, Castle (MAL)" />
+<tech id="593" name="+1 pierce armor infantry, Imperial (MAL)" />
+<tech id="594" name="Free mining upgrades (MAL)" />
+<tech id="595" name="Buildings cost -25% wood (MAL)" />
+<tech id="596" name="Caravel (A) (POR)" />
+<tech id="597" name="Elite Caravel (POR)" />
+<tech id="598" name="Genitour (A) (U) (BER)" />
+<tech id="599" name="Elite Genitour (BER)" />
+<tech id="600" name="Dark Cartography (T) (POR)" />
+<tech id="601" name="Genitour, Dummy (A)" />
+<tech id="602" name="Arson" />
+<tech id="603" name="Siege Tower (A)" />
+<tech id="604" name="Fire Galley (A)" />
+<tech id="605" name="Demolition Galley (A)" />
+<tech id="606" name="Elite Genitour (D)" />
+<tech id="607" name="Archers fire +15% faster (ETH)" />
+<tech id="608" name="Arrowslits" />
 </techs>
-
+ 
 <pcolors>
 <!-- Player colors. Note that the ref attribute is reverse-order. -->
 <color id="0" name="Blue"
-	color="FF3300" />
+    color="FF3300" />
 <color id="1" name="Red"
-	color="0000FF" />
+    color="0000FF" />
 <color id="2" name="Green"
-	color="00FF00" />
+    color="00FF00" />
 <color id="3" name="Yellow"
-	color="00FFFF" />
+    color="00FFFF" />
 <color id="4" name="Cyan"
-	color="FFFF00" />
+    color="FFFF00" />
 <color id="5" name="Purple"
-	color="FF00FF" />
+    color="FF00FF" />
 <color id="6" name="White"
-	color="FFFFFF" />
+    color="FFFFFF" />
 <color id="7" name="Orange"
-	color="0077FF" />
-<color id="8" name="Hunter"
-	color="004400" />
+    color="0077FF" />
+<color id="8" name="BlackGreen"
+    color="004400" />
 </pcolors>
-
+ 
 <units>
 <protounit id="0" name="Academy, Disabled" />
 <protounit id="1" name="Legionary" />
@@ -652,7 +710,7 @@ WS - Work Speed
 <protounit id="50" name="Farm" />
 <protounit id="51" name="Dock 4" />
 <protounit id="52" name="Royal Janissary" />
-<protounit id="53" name="Fish, Perch" />
+<protounit id="53" name="Fish (Perch)" />
 <protounit id="54" name="Proj, VOL" />
 <protounit id="55" name="Fishing Ship, D" />
 <protounit id="56" name="Fisher, M" />
@@ -788,7 +846,7 @@ WS - Work Speed
 <protounit id="186" name="Slinger, D" />
 <protounit id="187" name="Slinger, Proj." />
 <protounit id="188" name="Flamethrower" />
-<protounit id="189" name="Dragon, D" />
+<protounit id="189" name="Dragon, D / Flamethrower, D" />
 <protounit id="190" name="Fire Tower" />
 <protounit id="191" name="Rubble 2 x 2" />
 <protounit id="192" name="Rubble 2 x 2" />
@@ -907,7 +965,7 @@ WS - Work Speed
 <protounit id="305" name="Llama / Cactus" />
 <protounit id="306" name="Black Tile / Shadow" />
 <protounit id="307" name="Cuauhtemoc / Cactus" />
-<protounit id="308" name="Cactus" />
+<protounit id="308" name="Cactus / INDESTRUCT (?)" />
 <protounit id="309" name="Monk With Turkish Relic" />
 <protounit id="310" name="Mountain 1" />
 <protounit id="311" name="Mountain 2" />
@@ -1088,7 +1146,7 @@ WS - Work Speed
 <protounit id="486" name="Bear / Tiger" />
 <protounit id="487" name="Gate, AX2" />
 <protounit id="488" name="Gate, AX3" />
-<protounit id="489" name="Tiger, D" />
+<protounit id="489" name="Tiger, D / Bear, D" />
 <protounit id="490" name="Gate, BX2" />
 <protounit id="491" name="Gate, BX3" />
 <protounit id="492" name="Arbalest" />
@@ -1222,7 +1280,7 @@ WS - Work Speed
 <protounit id="620" name="Town Center 1C" />
 <protounit id="621" name="Town Center 1X" />
 <protounit id="622" name="D Iron Boar" />
-<protounit id="623" name="Rock 1" />
+<protounit id="623" name="Rock" />
 <protounit id="624" name="Pavilion 1" />
 <protounit id="625" name="Pavilion 3" />
 <protounit id="626" name="Pavilion 2" />
@@ -1234,11 +1292,11 @@ WS - Work Speed
 <protounit id="632" name="Frankish Paladin" />
 <protounit id="633" name="Frankish Paladin, D" />
 <protounit id="634" name="Sieur De Metz" />
-<protounit id="635" name="Sieur De Metz, D" />
+<protounit id="635" name="Building Burned (unused?)" />
 <protounit id="636" name="Sieur Bertrand" />
-<protounit id="637" name="Temple of Heaven / Sieur Bertrand, D" />
+<protounit id="637" name="Sieur Bertrand, D" />
 <protounit id="638" name="Duke D'Alencon" />
-<protounit id="639" name="Penguin / Duke D'Alencon, D" />
+<protounit id="639" name="Penguin" />
 <protounit id="640" name="La Hire" />
 <protounit id="641" name="La Hire, D" />
 <protounit id="642" name="Lord De Graville" />
@@ -1379,7 +1437,7 @@ WS - Work Speed
 <protounit id="777" name="Attila The Hun" />
 <protounit id="778" name="Canoe / Atilla The Hun, D" />
 <protounit id="779" name="Bleda The Hun" />
-<protounit id="780" name="Bleda The Hun, D" />
+<protounit id="780" name="Bleda The Hun, D / Llama, D" />
 <protounit id="781" name="Pope Leo I" />
 <protounit id="782" name="Pope Leo I, D" />
 <protounit id="783" name="Scythian Wild Woman" />
@@ -1442,24 +1500,24 @@ WS - Work Speed
 <protounit id="840" name="King Alfonso" />
 <protounit id="841" name="Rock (Gold) / King Alfonso, D" />
 <protounit id="842" name="Imam" />
-<protounit id="843" name="Imam, D" />
+<protounit id="843" name="Imam, D / Cow, D" />
 <protounit id="844" name="Admiral Yi Sun Shin" />
 <protounit id="845" name="Nobunaga" />
 <protounit id="846" name="Donkey / Nobunaga, D" />
 <protounit id="847" name="Henry V" />
-<protounit id="848" name="Henry V, D" />
+<protounit id="848" name="Henry V, D / Donkey, D" />
 <protounit id="849" name="William The Conqueror" />
 <protounit id="850" name="Amazon Archer / William The Conqueror, D" />
 <protounit id="851" name="Flag, ES" />
 <protounit id="852" name="Scythian Scout" />
 <protounit id="853" name="Scythian Scout, D" />
-<protounit id="854" name="Torch (Converting)" />
+<protounit id="854" name="Torch (Converting) / Torch 2" />
 <protounit id="855" name="Old Stone Head" />
 <protounit id="856" name="Roman Ruins" />
 <protounit id="857" name="Hay Stack" />
 <protounit id="858" name="Broken Cart" />
 <protounit id="859" name="Flower Bed" />
-<protounit id="860" name="Furious the Monkey Boy" />
+<protounit id="860" name="Furious The Monkey Boy" />
 <protounit id="861" name="Furious The Monkey Boy, D" />
 <protounit id="862" name="Stormy Dog" />
 <protounit id="863" name="Rubble 1 X 1" />
@@ -1484,59 +1542,177 @@ WS - Work Speed
 <protounit id="882" name="Condottiero" />
 <protounit id="883" name="Condottiero, D" />
 <protounit id="884" name="Wild Camel" />
-<protounit id="885" name="Siege Tower" />
+<protounit id="885" name="Siege Tower (AoFE)" />
 <protounit id="886" name="Tarkan 2" />
 <protounit id="887" name="Elite Tarkan 2" />
 <protounit id="888" name="Inca_Turkey+Eagle" />
 <protounit id="889" name="Inca_Eagle" />
 <protounit id="890" name="Inca_Turkey" />
-<protounit id="891" name="Siege Tower, D" />
+<protounit id="891" name="Siege Tower (AoFE), D" />
 <protounit id="892" name="Pikeman 2" />
 <protounit id="893" name="Pikeman 2, D" />
 <protounit id="894" name="Eastern Swordsman" />
 <protounit id="895" name="Eastern Swordsman, D" />
 <protounit id="896" name="Waterfall" />
-<protounit id="897" name="Camel (Gaia)" />
+<protounit id="897" name="Camel 2 (Gaia)" />
 <protounit id="898" name="Camel 2, D" />
 <protounit id="899" name="Arch of Constantine" />
 <protounit id="900" name="Rain" />
 <protounit id="901" name="Flag F" />
 <protounit id="902" name="Smoke" />
-
 <protounit id="904" name="Wooden Bridge A Top" />
 <protounit id="905" name="Wooden Bridge A Middle" />
 <protounit id="906" name="Wooden Bridge A Bottom" />
 <protounit id="907" name="Wooden Bridge B Top" />
 <protounit id="908" name="Wooden Bridge B Middle" />
 <protounit id="909" name="Wooden Bridge B Bottom" />
+ 
 <protounit id="910" name="Impaled Corpse" />
-
+ 
 <protounit id="914" name="Quarry" />
 <protounit id="915" name="Lumber" />
 <protounit id="916" name="Goods" />
 <protounit id="917" name="Vulture" />
 <protounit id="918" name="Rock 2" />
-
+<protounit id="919" name="Amazon Warrior, D" />
+<protounit id="920" name="Amazon Warrior (archer), D" />
+<protounit id="921" name="Monk (ME), D" />
+<protounit id="922" name="Monk (ME) w/ relic" />
 <protounit id="923" name="Queen" />
-
+<protounit id="924" name="Queen, D" />
 <protounit id="925" name="Sanyogita" />
 <protounit id="926" name="Prithvi" />
 <protounit id="927" name="Chand Bhai" />
-
+<protounit id="928" name="Chand Bhai, D" />
+<protounit id="929" name="Saladin" />
 <protounit id="930" name="Khosrau" />
 <protounit id="931" name="Jarl" />
-<protounit id="932" name="Savaran" />
+<protounit id="932" name="Saravan" />
 <protounit id="933" name="Barrels" />
 <protounit id="934" name="Alfred the Alpaca" />
-
+<protounit id="935" name="Alfred the Alpaca, D" />
+<protounit id="936" name="Elephant" />
+<protounit id="937" name="Elephant, D" />
 <protounit id="938" name="Dragon Ship" />
 <protounit id="939" name="Flame 1" />
 <protounit id="940" name="Flame 2" />
 <protounit id="941" name="Flame 3" />
 <protounit id="942" name="Flame 4" />
 <protounit id="943" name="Osman" />
-
 <protounit id="944" name="Relic Cart (SCX2)" />
+<protounit id="945" name="Shah, D" />
+<protounit id="1001" name="Organ Gun" />
+<protounit id="1002" name="Organ Gun, D" />
+<protounit id="1003" name="Elite Organ Gun" />
+<protounit id="1004" name="Caravel" />
+<protounit id="1005" name="Unused dead unit" />
+<protounit id="1006" name="Elite Caravel" />
+<protounit id="1007" name="Camel Archer" />
+<protounit id="1008" name="Camel Archer, D" />
+<protounit id="1009" name="Elite Camel Archer" />
+<protounit id="1009" name="Elite Camel Archer" />
+<protounit id="1010" name="Berber Genitour" />
+<protounit id="1011" name="Berber Genitour, D" />
+<protounit id="1012" name="Elite Berber Genitour" />
+<protounit id="1013" name="Gbeto" />
+<protounit id="1014" name="Gbeto, D" />
+<protounit id="1015" name="Elite Gbeto" />
+<protounit id="1016" name="Shotel Warrior" />
+<protounit id="1017" name="Shotel Warrior, D" />
+<protounit id="1018" name="Elite Shotel Warrior" />
+<protounit id="1019" name="Zebra" />
+<protounit id="1020" name="Zebra, D" />
+<protounit id="1021" name="Feitoria" />
+<protounit id="1022" name="Boarding Ship" />
+<protounit id="1023" name="Priest" />
+<protounit id="1024" name="Priest, D" />
+<protounit id="1025" name="Priest w/ Relic" />
+<protounit id="1026" name="Ostrich" />
+<protounit id="1027" name="Ostrich, D" />
+<protounit id="1028" name="Stork" />
+<protounit id="1029" name="Lion" />
+<protounit id="1030" name="Lion, D" />
+<protounit id="1031" name="Crocodile" />
+<protounit id="1032" name="Crocodile, D" />
+<protounit id="1033" name="Savannah Grass Patch" />
+<protounit id="1034" name="Musa" />
+<protounit id="1035" name="Sundjata" />
+<protounit id="1036" name="Tariq" />
+<protounit id="1037" name="Richard de Clare" />
+<protounit id="1038" name="Tristan" />
+<protounit id="1039" name="Princess Yodit" />
+<protounit id="1040" name="Henry II" />
+<protounit id="1041" name="Mountain 5" />
+<protounit id="1042" name="Mountain 6" />
+<protounit id="1043" name="Mountain 7" />
+<protounit id="1044" name="Mountain 8" />
+<protounit id="1045" name="Snow Mountain 1" />
+<protounit id="1046" name="Snow Mountain 2" />
+<protounit id="1047" name="Snow Mountain 3" />
+<protounit id="1048" name="Rock Formation 1" />
+<protounit id="1049" name="Rock Formation 2" />
+<protounit id="1050" name="Rock Formation 3" />
+<protounit id="1051" name="Dragon Tree" />
+<protounit id="1052" name="Baobab Tree" />
+<protounit id="1053" name="Bush 2" />
+<protounit id="1054" name="Bush 3" />
+<protounit id="1055" name="Projectile, Gbeto" />
+<protounit id="1056" name="Falcon, unused" />
+<protounit id="1057" name="Projectile" />
+<protounit id="1058" name="Projectile" />
+<protounit id="1059" name="Fruit Bush" />
+<protounit id="1060" name="Goat" />
+<protounit id="1061" name="Goat, D" />
+<protounit id="1062" name="Fence" />
+<protounit id="1063" name="Acacia" />
+<protounit id="1064" name="Yekuno Amlak" />
+<protounit id="1065" name="Rubble 1 x 1 (Fence)" />
+<protounit id="1066" name="Yodit" />
+<protounit id="1067" name="Itzcoatl" />
+<protounit id="1068" name="Mustafa Pasha" />
+<protounit id="1069" name="Pacal II" />
+<protounit id="1070" name="Babur" />
+<protounit id="1071" name="Abraha Elephant" />
+<protounit id="1072" name="Guglielmo Embriaco" />
+<protounit id="1073" name="Su Dingfang" />
+<protounit id="1074" name="Pachacuti" />
+<protounit id="1075" name="Huayna Capac" />
+<protounit id="1076" name="Miklos Toldi" />
+<protounit id="1077" name="Little John" />
+<protounit id="1078" name="Zawisza the Black" />
+<protounit id="1079" name="Genitour, Dummy" />
+<protounit id="1080" name="Sumanguru" />
+<protounit id="1081" name="Storage" />
+<protounit id="1082" name="Hut" />
+<protounit id="1083" name="Hut" />
+<protounit id="1084" name="Hut" />
+<protounit id="1085" name="Hut" />
+<protounit id="1086" name="Hut" />
+<protounit id="1087" name="Hut" />
+<protounit id="1088" name="Hut" />
+<protounit id="1089" name="Granary" />
+<protounit id="1090" name="Barricade" />
+<protounit id="1091" name="Animal Skeleton" />
+<protounit id="1092" name="Stelae A" />
+<protounit id="1093" name="Stelae B" />
+<protounit id="1094" name="Stelae C" />
+<protounit id="1095" name="Gallow" />
+<protounit id="1096" name="Palace" />
+<protounit id="1097" name="Tent" />
+<protounit id="1098" name="Tent" />
+<protounit id="1099" name="Tent" />
+<protounit id="1100" name="Tent" />
+<protounit id="1101" name="Tent" />
+<protounit id="1102" name="Sea Fortification" />
+<protounit id="1103" name="Fire Galley" />
+<protounit id="1104" name="Demolition Galley" />
+<protounit id="1105" name="Siege Tower" />
+<protounit id="1106" name="Dagnajan" />
+<protounit id="1107" name="Siege Tower, D" />
+<protounit id="1108" name="Dagnajan, D" />
+<protounit id="1109" name="Gidajan" />
+<protounit id="1110" name="Gidajan, D" />
+ 
 </units>
 
 <resources>
@@ -1739,8 +1915,19 @@ WS - Work Speed
 <simple id="195" name="Build Rate (Except Wonders)" />
 <simple id="196" name="Atheism (Wonder Bonus)" />
 <simple id="197" name="Atheism (Spies Discount)" />
+<simple id="198" name="Unk 198 (unused?)" />
+<simple id="199" name="Unk 199 (unused?)" />
+<simple id="200" name="Unk 200 (unused?)" />
+<simple id="201" name="Unk 201 (unused?)" />
+<simple id="202" name="Unk 202 (unused?)" />
+<simple id="203" name="Unk 203 (unused?)" />
+<simple id="204" name="Unk 204 (unused?)" />
+<simple id="205" name="Feitoria Food Productivity" />
+<simple id="206" name="Feitoria Wood Productivity" />
+<simple id="207" name="Feitoria Stone Productivity" />
+<simple id="208" name="Feitoria Gold Productivity" />
 </resources>
-
+ 
 <aitypes>
 <simple id="2" name="Default" />
 <simple id="9" name="Arabia" />
@@ -1833,10 +2020,19 @@ usual.
 <terrain id="37" color="CFDAFF" name="Ice, Beach (allows ships, build walls only)" />
 <terrain id="38" color="d8d8ff" name="Road, Snow" />
 <terrain id="39" color="c8f8ef" name="Road, Fungus" />
-<terrain id="40" color="e4a290" name="Rock / Road (no buildings)" />
-<terrain id="41" color="333333" name="Black, map looks like grass 1, nobuild, desync" />
+<terrain id="40" color="e4a290" name="Rock 1" />
+<terrain id="41" color="95A661" name="Savannah" />
+<terrain id="42" color="d59545" name="Dirt 4" />
+<terrain id="43" color="d49242" name="Desert Road" />
+<terrain id="44" color="93AC4C" name="Grass 4" />
+<terrain id="45" color="FFD094" name="Desert 2" />
+<terrain id="46" color="AEB65E" name="Quicksand" />
+<terrain id="47" color="000000" name="Black" />
+<terrain id="48" color="FFE094" name="Dragon Forest" />
+<terrain id="49" color="FFE094" name="Baobab Forest" />
+<terrain id="50" color="FFE094" name="Acacia Forest" />
 </terrains>
-
+ 
 <!-- The following are custom unit groups. They have no effect on the saved scenario,
      just the editor itself. Feel free to add some more if you like. Also, make sure
      this is after the specifications of the units themselves. -->
@@ -1888,6 +2084,10 @@ usual.
 <civ id="21" name="Incas" />
 <civ id="22" name="Magyars" />
 <civ id="23" name="Slavs" />
+<civ id="24" name="Portuguese" />
+<civ id="25" name="Ethiopians" />
+<civ id="26" name="Malians" />
+<civ id="27" name="Berbers" />
 </civs>
 
 </geniedata>
