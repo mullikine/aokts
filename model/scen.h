@@ -274,6 +274,8 @@ public:
 	void auto_upgrade_hd4();
 	void auto_upgrade_hd6();
 	void clean_format();
+	bool isHD();
+	bool isAOE2();
 	void adapt_game();
 	void reset();
 	bool export_bmp(const char *path);

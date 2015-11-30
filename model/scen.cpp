@@ -427,6 +427,14 @@ void Scenario::AOKBMP::reset()
 char Scenario::StandardAI[] = "RandomGame";
 char Scenario::StandardAI2[] = "Promisory";
 
+bool Scenario::isHD() {
+    return game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6;
+}
+
+bool Scenario::isAOE2() {
+    return game == AOK || game == AOC || isHD();
+}
+
 void Scenario::adapt_game() {
 	switch (game) {
 	case AOE:
@@ -863,7 +871,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 		}
 		break;
 	case SWGB:
-		if ((game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6))
+		if (isHD())
 			hd_to_swgb();
 		if (game == UP)
 			up_to_swgb();
@@ -871,7 +879,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 			aok_to_aoc();
 		break;
 	case SWGBCC:
-		if ((game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6))
+		if (isHD())
 			hd_to_swgb();
 		if (game == UP)
 			up_to_swgb();
@@ -3306,7 +3314,7 @@ AOKTS_ERROR Scenario::water_cliffs_visibility(const bool visibility)
     Unit * u;
     Map::Terrain * t;
 	for (int j = 0; j < numunits; j++) {
-	    if (game == AOK || game == AOC || game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6) {
+	    if (isAOE2()) {
 	        // 264 - 272 are cliffs (avoid) when game is aoe2
 	        u = &(players[8].units.at(j));
 	        if (u->getType()->id() >= 264 && players[8].units.at(j).getType()->id() <= 272) {
