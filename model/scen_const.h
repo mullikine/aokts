@@ -30,8 +30,13 @@ enum Game
 	AOF4    = 11,
 	AOHD6   = 12,
 	AOF6    = 13,
-	AOAK    = 14,
 	NOCONV  = 100
+};
+
+enum HeaderType
+{
+	HT_SC           = 2, // SCN, SCX, SC1, SCX2
+	HT_AOE2SCENARIO = 3  // African Kingdoms header describing dependencies
 };
 
 enum ScenVersion1
@@ -136,5 +141,8 @@ extern const struct PAIR groups[NUM_GROUPS];
 
 const size_t  NUM_UTYPES = 7;
 extern const struct PAIR utypes[NUM_UTYPES];
+
+bool isHD(Game game);
+bool isAOE2(Game game);
 
 #endif //SCEN_CONST_H

@@ -212,49 +212,50 @@ void FileSave(HWND sheet, bool as, bool write)
 
 	    startver = scen.game;
 
-		switch (scen.game) {
-		case AOK:
-		    ofn.nFilterIndex =	1;
-		    ofn.lpstrDefExt =	"scn";
-		    break;
-		case AOC:
-		    ofn.nFilterIndex =	2;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case UP:
-		    ofn.nFilterIndex =	3;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case AOHD:
-		case AOHD4:
-		    ofn.nFilterIndex =	4;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case AOF:
-		case AOF4:
-		    ofn.nFilterIndex =	5;
-		    ofn.lpstrDefExt =	"scx2";
-		    break;
-		case AOAK:
+		if (scen.header.header_type == HT_AOE2SCENARIO) {
 		    ofn.nFilterIndex =	6;
 		    ofn.lpstrDefExt =	"aoe2scenario";
-		    break;
-		case SWGB:
-		    ofn.nFilterIndex =	7;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case SWGBCC:
-		    ofn.nFilterIndex =	8;
-		    ofn.lpstrDefExt =	"sc1";
-		    break;
-		case AOHD6:
-		    ofn.nFilterIndex =	9;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case AOF6:
-		    ofn.nFilterIndex =	10;
-		    ofn.lpstrDefExt =	"scx2";
-		    break;
+		} else {
+		    switch (scen.game) {
+		    case AOK:
+		        ofn.nFilterIndex =	1;
+		        ofn.lpstrDefExt =	"scn";
+		        break;
+		    case AOC:
+		        ofn.nFilterIndex =	2;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case UP:
+		        ofn.nFilterIndex =	3;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case AOHD:
+		    case AOHD4:
+		        ofn.nFilterIndex =	4;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case AOF:
+		    case AOF4:
+		        ofn.nFilterIndex =	5;
+		        ofn.lpstrDefExt =	"scx2";
+		        break;
+		    case SWGB:
+		        ofn.nFilterIndex =	7;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case SWGBCC:
+		        ofn.nFilterIndex =	8;
+		        ofn.lpstrDefExt =	"sc1";
+		        break;
+		    case AOHD6:
+		        ofn.nFilterIndex =	9;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case AOF6:
+		        ofn.nFilterIndex =	10;
+		        ofn.lpstrDefExt =	"scx2";
+		        break;
+		    }
 		}
 
 		if (!GetSaveFileName(&ofn))
@@ -277,19 +278,19 @@ void FileSave(HWND sheet, bool as, bool write)
 		    conv = AOF4;
 		    break;
 		case 6:
-		    conv = SWGB;
+		    conv = startver;
 		    break;
 		case 7:
-		    conv = SWGBCC;
+		    conv = SWGB;
 		    break;
 		case 8:
-		    conv = AOHD6;
+		    conv = SWGBCC;
 		    break;
 		case 9:
-		    conv = AOF6;
+		    conv = AOHD6;
 		    break;
 		case 10:
-		    conv = AOAK;
+		    conv = AOF6;
 		    break;
 		}
 
@@ -468,24 +469,28 @@ void FileOpen(HWND sheet, bool ask, int recent)
 		ofn.lpstrTitle =	NULL;
 		ofn.Flags =			OFN_FILEMUSTEXIST | OFN_NONETWORKBUTTON | OFN_NOCHANGEDIR;
 
-		switch (scen.game) {
-		case AOK:
-		case AOC:
-		case AOHD:
-		case AOF:
-		case AOHD4:
-		case AOF4:
-		case AOHD6:
-		case AOF6:
-		case AOAK:
+		if (scen.header.header_type == HT_AOE2SCENARIO) {
 		    ofn.nFilterIndex =	1;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
-		case SWGB:
-		case SWGBCC:
-		    ofn.nFilterIndex =	2;
-		    ofn.lpstrDefExt =	"scx";
-		    break;
+		    ofn.lpstrDefExt =	"aoe2scenario";
+		} else {
+		    switch (scen.game) {
+		    case AOK:
+		    case AOC:
+		    case AOHD:
+		    case AOF:
+		    case AOHD4:
+		    case AOF4:
+		    case AOHD6:
+		    case AOF6:
+		        ofn.nFilterIndex =	1;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    case SWGB:
+		    case SWGBCC:
+		        ofn.nFilterIndex =	2;
+		        ofn.lpstrDefExt =	"scx";
+		        break;
+		    }
 		}
 
 		if (!GetOpenFileName(&ofn))

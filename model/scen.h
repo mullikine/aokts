@@ -224,7 +224,7 @@ public:
 	{
 		char version[5];		//Version string (+ 1 for NULL)
 		long length;			//length of header (after this point)
-		long check;			//incremented in AOAK
+		HeaderType header_type;
 		unsigned long instruct_len;  	//Instructions string length
 		unsigned long n_players;
 		unsigned long original_game; // not sure about this
@@ -274,8 +274,6 @@ public:
 	void auto_upgrade_hd4();
 	void auto_upgrade_hd6();
 	void clean_format();
-	bool isHD();
-	bool isAOE2();
 	void adapt_game();
 	void reset();
 	bool export_bmp(const char *path);

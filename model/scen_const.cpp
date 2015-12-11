@@ -152,3 +152,11 @@ const struct PAIR utypes[] =
 	{  4, "Military" },
 	{  5, "Monk w/o Relic" }
 };
+
+bool isHD(Game game) {
+    return game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6;
+}
+
+bool isAOE2(Game game) {
+    return game == AOK || game == AOC || isHD(game);
+}

@@ -427,14 +427,6 @@ void Scenario::AOKBMP::reset()
 char Scenario::StandardAI[] = "RandomGame";
 char Scenario::StandardAI2[] = "Promisory";
 
-bool Scenario::isHD() {
-    return game == AOHD || game == AOF || game == AOHD4 || game == AOF4 || game == AOHD6 || game == AOF6;
-}
-
-bool Scenario::isAOE2() {
-    return game == AOK || game == AOC || isHD();
-}
-
 void Scenario::adapt_game() {
 	switch (game) {
 	case AOE:
@@ -683,7 +675,7 @@ Game Scenario::open(const char *path, const char *dpath, Game version)
 	}
 
 	/* Inflate and Read Compressed Data */
-	if (header.check == 3) {
+	if (header.header_type == HT_AOE2SCENARIO) {
 	    // length no longer indicates header length (or likely never truly did)
 	    clen = fsize(path) - ((8 + 2 + header.n_datasets) * 4 + header.instruct_len);
 	} else {
@@ -871,7 +863,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 		}
 		break;
 	case SWGB:
-		if (isHD())
+		if (isHD(game))
 			hd_to_swgb();
 		if (game == UP)
 			up_to_swgb();
@@ -879,7 +871,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 			aok_to_aoc();
 		break;
 	case SWGBCC:
-		if (isHD())
+		if (isHD(game))
 			hd_to_swgb();
 		if (game == UP)
 			up_to_swgb();
@@ -889,6 +881,12 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 	}
 	game = convert;
 	adapt_game();
+
+	if (strstr(setts.ScenPath, ".aoe2scenario")) {
+	    header.header_type = HT_AOE2SCENARIO;
+	} else {
+	    header.header_type = HT_SC;
+	}
 
 	/* Header */
 	header.write(scx.get(), messages, getPlayerCount(), game);
@@ -961,19 +959,18 @@ bool Scenario::_header::read(FILE *scx)
 	fread(&length, sizeof(long), 1, scx);
 	printf_log("\tlength: %ld.\n", length);
 
-	fread(&check, sizeof(long), 1, scx); // version number I think
-	printf_log("\tcheck: %ld.\n", check);
-	REPORTS(check == 2 || check == 3, ret = false, "Header check value invalid.\n");
+	fread(&header_type, sizeof(long), 1, scx); // version number I think
+	printf_log("\theader_type: %ld.\n", header_type);
+	REPORTS(header_type == HT_SC || header_type == HT_AOE2SCENARIO, ret = false, "Header type value invalid.\n");
 	fread(&timestamp, sizeof(timestamp), 1, scx);
 	fread(&instruct_len, sizeof(long), 1, scx);
 	printf_log("\tinstruct_len: %ld.\n", instruct_len);
 	SKIP(scx, instruct_len);             //instructions
 	SKIP(scx, sizeof(long));	//unknown
 	fread(&n_players, sizeof(long), 1, scx);
-	if (check == 2) {
-        ;
-	} else if (check == 3) {
-	    SKIP(scx, sizeof(long));	// new special AOAK variable
+	if (header_type == HT_AOE2SCENARIO) {
+	    // aoe2scenario format
+	    SKIP(scx, sizeof(long));
 	    fread(&original_game, sizeof(long), 1, scx);
 	    fread(&n_datasets, sizeof(long), 1, scx);
 	    for (int i = 0; i < n_datasets; i++)
@@ -985,9 +982,6 @@ bool Scenario::_header::read(FILE *scx)
 
 void Scenario::_header::write(FILE *scx, const SString *instr, long players, Game g)
 {
-    // this is the header 1
-	long num;
-
 	switch (g)
 	{
 	case AOK:
@@ -1003,7 +997,6 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	case AOF4:
 	case AOHD6:
 	case AOF6:
-	case AOAK:
 		strcpy(version, "1.21");
 		break;
 	default:
@@ -1012,17 +1005,15 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	}
 	fwrite(version, sizeof(char), 4, scx);
 
-    if (g == AOAK) {
+    if (header_type == HT_AOE2SCENARIO) {
 	    NULLS(scx, sizeof(long));
-	    num = 3;
     } else {
 	    /* Length calculation is a little tricky */
 	    length = 0x14 + instr->lwn();
 	    fwrite(&length, sizeof(long), 1, scx);
-	    num = 2;
 	}
 
-	fwrite(&num, sizeof(long), 1, scx);
+	fwrite(&header_type, sizeof(long), 1, scx);
 
 	fwrite(&timestamp, sizeof(timestamp), 1, scx);
 
@@ -1032,13 +1023,20 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 
 	fwrite(&players, sizeof(long), 1, scx);
 
-	if (g == AOAK) {
-	    num = 1000;
+	if (header_type == HT_AOE2SCENARIO) {
+	    long num = 1000;
 	    fwrite(&num, sizeof(long), 1, scx);
 	    fwrite(&original_game, sizeof(long), 1, scx);
-	    fwrite(&n_datasets, sizeof(long), 1, scx);
-	    for (int i = 0; i < n_datasets; i++)
-	        fwrite(&datasets[i], sizeof(long), 1, scx);
+	    if (n_datasets == 0) {
+	        n_datasets = 2;
+	        fwrite(&n_datasets, sizeof(long), 1, scx);
+	        for (long i = 0; i < n_datasets; i++)
+	            fwrite(&i, sizeof(long), 1, scx);
+	    } else {
+	        fwrite(&n_datasets, sizeof(long), 1, scx);
+	        for (int i = 0; i < n_datasets; i++)
+	            fwrite(&datasets[i], sizeof(long), 1, scx);
+	    }
 	}
 }
 
@@ -1187,7 +1185,6 @@ void Scenario::read_data(const char *path)	//decompressed data
 		case AOHD6:
 		case AOF6:
 		case UP:
-		case AOAK:
 		    game = AOC;
 		    break;
 		case SWGB:
@@ -3314,7 +3311,7 @@ AOKTS_ERROR Scenario::water_cliffs_visibility(const bool visibility)
     Unit * u;
     Map::Terrain * t;
 	for (int j = 0; j < numunits; j++) {
-	    if (isAOE2()) {
+	    if (isAOE2(game)) {
 	        // 264 - 272 are cliffs (avoid) when game is aoe2
 	        u = &(players[8].units.at(j));
 	        if (u->getType()->id() >= 264 && players[8].units.at(j).getType()->id() <= 272) {
