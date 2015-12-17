@@ -64,6 +64,17 @@ void Unit::setType(const UnitLink *t)
 	cnst = (UCNST)t->id();
 }
 
+void Unit::setType(UCNST new_cnst)
+{
+	this->cnst = new_cnst;
+	pType = esdata.units.getByIdSafe(cnst);
+}
+
+UCNST Unit::getTypeID()
+{
+	return cnst;
+}
+
 void Unit::toBuffer(Buffer &to) const
 {
 	to.write(this, size);

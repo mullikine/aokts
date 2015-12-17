@@ -10,6 +10,7 @@
 
 #include "../util/settings.h"
 #include "../util/helper.h"
+#include "../util/utilio.h"
 
 #include <stdio.h>
 #include "../res/resource.h"
@@ -113,20 +114,39 @@ bool Units_Load(HWND dialog)
 	return ret;
 }
 
+void Units_EnableChangeOwnership(HWND dialog)
+{
+    unsigned int pindex = propdata.p - scen.players;
+    for (int i = 0; i <= GAIA_INDEX; i++) {
+        ENABLE_WND(IDC_U_MAKEP1 + i, i != pindex);
+    }
+}
+
+void Units_DisableChangeOwnership(HWND dialog)
+{
+	ENABLE_WND(IDC_U_MAKEP1, false);
+	ENABLE_WND(IDC_U_MAKEP2, false);
+	ENABLE_WND(IDC_U_MAKEP3, false);
+	ENABLE_WND(IDC_U_MAKEP4, false);
+	ENABLE_WND(IDC_U_MAKEP5, false);
+	ENABLE_WND(IDC_U_MAKEP6, false);
+	ENABLE_WND(IDC_U_MAKEP7, false);
+	ENABLE_WND(IDC_U_MAKEP8, false);
+	ENABLE_WND(IDC_U_MAKEGA, false);
+}
+
 void Units_Save(HWND dialog)
 {
+    const Link * ucnst_sel;
 	if (u_index != SIZE_MAX)
 	{
 		Unit& u = propdata.p->units[u_index];
 		// Get the selected UnitLink * from constant selection box.
-		const Link * ucnst_sel =
-			LinkListBox_GetSel(GetDlgItem(dialog, IDC_U_UNIT));
+		ucnst_sel = LinkListBox_GetSel(GetDlgItem(dialog, IDC_U_UNIT));
 
 		u.x =		GetDlgItemFloat(dialog, IDC_U_X);
 		u.y =		GetDlgItemFloat(dialog, IDC_U_Y);
 		u.z =		GetDlgItemFloat(dialog, IDC_U_Z);
-		if (ucnst_sel) // will be NULL if user changed group
-			u.setType(static_cast<const UnitLink *>(ucnst_sel));
 		//u.rotate =	(float)SendDlgItemMessage(dialog, IDC_U_ROTATE, CB_GETCURSEL, 0, 0) / 4 * (float)PI;
 		u.rotate = GetDlgItemFloat(dialog, IDC_U_ROTATE_VAL);
 		u.frame = (short)GetDlgItemInt(dialog, IDC_U_FRAME, NULL, TRUE);
@@ -134,13 +154,9 @@ void Units_Save(HWND dialog)
 		u.ident = GetDlgItemInt(dialog, IDC_U_ID, NULL, TRUE);
 		u.state = (char)GetDlgItemInt(dialog, IDC_U_STATE, NULL, TRUE);
 	}
-}
 
-/*
-	UnitList_ChangeType: Handles change the type constant of a unit.
-*/
-void UnitList_ChangeType(HWND dialog, HWND typebox)
-{
+    HWND typebox = GetDlgItem(dialog, IDC_U_UNIT);
+
 	HWND selbox, ttext;
 
 	selbox = GetDlgItem(dialog, IDC_U_SELU);
@@ -160,7 +176,8 @@ void UnitList_ChangeType(HWND dialog, HWND typebox)
 
 		Unit& u = units[u_index];
 
-		Units_Save(dialog);
+		if (ucnst_sel) // will be NULL if user changed group
+			u.setType(static_cast<const UnitLink *>(ucnst_sel));
 
 		//then "update" the string in the selection box
 		SendMessage(selbox, LB_DELETESTRING, selected_index, 0);
@@ -176,6 +193,12 @@ void UnitList_ChangeType(HWND dialog, HWND typebox)
 		SetWindowTextW(ttext, L"ERR");
 }
 
+void UnitList_ChangeType(HWND dialog, HWND typebox)
+{
+    unsigned int type_index = SendMessage(typebox, LB_GETCURSEL, 0, 0);
+	c_index = type_index;
+}
+
 void Units_Reset(HWND dialog)
 {
 	enum Sorts sort =
@@ -186,15 +209,7 @@ void Units_Reset(HWND dialog)
 		propdata.p->units);
 	u_index = SIZE_MAX;
 	ENABLE_WND(IDC_U_DEL, false);
-	ENABLE_WND(IDC_U_MAKEP1, false);
-	ENABLE_WND(IDC_U_MAKEP2, false);
-	ENABLE_WND(IDC_U_MAKEP3, false);
-	ENABLE_WND(IDC_U_MAKEP4, false);
-	ENABLE_WND(IDC_U_MAKEP5, false);
-	ENABLE_WND(IDC_U_MAKEP6, false);
-	ENABLE_WND(IDC_U_MAKEP7, false);
-	ENABLE_WND(IDC_U_MAKEP8, false);
-	ENABLE_WND(IDC_U_MAKEGA, false);
+	Units_DisableChangeOwnership(dialog);
 	ENABLE_WND(IDC_U_DESELECT, false);
 	Units_Load(dialog);
 }
@@ -235,17 +250,8 @@ void Units_HandleDelete(HWND dialog)
 	else
 	{
 		ENABLE_WND(IDC_U_DEL, false);
-		ENABLE_WND(IDC_U_MAKEP1, false);
-		ENABLE_WND(IDC_U_MAKEP2, false);
-		ENABLE_WND(IDC_U_MAKEP3, false);
-		ENABLE_WND(IDC_U_MAKEP4, false);
-		ENABLE_WND(IDC_U_MAKEP5, false);
-		ENABLE_WND(IDC_U_MAKEP6, false);
-		ENABLE_WND(IDC_U_MAKEP7, false);
-		ENABLE_WND(IDC_U_MAKEP8, false);
-		ENABLE_WND(IDC_U_MAKEGA, false);
 		ENABLE_WND(IDC_U_DESELECT, false);
-		u_index = SIZE_MAX;
+		Units_DisableChangeOwnership(dialog);
 	}
 }
 
@@ -262,6 +268,9 @@ void Units_HandleChangeOwnership(HWND dialog, unsigned int player)
 	}
 
     Player * p = scen.players + player;
+
+    if (p == propdata.p)
+        return;
 
     p->add_unit(*(propdata.p->units.begin() + u_index));
 
@@ -329,18 +338,12 @@ void Units_HandleChangeOwnership(HWND dialog, unsigned int player)
 	else
 	{
 		ENABLE_WND(IDC_U_DEL, false);
-		ENABLE_WND(IDC_U_MAKEP1, false);
-		ENABLE_WND(IDC_U_MAKEP2, false);
-		ENABLE_WND(IDC_U_MAKEP3, false);
-		ENABLE_WND(IDC_U_MAKEP4, false);
-		ENABLE_WND(IDC_U_MAKEP5, false);
-		ENABLE_WND(IDC_U_MAKEP6, false);
-		ENABLE_WND(IDC_U_MAKEP7, false);
-		ENABLE_WND(IDC_U_MAKEP8, false);
-		ENABLE_WND(IDC_U_MAKEGA, false);
+		Units_DisableChangeOwnership(dialog);
 		ENABLE_WND(IDC_U_DESELECT, false);
 		u_index = SIZE_MAX;
 	}
+
+	SendMessage(propdata.mapview, MAP_Reset, 0, 0);
 }
 
 void Units_HandleRandomizeRotation(HWND dialog)
@@ -362,7 +365,7 @@ void Units_HandleSelChange(HWND dialog, HWND listbox)
 {
 	int index;
 
-	Units_Save(dialog);
+	//Units_Save(dialog);
 	SendMessage(propdata.mapview, MAP_UnhighlightPoint,
 		MAP_UNHIGHLIGHT_ALL, 0);
 	index = SendMessage(listbox, LB_GETCURSEL, 0, 0);
@@ -377,15 +380,7 @@ void Units_HandleSelChange(HWND dialog, HWND listbox)
 	if (u_index >= 0)
 	{
 		EnableWindow(GetDlgItem(dialog, IDC_U_DEL), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP1), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP2), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP3), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP4), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP5), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP6), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP7), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEP8), TRUE);
-		EnableWindow(GetDlgItem(dialog, IDC_U_MAKEGA), TRUE);
+		Units_EnableChangeOwnership(dialog);
 		EnableWindow(GetDlgItem(dialog, IDC_U_DESELECT), TRUE);
 		EnableMenuItem(propdata.menu, ID_EDIT_DELETE, MF_ENABLED);
 	}
@@ -404,6 +399,11 @@ void Units_HandleTypeChange(HWND dialog, HWND typelist)
     }
 }
 
+void Units_HandleSaveType(HWND dialog)
+{
+	Units_Save(dialog);
+}
+
 void Units_HandleRenumber(HWND dialog)
 {
     scen.compress_unit_ids();
@@ -414,25 +414,30 @@ void Units_HandleDeleteAllType(HWND dialog)
 	unsigned index;
 	HWND selbox = GetDlgItem(dialog, IDC_U_SELU);
 
-    propdata.p->erase_unit_type((static_cast<const UnitLink *>( LinkListBox_Get(GetDlgItem(dialog, IDC_U_UNIT), c_index)))->id());
+    UCNST utype = (static_cast<const UnitLink *>( LinkListBox_Get(GetDlgItem(dialog, IDC_U_UNIT), c_index)))->id();
+    propdata.p->erase_unit_type(utype);
 
 	index = SendMessage(selbox, LB_GETCURSEL, 0, 0);
 	SendMessage(selbox, LB_DELETESTRING, index, 0);
 
 	ENABLE_WND(IDC_U_DEL, false);
-	ENABLE_WND(IDC_U_MAKEP1, false);
-	ENABLE_WND(IDC_U_MAKEP2, false);
-	ENABLE_WND(IDC_U_MAKEP3, false);
-	ENABLE_WND(IDC_U_MAKEP4, false);
-	ENABLE_WND(IDC_U_MAKEP5, false);
-	ENABLE_WND(IDC_U_MAKEP6, false);
-	ENABLE_WND(IDC_U_MAKEP7, false);
-	ENABLE_WND(IDC_U_MAKEP8, false);
-	ENABLE_WND(IDC_U_MAKEGA, false);
+	Units_DisableChangeOwnership(dialog);
 	ENABLE_WND(IDC_U_DESELECT, false);
 	u_index = SIZE_MAX;
 	Units_Reset(dialog);
 	SendMessage(propdata.mapview, MAP_Reset, 0, 0);
+}
+
+void Units_HandleChangeTypeAll(HWND dialog)
+{
+	HWND selbox = GetDlgItem(dialog, IDC_U_SELU);
+
+    UCNST sutype = (propdata.p->units.begin() + u_index)->getTypeID(); // selected unit type
+    UCNST utype  = (static_cast<const UnitLink *>(LinkListBox_Get(GetDlgItem(dialog, IDC_U_UNIT), c_index)))->id(); // unit type
+
+    propdata.p->change_unit_type_for_all_of_type(sutype, utype);
+
+	Units_Reset(dialog);
 }
 
 void Units_HandleDeselect(HWND dialog)
@@ -442,15 +447,7 @@ void Units_HandleDeselect(HWND dialog)
 	Units_HandleSelChange(dialog, GetDlgItem(dialog, IDC_U_SELU));
 	SetDlgItemInt(dialog, IDC_U_ID, scen.next_uid, TRUE);
 	ENABLE_WND(IDC_U_DEL, false);
-	ENABLE_WND(IDC_U_MAKEP1, false);
-	ENABLE_WND(IDC_U_MAKEP2, false);
-	ENABLE_WND(IDC_U_MAKEP3, false);
-	ENABLE_WND(IDC_U_MAKEP4, false);
-	ENABLE_WND(IDC_U_MAKEP5, false);
-	ENABLE_WND(IDC_U_MAKEP6, false);
-	ENABLE_WND(IDC_U_MAKEP7, false);
-	ENABLE_WND(IDC_U_MAKEP8, false);
-	ENABLE_WND(IDC_U_MAKEGA, false);
+	Units_DisableChangeOwnership(dialog);
 	ENABLE_WND(IDC_U_DESELECT, false);
 	u_index = SIZE_MAX;
 }
@@ -476,15 +473,7 @@ void Units_HandleAdd(HWND dialog)
 	// Select new item.
 	SendMessage(listbox, LB_SETCURSEL, index, 0);
 	ENABLE_WND(IDC_U_DEL, true);
-	ENABLE_WND(IDC_U_MAKEP1, true);
-	ENABLE_WND(IDC_U_MAKEP2, true);
-	ENABLE_WND(IDC_U_MAKEP3, true);
-	ENABLE_WND(IDC_U_MAKEP4, true);
-	ENABLE_WND(IDC_U_MAKEP5, true);
-	ENABLE_WND(IDC_U_MAKEP6, true);
-	ENABLE_WND(IDC_U_MAKEP7, true);
-	ENABLE_WND(IDC_U_MAKEP8, true);
-	ENABLE_WND(IDC_U_MAKEGA, true);
+	Units_EnableChangeOwnership(dialog);
 	ENABLE_WND(IDC_U_DESELECT, true);
 	SetDlgItemInt(dialog, IDC_U_ID, scen.next_uid, TRUE);
 	scen.next_uid++;
@@ -497,9 +486,108 @@ void Units_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
 	switch (code)
 	{
 	case BN_CLICKED:	//and menuitem
+		switch (id)
+		{
+		case IDC_U_SAVETYPE:
+			Units_HandleSaveType(dialog);
+			break;
+
+		case IDC_U_DESELECT:
+		    Units_HandleDeselect(dialog);
+			break;
+
+		case IDC_U_ADD:
+			Units_HandleAdd(dialog);
+			break;
+
+		case IDC_U_RENUMBER:
+			Units_HandleRenumber(dialog);
+			Units_Reset(dialog);
+			break;
+
+		case IDC_U_DEL_TYPE:
+			Units_HandleDeleteAllType(dialog);
+			break;
+
+		case IDC_U_CHANGE_TYPE:
+			Units_HandleChangeTypeAll(dialog);
+			break;
+
+		case IDC_U_RANDOMIZE_ROT:
+			Units_HandleRandomizeRotation(dialog);
+			break;
+
+	    case ID_UNITS_DELETE_ALL:
+			Units_Reset(dialog);
+		    break;
+
+		case IDC_U_DEL:
+		case ID_EDIT_DELETE:	//accelerator
+			Units_HandleDelete(dialog);
+			break;
+
+		case IDC_U_RESORT:
+			Units_Reset(dialog);
+			break;
+
+		case ID_TS_EDIT_COPY:
+			SendMessage(GetFocus(), WM_COPY, 0, 0);
+			break;
+
+		case ID_TS_EDIT_CUT:
+			SendMessage(GetFocus(), WM_CUT, 0, 0);
+			break;
+
+		case ID_TS_EDIT_PASTE:
+			SendMessage(GetFocus(), WM_PASTE, 0, 0);
+			break;
+
+		case IDC_U_MAKEP1:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 0);
+			break;
+
+		case IDC_U_MAKEP2:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 1);
+			break;
+
+		case IDC_U_MAKEP3:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 2);
+			break;
+
+		case IDC_U_MAKEP4:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 3);
+			break;
+
+		case IDC_U_MAKEP5:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 4);
+			break;
+
+		case IDC_U_MAKEP6:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 5);
+			break;
+
+		case IDC_U_MAKEP7:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 6);
+			break;
+
+		case IDC_U_MAKEP8:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 7);
+			break;
+
+		case IDC_U_MAKEGA:		//BN_CLICKED
+			Units_HandleChangeOwnership(dialog, 8);
+			break;
+
+		}
+		break;
+
 	case CBN_SELCHANGE:	//and accelerator, LBN_SELCHANGE
 		switch (id)
 		{
+		case IDC_U_SORT:
+			Units_Reset(dialog);
+			break;
+
 		case IDC_U_SELP:	//CBN_SELCHANGE
 			Units_Save(dialog);
 			propdata.pindex = SendMessage(control, CB_GETCURSEL, 0, 0);
@@ -519,100 +607,8 @@ void Units_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
 		    SetDlgItemFloat(dialog, IDC_U_ROTATE_VAL, (float)SendDlgItemMessage(dialog, IDC_U_ROTATE, CB_GETCURSEL, 0, 0) / 4 * (float)PI);
 			break;
 
-		case IDC_U_DESELECT:		//BN_CLICKED
-		    Units_HandleDeselect(dialog);
-			break;
-
-		case IDC_U_ADD:		//BN_CLICKED
-			Units_HandleAdd(dialog);
-			break;
-
-		case IDC_U_RENUMBER:		//BN_CLICKED
-			Units_HandleRenumber(dialog);
-			Units_Reset(dialog);
-			break;
-
-		case IDC_U_DEL_TYPE:		//BN_CLICKED
-			Units_HandleDeleteAllType(dialog);
-			break;
-
-		case IDC_U_MAKEP1:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 0);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP2:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 1);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP3:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 2);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP4:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 3);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP5:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 4);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP6:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 5);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP7:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 6);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEP8:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 7);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_MAKEGA:		//BN_CLICKED
-			Units_HandleChangeOwnership(dialog, 8);
-			SendMessage(propdata.mapview, MAP_Reset, 0, 0);
-			break;
-
-		case IDC_U_RANDOMIZE_ROT:
-			Units_HandleRandomizeRotation(dialog);
-			break;
-
-	    case ID_UNITS_DELETE_ALL:
-			Units_Reset(dialog);
-		    break;
-
-		case IDC_U_DEL:			//BN_CLICKED
-		case ID_EDIT_DELETE:	//accelerator
-			Units_HandleDelete(dialog);
-			break;
-
 		case IDC_U_UNIT:		//LBN_SELCHANGE
 			UnitList_ChangeType(dialog, control);
-			break;
-
-		case IDC_U_RESORT:
-		case IDC_U_SORT:
-			Units_Reset(dialog);
-			break;
-
-		case ID_TS_EDIT_COPY:
-			SendMessage(GetFocus(), WM_COPY, 0, 0);
-			break;
-
-		case ID_TS_EDIT_CUT:
-			SendMessage(GetFocus(), WM_CUT, 0, 0);
-			break;
-
-		case ID_TS_EDIT_PASTE:
-			SendMessage(GetFocus(), WM_PASTE, 0, 0);
 			break;
 		}
 		break;
@@ -704,7 +700,6 @@ INT_PTR CALLBACK UnitDlgProc(HWND dialog, UINT msg, WPARAM wParam, LPARAM lParam
 					break;
 
 				case PSN_KILLACTIVE:
-					Units_Save(dialog);
 					SendMessage(
 						propdata.mapview, MAP_UnhighlightPoint, MAP_UNHIGHLIGHT_ALL, 0);
 				}

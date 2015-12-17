@@ -590,6 +590,8 @@
 #define ID_DRAW_CONDITIONS                            1581
 #define ID_DRAW_EFFECTS                               1582
 #define ID_DRAW_LOCATIONS                             1583
+#define IDC_U_CHANGE_TYPE                             1584
+#define IDC_U_SAVETYPE                                1585
 
 // Next default values for new objects
 // 

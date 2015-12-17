@@ -97,6 +97,7 @@ public:
 	bool export_cty(const char *path);
 	void add_unit(Unit& uspec);
 	void add_unit(Unit * uspec);
+	void change_unit_type_for_all_of_type(UCNST from_type, UCNST to_type);
 
     std::string get_name();
 

@@ -3259,6 +3259,15 @@ AOKTS_ERROR Scenario::set_unit_z_to_map_elev()
 	return ERR_none;
 }
 
+AOKTS_ERROR Scenario::change_unit_type_for_all_of_type(UCNST from_type, UCNST to_type)
+{
+    // each player
+	for (int i = 0; i < NUM_PLAYERS; i++) {
+        players[i].change_unit_type_for_all_of_type(from_type, to_type);
+	}
+	return ERR_none;
+}
+
 AOKTS_ERROR Scenario::randomize_unit_frames()
 {
     // compiler will set first array element to the value you've

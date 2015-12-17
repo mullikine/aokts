@@ -37,6 +37,8 @@ public:
 	const UnitLink *getType();
 	const UnitLink *getType() const;
 	void setType(const UnitLink *t);
+	void setType(UCNST new_cnst);
+	UCNST getTypeID();
 //	int size() const;
 	void toBuffer(Buffer &b) const;
 
@@ -44,4 +46,4 @@ private:
 	const UnitLink *pType;
 };
 
-#pragma pack(pop)
+#pragma pack(pop)

@@ -613,3 +613,14 @@ void Player::add_unit(Unit * uspec)
 {
 	units.push_back(*uspec);
 }
+
+void Player::change_unit_type_for_all_of_type(UCNST from_type, UCNST to_type)
+{
+	for (vector<Unit>::iterator iter = units.begin(); iter != units.end(); ++iter) {
+	    printf_log("unit type %d %d %d\n", iter->getTypeID(), from_type, to_type);
+	    if (iter->getTypeID() == from_type) {
+	        printf_log("changing type\n");
+	        iter->setType(to_type);
+	    }
+	}
+}
