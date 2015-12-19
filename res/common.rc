@@ -260,7 +260,7 @@ BEGIN
     CONTROL         "Choose Teams",IDC_G_CHOOSETEAMS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,394,70,61,8
     CONTROL         "Random Start Pos",IDC_G_RANDPOSITIONS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,458,70,72,8
     GROUPBOX        "Game Options",IDC_STATIC,387,39,146,49
-    GROUPBOX        "Required Mods (scx2 and aoe2scenario)",IDC_STATIC,387,95,146,78
+    GROUPBOX        "Required Mods (scx2/aoe2scenario only)",IDC_STATIC,387,95,146,78
     CONTROL         "Age of Kings",IDC_DEP_AOK,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,394,111,78,10
     CONTROL         "The Conquerors",IDC_DEP_AOC,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,394,126,78,10
     CONTROL         "The Forgotten",IDC_DEP_AOF,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,394,140,78,10

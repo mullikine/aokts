@@ -624,6 +624,49 @@ void Scenario::adapt_game() {
 
 /* Open a scenario, read header, and read compressed data */
 
+bool Scenario::_header::expansionsRequired()
+{
+    int n_expansions_required = n_datasets;
+    if (datasetRequired(Dataset::AOK))
+        n_expansions_required--;
+    if (datasetRequired(Dataset::AOC))
+        n_expansions_required--;
+    return n_expansions_required > 0;
+}
+
+bool Scenario::_header::datasetRequired(Dataset::Value d)
+{
+    for (size_t i = 0; i < n_datasets; i++) {
+        if (datasets[i] == (unsigned long)d) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void Scenario::_header::enableDataset(Dataset::Value d)
+{
+    for (size_t i = 0; i < n_datasets; i++) {
+        if (datasets[i] == (unsigned long)d) {
+            return;
+        }
+    }
+    n_datasets++;
+    datasets[n_datasets - 1] = (unsigned long)d;
+}
+
+void Scenario::_header::disableDataset(Dataset::Value d)
+{
+    for (int i = 0; i < n_datasets; i++) {
+        if (datasets[i] == (unsigned long)d) {
+            for (int j = i; j < n_datasets - 1; j++) {
+                datasets[j] = datasets[j + 1];
+            }
+            n_datasets--;
+        }
+    }
+}
+
 Game Scenario::open(const char *path, const char *dpath, Game version)
 {
 	using std::runtime_error;
@@ -631,7 +674,7 @@ Game Scenario::open(const char *path, const char *dpath, Game version)
 
 	game = version;
 
-	int clen;	//length of compressed data
+	int c_len;	//length of compressed data
 
 	printf_log("Opening scenario \"%s\"\n", path);
 
@@ -677,22 +720,22 @@ Game Scenario::open(const char *path, const char *dpath, Game version)
 	/* Inflate and Read Compressed Data */
 	if (header.header_type == HT_AOE2SCENARIO) {
 	    // length no longer indicates header length (or likely never truly did)
-	    clen = fsize(path) - ((8 + 2 + header.n_datasets) * 4 + header.instruct_len);
+	    c_len = fsize(path) - ((8 + 2 + header.n_datasets) * 4 + header.instruct_len);
 	} else {
-	    clen = fsize(path) - (header.length + 8);	//subtract header length
+	    c_len = fsize(path) - (header.length + 8);	//subtract header length
 	}
 
-	if (clen <= 0)
+	if (c_len <= 0)
 		throw bad_data_error("no compressed data");
 
-	printf_log("Allocating %d bytes for compressed data buffer.\n", clen);
+	printf_log("Allocating %d bytes for compressed data buffer.\n", c_len);
 
 	// Open file before allocating buffer since file is more likely to fail.
 	AutoFile tempout(dpath, "wb"); // TODO: exclusive access?
 
-	unsigned char *compressed = new unsigned char[clen];
-	fread(compressed, sizeof(char), clen, scx.get());
-	int code = inflate_file(compressed, clen, tempout.get());
+	unsigned char *compressed = new unsigned char[c_len];
+	fread(compressed, sizeof(char), c_len, scx.get());
+	int code = inflate_file(compressed, c_len, tempout.get());
 	delete [] compressed;
 
 	tempout.close();
@@ -971,10 +1014,12 @@ bool Scenario::_header::read(FILE *scx)
 	if (header_type == HT_AOE2SCENARIO) {
 	    // aoe2scenario format
 	    SKIP(scx, sizeof(long));
-	    fread(&original_game, sizeof(long), 1, scx);
+	    fread(&is_original_game, sizeof(long), 1, scx);
 	    fread(&n_datasets, sizeof(long), 1, scx);
-	    for (int i = 0; i < n_datasets; i++)
+	    for (int i = 0; i < n_datasets; i++) {
 	        fread(&datasets[i], sizeof(long), 1, scx);
+	        printf_log("dataset %d enabled\n", datasets[i]);
+	    }
 	}
 
 	return ret;
@@ -1026,17 +1071,17 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	if (header_type == HT_AOE2SCENARIO) {
 	    long num = 1000;
 	    fwrite(&num, sizeof(long), 1, scx);
-	    fwrite(&original_game, sizeof(long), 1, scx);
-	    if (n_datasets == 0) {
-	        n_datasets = 2;
-	        fwrite(&n_datasets, sizeof(long), 1, scx);
-	        for (long i = 0; i < n_datasets; i++)
-	            fwrite(&i, sizeof(long), 1, scx);
-	    } else {
-	        fwrite(&n_datasets, sizeof(long), 1, scx);
-	        for (int i = 0; i < n_datasets; i++)
-	            fwrite(&datasets[i], sizeof(long), 1, scx);
-	    }
+
+	    enableDataset(Dataset::AOK);
+	    enableDataset(Dataset::AOC);
+
+	    is_original_game = ! expansionsRequired();
+
+	    fwrite(&is_original_game, sizeof(long), 1, scx);
+
+	    fwrite(&n_datasets, sizeof(long), 1, scx);
+	    for (int i = 0; i < n_datasets; i++)
+	        fwrite(&datasets[i], sizeof(long), 1, scx);
 	}
 }
 

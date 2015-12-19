@@ -32,6 +32,11 @@ void LoadIM(HWND dialog)
 	SetDlgItemFloat(dialog, IDC_G_X, scen.editor_pos[0]);
 	SetDlgItemFloat(dialog, IDC_G_Y, scen.editor_pos[1]);
 	CheckDlgButton(dialog, IDC_M_USERPATCH, scen.game == UP);
+
+    for (size_t i = 0; i <= (size_t)Dataset::AOAK; i++) {
+        ENABLE_WND(IDC_DEP_AOK + i, (setts.editall?true:i>(size_t)Dataset::AOC) && scen.header.header_type == HT_AOE2SCENARIO);
+        CheckDlgButton(dialog, IDC_DEP_AOK + i, scen.header.datasetRequired((Dataset::Value)i));
+    }
 }
 
 void SaveM(HWND dialog)
@@ -46,6 +51,16 @@ void SaveM(HWND dialog)
 	scen.next_uid = GetDlgItemInt(dialog, IDC_G_NEXTID, NULL, FALSE);
 	scen.editor_pos[0] = GetDlgItemFloat(dialog, IDC_G_X);
 	scen.editor_pos[1] = GetDlgItemFloat(dialog, IDC_G_Y);
+
+    if (scen.header.header_type == HT_AOE2SCENARIO) {
+        for (size_t i = 0; i <= (size_t)Dataset::AOAK; i++) {
+            if (IsDlgButtonChecked(dialog, IDC_DEP_AOK + i)) {
+                scen.header.enableDataset((Dataset::Value)i);
+            } else {
+                scen.header.disableDataset((Dataset::Value)i);
+            }
+        }
+    }
 }
 
 void ExportBitmap(HWND dialog)

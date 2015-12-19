@@ -39,6 +39,17 @@ enum HeaderType
 	HT_AOE2SCENARIO = 3  // African Kingdoms header describing dependencies
 };
 
+struct Dataset {  // AoHD scx2 or aoe2scenario only
+    enum Value {
+        AOK  = 0,
+        AOC  = 1,
+        AOF  = 2,
+        AOAK = 3
+    };
+};
+
+const size_t  NUM_DATASETS = 4;
+
 enum ScenVersion1
 {
 	SV1_UNKNOWN	    = 0,
