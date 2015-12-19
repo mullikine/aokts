@@ -61,9 +61,6 @@ Effect::Effect(Buffer &b)
     if (size >= 10)
 	    pTech = esdata.techs.getByIdSafe(tech_cnst);
 
-    pUnit = esdata.units.getByIdSafe(unit_cnst);
-	pTech = esdata.techs.getByIdSafe(tech_cnst);
-
 	// non-flat data
 	text.read(b, sizeof(long));
 	sound.read(b, sizeof(long));
@@ -75,6 +72,11 @@ Effect::Effect(Buffer &b)
 
 void Effect::compress()
 {
+    if (pUnit)
+        unit_cnst = pUnit->id();
+    if (pTech)
+        tech_cnst = pTech->id();
+
     size = MAXFIELDS;
     for (int i = size - 1; i >= 0; i--) {
         if (*(&ai_goal + i) == defaultvals[i]) {
