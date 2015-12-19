@@ -278,6 +278,7 @@ void FileSave(HWND sheet, bool as, bool write)
 		    conv = AOF4;
 		    break;
 		case 6:
+	        scen.header.header_type = HT_AOE2SCENARIO;
 		    conv = startver;
 		    break;
 		case 7:
