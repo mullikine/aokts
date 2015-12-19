@@ -2,8 +2,8 @@
 // Microsoft Visual C++ generated include file.
 // Used by common.rc
 //
-#define VER_BUGFIX                      0x0049
-#define VER_BUILD                       0x0001
+#define VER_BUGFIX                      0x004a
+#define VER_BUILD                       0x0002
 #define VER_MAJOR                       0x0001
 #define VER_MINOR                       0x00002
 #define IDD_DIALOG1                                   1000
