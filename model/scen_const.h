@@ -41,10 +41,12 @@ enum HeaderType
 
 struct Dataset {  // AoHD scx2 or aoe2scenario only
     enum Value {
-        AOK  = 0,
-        AOC  = 1,
-        AOF  = 2,
-        AOAK = 3
+        AOK_xUnk0 = 0,
+        AOC_xUnk1 = 1,
+        Unk_xAOK  = 2,
+        Unk_xAOC  = 3,
+        Unk_xAOF  = 4,
+        Unk_xAOAK = 5
     };
 };
 

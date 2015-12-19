@@ -227,7 +227,7 @@ public:
 		HeaderType header_type;
 		unsigned long instruct_len;  	//Instructions string length
 		unsigned long n_players;
-		unsigned long is_original_game; // not sure about this
+		unsigned long uses_expansions; // not sure about this
 		unsigned long n_datasets;
 		unsigned long datasets[NUM_DATASETS];  // the number of elements read and saved is given by n_datasets. 5 is an arbitrary number
 		__time32_t timestamp;	//last save
@@ -239,8 +239,8 @@ public:
 		void write(FILE *scx, const SString *instr, long players, Game g);
 	    bool expansionsRequired();
 	    bool datasetRequired(Dataset::Value d);
-	    void enableDataset(Dataset::Value d);
-	    void disableDataset(Dataset::Value d);
+	    void requireDataset(Dataset::Value d);
+	    void unrequireDataset(Dataset::Value d);
 	} header;
 
 //	Compression starts here

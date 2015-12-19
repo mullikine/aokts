@@ -33,9 +33,14 @@ void LoadIM(HWND dialog)
 	SetDlgItemFloat(dialog, IDC_G_Y, scen.editor_pos[1]);
 	CheckDlgButton(dialog, IDC_M_USERPATCH, scen.game == UP);
 
-    for (size_t i = 0; i <= (size_t)Dataset::AOAK; i++) {
-        ENABLE_WND(IDC_DEP_AOK + i, (setts.editall?true:i>(size_t)Dataset::AOC) && scen.header.header_type == HT_AOE2SCENARIO);
-        CheckDlgButton(dialog, IDC_DEP_AOK + i, scen.header.datasetRequired((Dataset::Value)i));
+    size_t max_checkboxes = IDC_DEP_AOAK - IDC_DEP_AOK + 1;
+    for (size_t i = 0; i <= max_checkboxes; i++) {
+        ENABLE_WND(IDC_DEP_AOK + i, (setts.editall?true:i>(size_t)Dataset::AOC_xUnk1) && scen.header.header_type == HT_AOE2SCENARIO);
+    }
+
+    for (size_t i = 0; i <= max_checkboxes; i++) {
+        size_t game_for_checkbox = ((scen.header.uses_expansions != 1)?i:i+2);
+        CheckDlgButton(dialog, IDC_DEP_AOK + i, scen.header.datasetRequired((Dataset::Value)(game_for_checkbox)));
     }
 }
 
@@ -53,11 +58,11 @@ void SaveM(HWND dialog)
 	scen.editor_pos[1] = GetDlgItemFloat(dialog, IDC_G_Y);
 
     if (scen.header.header_type == HT_AOE2SCENARIO) {
-        for (size_t i = 0; i <= (size_t)Dataset::AOAK; i++) {
+        for (size_t i = 0; i <= (size_t)Dataset::Unk_xAOAK; i++) {
             if (IsDlgButtonChecked(dialog, IDC_DEP_AOK + i)) {
-                scen.header.enableDataset((Dataset::Value)i);
+                scen.header.requireDataset((Dataset::Value)(i + (scen.header.uses_expansions == 1?2:0)));
             } else {
-                scen.header.disableDataset((Dataset::Value)i);
+                scen.header.unrequireDataset((Dataset::Value)(i + (scen.header.uses_expansions == 1?2:0)));
             }
         }
     }

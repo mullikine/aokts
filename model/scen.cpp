@@ -627,10 +627,17 @@ void Scenario::adapt_game() {
 bool Scenario::_header::expansionsRequired()
 {
     int n_expansions_required = n_datasets;
-    if (datasetRequired(Dataset::AOK))
-        n_expansions_required--;
-    if (datasetRequired(Dataset::AOC))
-        n_expansions_required--;
+    if (uses_expansions == 1) {
+        if (datasetRequired(Dataset::Unk_xAOK))
+            n_expansions_required--;
+        if (datasetRequired(Dataset::Unk_xAOC))
+            n_expansions_required--;
+    } else {
+        if (datasetRequired(Dataset::AOK_xUnk0))
+            n_expansions_required--;
+        if (datasetRequired(Dataset::AOC_xUnk1))
+            n_expansions_required--;
+    }
     return n_expansions_required > 0;
 }
 
@@ -644,7 +651,7 @@ bool Scenario::_header::datasetRequired(Dataset::Value d)
     return false;
 }
 
-void Scenario::_header::enableDataset(Dataset::Value d)
+void Scenario::_header::requireDataset(Dataset::Value d)
 {
     for (size_t i = 0; i < n_datasets; i++) {
         if (datasets[i] == (unsigned long)d) {
@@ -655,7 +662,7 @@ void Scenario::_header::enableDataset(Dataset::Value d)
     datasets[n_datasets - 1] = (unsigned long)d;
 }
 
-void Scenario::_header::disableDataset(Dataset::Value d)
+void Scenario::_header::unrequireDataset(Dataset::Value d)
 {
     for (int i = 0; i < n_datasets; i++) {
         if (datasets[i] == (unsigned long)d) {
@@ -1014,7 +1021,8 @@ bool Scenario::_header::read(FILE *scx)
 	if (header_type == HT_AOE2SCENARIO) {
 	    // aoe2scenario format
 	    SKIP(scx, sizeof(long));
-	    fread(&is_original_game, sizeof(long), 1, scx);
+	    fread(&uses_expansions, sizeof(long), 1, scx);
+	    printf_log("uses expansions ? %d\n", uses_expansions);
 	    fread(&n_datasets, sizeof(long), 1, scx);
 	    for (int i = 0; i < n_datasets; i++) {
 	        fread(&datasets[i], sizeof(long), 1, scx);
@@ -1072,12 +1080,25 @@ void Scenario::_header::write(FILE *scx, const SString *instr, long players, Gam
 	    long num = 1000;
 	    fwrite(&num, sizeof(long), 1, scx);
 
-	    enableDataset(Dataset::AOK);
-	    enableDataset(Dataset::AOC);
+        if (expansionsRequired()) {
+            if (uses_expansions != 1) {
+	            uses_expansions = 1;
+	            for (int i = 0; i < n_datasets; i++) {
+	                datasets[i]+=2;
+	            }
+            }
+	        requireDataset(Dataset::Unk_xAOK);
+	        requireDataset(Dataset::Unk_xAOC);
+	    } else {
+            uses_expansions = 0;
+            n_datasets = 2;
+            datasets[0] = 0;
+            datasets[1] = 1;
+	        //requireDataset(Dataset::AOK_xUnk0);
+	        //requireDataset(Dataset::AOC_xUnk1);
+        }
 
-	    is_original_game = ! expansionsRequired();
-
-	    fwrite(&is_original_game, sizeof(long), 1, scx);
+	    fwrite(&uses_expansions, sizeof(long), 1, scx);
 
 	    fwrite(&n_datasets, sizeof(long), 1, scx);
 	    for (int i = 0; i < n_datasets; i++)
