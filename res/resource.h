@@ -592,6 +592,10 @@
 #define ID_DRAW_LOCATIONS                             1583
 #define IDC_U_CHANGE_TYPE                             1584
 #define IDC_U_SAVETYPE                                1585
+#define IDC_DEP_AOK                                   1586
+#define IDC_DEP_AOC                                   1587
+#define IDC_DEP_AOF                                   1588
+#define IDC_DEP_AOAK                                  1589
 
 // Next default values for new objects
 // 
