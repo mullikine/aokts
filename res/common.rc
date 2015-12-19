@@ -150,7 +150,7 @@ BEGIN
         MENUITEM "Clear all trigger descriptions", ID_TRIGGERS_HIDE_DESCRIPTIONS
         MENUITEM "Sort conditions and effects", ID_TRIGGERS_SORT_CONDS_EFFECTS
         MENUITEM "Swap names with descriptions", ID_TRIGGERS_SWAP_NAMES_DESCRIPTIONS
-        MENUITEM "Save pseudonyms to trigger names (so can use in in-game editor)", ID_TRIGGERS_SAVE_PSEUDONYMS
+        MENUITEM "Save generated trigger names so can use with the in-game editor", ID_TRIGGERS_SAVE_PSEUDONYMS
         MENUITEM "Prefix trigger names with display order (so can find triggers in in-game editor)", ID_TRIGGERS_PREFIX_DISPLAY_ORDER
         MENUITEM "Remove display order prefix from trigger names", ID_TRIGGERS_REMOVE_DISPLAY_ORDER_PREFIX
         POPUP "Compatibility (for fixing scenarios only)"
@@ -647,7 +647,7 @@ BEGIN
     CONTROL         "Show <Display Order>",IDC_T_SHOWDISPLAYORDER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,5,2,84,13
     CONTROL         "Show (ID)",IDC_T_SHOWFIREORDER,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,93,2,45,13
     PUSHBUTTON      "Sync ID to DO",IDC_T_SYNC,145,2,57,13
-    CONTROL         "Pseudonyms",IDC_T_PSEUDONYMS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,210,2,58,13
+    CONTROL         "Auto-Generated Names",IDC_T_PSEUDONYMS,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,210,2,100,13
     CONTROL         "Tree1",IDC_T_TREE,"SysTreeView32",TVS_HASBUTTONS | TVS_LINESATROOT | TVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,3,16,390,302,WS_EX_CLIENTEDGE
     LTEXT           "Description:",IDC_STATIC,397,6,38,8
     LTEXT           "Objective Order",IDC_STATIC,451,6,56,8
