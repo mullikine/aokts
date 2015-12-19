@@ -884,7 +884,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 
 	if (strstr(setts.ScenPath, ".aoe2scenario")) {
 	    header.header_type = HT_AOE2SCENARIO;
-	} else {
+	} else if (! strstr(setts.ScenPath, ".scx2")){
 	    header.header_type = HT_SC;
 	}
 

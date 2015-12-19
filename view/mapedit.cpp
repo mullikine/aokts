@@ -14,6 +14,7 @@
 #include "LinkListBox.h"
 #include "mapview.h"
 #include "utilui.h"
+#include "../util/utilio.h"
 #include <windows.h>
 
 /*
@@ -880,7 +881,9 @@ void Map_HandleCommand(HWND dialog, WORD code, WORD id, HWND)
 	        SetDlgItemInt(dialog, IDC_TR_CONST, SendMessage(GetDlgItem(dialog, IDC_TR_ID), LB_GETCURSEL, 0, 0), TRUE);
 		    //SetWindowText(propdata.statusbar, "Selection changed");
 		    break;
+
 		}
+
 		break;
 
 	case EN_CHANGE:
@@ -916,6 +919,28 @@ void Map_HandleCommand(HWND dialog, WORD code, WORD id, HWND)
 		case ID_TS_EDIT_PASTE:
 			SendMessage(GetFocus(), WM_PASTE, 0, 0);
 			break;
+
+		case IDC_TR_SIZE:
+		    {
+			    //setts.editall
+		        // make SIZE2 = SIZE
+		        int h = SendDlgItemMessage(dialog, IDC_TR_SIZE, CB_GETCURSEL, 0, 0);
+	            if (h != LB_ERR) {
+	                SendDlgItemMessage(dialog, IDC_TR_SIZE2, CB_SETCURSEL, h, 0);
+                    printf_log("changing to %d\n", h);
+	            } else {
+	                char buffer[10];
+	                GetDlgItemText(dialog, IDC_TR_SIZE, buffer, 10);
+		            SetDlgItemText(dialog, IDC_TR_SIZE2, buffer);
+                    printf_log("changing to %s\n", buffer);
+		        }
+			}
+			break;
+
+		case IDC_TR_SIZE2:
+            printf_log("testing size 2\n");
+		    break;
+
 		}
 		break;
 
@@ -1093,6 +1118,12 @@ void Map_HandleCommand(HWND dialog, WORD code, WORD id, HWND)
 	case EN_KILLFOCUS:
 		Map_HandleKillFocus(dialog, id);
 		break;
+
+    default:
+		switch (id)
+		{
+		}
+
 	}
 }
 
