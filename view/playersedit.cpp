@@ -280,8 +280,7 @@ void SavePlayers(HWND dialog)
 	    scen.players[i].human = Button_IsChecked(GetDlgItem(dialog, IDC_P_HUMAN1 + i));
 	    scen.players[i].pop = static_cast<float>(GetDlgItemInt(dialog, IDC_P_POP1 + i, NULL, FALSE));
 	    scen.players[i].color = LCombo_GetSelId(dialog, IDC_P_COLOR1 + i);
-	    if (scen.game != AOHD6 && scen.game != AOF6)
-	        scen.players[i].age = SendDlgItemMessage(dialog, IDC_P_AGE1 + i, CB_GETCURSEL, 0, 0) - 1;
+	    scen.players[i].age = SendDlgItemMessage(dialog, IDC_P_AGE1 + i, CB_GETCURSEL, 0, 0) - 1;
 	    scen.players[i].player_number = SendDlgItemMessage(dialog, IDC_P_P1_NUM + i, CB_GETCURSEL, 0, 0);
 	}
 }
@@ -363,7 +362,6 @@ BOOL Players_Init(HWND dialog)
 	    LCombo_Fill(dialog, IDC_P_COLOR1 + i, esdata.colors.head());
 	    SendDlgItemMessage(dialog, IDC_P_COLOR1 + i, CB_SETCURSEL, scen.players[i].color, 0);
 	    Combo_PairFill(GetDlgItem(dialog, IDC_P_AGE1 + i), NUM_AGES, ages);
-	    ENABLE_WND(IDC_P_AGE1 + i, scen.game != AOHD6 && scen.game != AOF6);
 	    SendDlgItemMessage(dialog, IDC_P_AGE1 + i, CB_SETCURSEL, scen.players[i].age, 0);
 	    if (i == N_PLAYERS)
 	        Combo_Fill(dialog, IDC_P_TEAM1 + i, gaia_team_names, NUM_TEAMS);

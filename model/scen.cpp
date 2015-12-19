@@ -1787,8 +1787,10 @@ int Scenario::write_data(const char *path)
 	fwrite(&all_techs, sizeof(long), 1, dcout);
 
 	if (game == AOHD6 || game == AOF6) {
+	    short tmp_starting_age;
 	    FEP(p) {
-		    fwrite(&p->age, sizeof(short), 1, dcout);
+	        tmp_starting_age = p->age + 2;
+		    fwrite(&tmp_starting_age, sizeof(short), 1, dcout);
 		    fwrite(&p->ending_age, sizeof(short), 1, dcout);
 	    }
 	} else {

@@ -285,6 +285,7 @@ void Player::read_age(FILE * in)
 {
 	if (scen.game == AOHD6 || scen.game == AOF6) {
 	    readbin(in, &age);
+	    age -= 2;
 	    readbin(in, &ending_age);
 	} else {
         long tmp = 0;
