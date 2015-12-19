@@ -132,7 +132,7 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
 	}
 
     if (tip && effects.size() == 0) {
-	    ss << this->name;
+	    //ss << this->name;
         goto theendnotext;
     }
 
@@ -453,7 +453,7 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
 	bool only_one_cond_or_effect = (n_effects + n_conds == 1);
 
     if (recursion > 0 && activated >= 0 && activated < scen.triggers.size()) {
-        tempss << "{" << scen.triggers.at(activated).getName(setts.pseudonyms, true, recursion - 1) << "}";
+        tempss << "{" << scen.triggers.at(activated).getName(setts.showtrigfunction, true, recursion - 1) << "}";
     } else {
         tempss << "<" << activated << ">";
     }
@@ -462,7 +462,7 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
     tempss.str("");
 
     if (recursion > 0 && deactivated >= 0 && deactivated < scen.triggers.size()) {
-        tempss << "{" << scen.triggers.at(deactivated).getName(setts.pseudonyms, true, recursion - 1) << "}";
+        tempss << "{" << scen.triggers.at(deactivated).getName(setts.showtrigfunction, true, recursion - 1) << "}";
     } else {
         tempss << "<" << deactivated << ">";
     }

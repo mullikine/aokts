@@ -128,7 +128,13 @@ void FillTrigCB(HWND combobox, size_t select)
             name.append(trig->getIDName());
             name.append(extraspaces, ' ');
         }
-        name.append(trig->getName(setts.pseudonyms,true,MAX_RECURSION));
+        if (setts.showtrignames) {
+            name.append(trig->getName(false,true,MAX_RECURSION));
+            if (setts.showtrigfunction)
+                name.append("     --     ");
+        }
+        if (setts.showtrigfunction)
+            name.append(trig->getName(true,true,MAX_RECURSION));
 		LRESULT idx = Combo_AddStringA(combobox, name.c_str());
 		SendMessage(combobox, CB_SETITEMDATA, idx, *i);
 
@@ -233,7 +239,13 @@ void ItemData::GetName(char *buffer)
             name.append(t->getIDName());
             name.append(extraspaces, ' ');
         }
-        name.append(t->getName(setts.pseudonyms,true,MAX_RECURSION));
+        if (setts.showtrignames) {
+            name.append(t->getName(false,true,MAX_RECURSION));
+            if (setts.showtrigfunction)
+                name.append("     --     ");
+        }
+        if (setts.showtrigfunction)
+            name.append(t->getName(true,true,MAX_RECURSION));
     } else {
         name.append("NULL Trigger.");
     }
@@ -1380,7 +1392,8 @@ BOOL Handle_WM_INITDIALOG(HWND dialog)
 
     //SendDlgItemMessage(dialog, IDC_T_SHOWDISPLAYORDER, BM_SETCHECK, setts.showdisplayorder, 0);
     //SendDlgItemMessage(dialog, IDC_T_SHOWFIREORDER, BM_SETCHECK, setts.showtrigids, 0);
-	SendDlgItemMessage(dialog, IDC_T_PSEUDONYMS, BM_SETCHECK, setts.pseudonyms, 0);
+	SendDlgItemMessage(dialog, IDC_T_SHOWTRIGNAMES, BM_SETCHECK, setts.showtrignames, 0);
+	SendDlgItemMessage(dialog, IDC_T_PSEUDONYMS, BM_SETCHECK, setts.showtrigfunction, 0);
 
     ENABLE_WND(IDC_T_OBJSTATE, scen.game == AOHD || scen.game == AOF || setts.editall);
 
@@ -1701,11 +1714,19 @@ INT_PTR Handle_WM_COMMAND(HWND dialog, WORD code, WORD id, HWND)
             }
             TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
             break;
+		case IDC_T_SHOWTRIGNAMES:
+            if (SendMessage(GetDlgItem(dialog, IDC_T_SHOWTRIGNAMES),BM_GETCHECK,0,0)) {
+                setts.showtrignames = true;
+            } else {
+                setts.showtrignames = false;
+            }
+            TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
+            break;
 		case IDC_T_PSEUDONYMS:
             if (SendMessage(GetDlgItem(dialog, IDC_T_PSEUDONYMS),BM_GETCHECK,0,0)) {
-                setts.pseudonyms = true;
+                setts.showtrigfunction = true;
             } else {
-                setts.pseudonyms = false;
+                setts.showtrigfunction = false;
             }
             TrigTree_Reset(GetDlgItem(dialog, IDC_T_TREE), true);
             break;

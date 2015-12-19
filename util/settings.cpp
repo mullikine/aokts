@@ -67,7 +67,8 @@ bool Setts::load()
 
 	asktoconverteffects = GetPrivateProfileInt("Advanced", "AskConvertEffects", 1, path) != 0;
 	displayhints = GetPrivateProfileInt("Advanced", "DisplayHints", 1, path) != 0;
-	pseudonyms = GetPrivateProfileInt("Advanced", "Pseudonyms", 0, path) != 0;
+	showtrignames = GetPrivateProfileInt("Advanced", "ShowTriggerNames", 0, path) != 0;
+	showtrigfunction = GetPrivateProfileInt("Advanced", "ShowTriggerFunction", 0, path) != 0;
 	showdisplayorder = GetPrivateProfileInt("Advanced", "ShowDisplayOrder", 1, path) != 0;
 	showtrigids = GetPrivateProfileInt("Advanced", "ShowTriggerIDs", 1, path) != 0;
 	editall = GetPrivateProfileInt("Advanced", "EditAll", 0, path) != 0;

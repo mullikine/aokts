@@ -70,7 +70,8 @@ public:
 	bool editall;
 	bool asktoconverteffects;
 	bool displayhints;
-	bool pseudonyms;
+	bool showtrignames;
+	bool showtrigfunction;
 	bool showdisplayorder;
 	bool showtrigids;
 	bool nowarnings;

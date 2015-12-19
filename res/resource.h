@@ -596,6 +596,7 @@
 #define IDC_DEP_AOC                                   1587
 #define IDC_DEP_AOF                                   1588
 #define IDC_DEP_AOAK                                  1589
+#define IDC_T_SHOWTRIGNAMES                           1590
 
 // Next default values for new objects
 // 
