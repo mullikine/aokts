@@ -871,7 +871,6 @@ void LoadTrigger(HWND dialog, Trigger *t)
 		CheckDlgButton(dialog, IDC_T_LOOP, t->loop);
 		CheckDlgButton(dialog, IDC_T_OBJ, t->obj);
 		SetDlgItemText(dialog, IDC_T_DESC, t->description.c_str());
-		SetDlgItemText(dialog, IDC_T_NAME, t->name);
 		SetDlgItemInt(dialog, IDC_T_ORDER, t->obj_order, FALSE);
 		SetDlgItemInt(dialog, IDC_T_DESCID, t->obj_str_id, FALSE);
 		SetDlgItemInt(dialog, IDC_T_UNKNOWN, t->u1, FALSE);
@@ -882,7 +881,6 @@ void LoadTrigger(HWND dialog, Trigger *t)
 		CheckDlgButton(dialog, IDC_T_STATE, BST_UNCHECKED);
 		CheckDlgButton(dialog, IDC_T_LOOP, BST_UNCHECKED);
 		CheckDlgButton(dialog, IDC_T_OBJ, BST_UNCHECKED);
-		SetDlgItemText(dialog, IDC_T_NAME, "");
 		SetDlgItemText(dialog, IDC_T_DESC, "");
 		SetDlgItemText(dialog, IDC_T_ORDER, "");
 		SetDlgItemText(dialog, IDC_T_DESCID, "");
@@ -913,7 +911,6 @@ void SaveTrigger(HWND dialog, Trigger *t)
 		t->loop = IsDlgButtonChecked(dialog, IDC_T_LOOP);
 		t->obj = (IsDlgButtonChecked(dialog, IDC_T_OBJ) != 0);
 		GetWindowText(GetDlgItem(dialog, IDC_T_DESC), t->description);
-		GetWindowTextCstr(GetDlgItem(dialog, IDC_T_NAME), t->name);
 		t->obj_order = GetDlgItemInt(dialog, IDC_T_ORDER, NULL, FALSE);
 		t->obj_str_id = GetDlgItemInt(dialog, IDC_T_DESCID, NULL, FALSE);
 		t->u1 = GetDlgItemInt(dialog, IDC_T_UNKNOWN, NULL, FALSE);
@@ -1441,13 +1438,19 @@ void TrigTree_HandleSelChanged(NMTREEVIEW *treehdr, HWND dialog)
 		    SaveTrigger(dialog, &scen.triggers.at(data_old->index));
 	}
 
+	HWND editbutton = GetDlgItem(dialog, IDC_T_EDIT);
 	if (treehdr->itemNew.hItem)	//new selection
 	{
 	    ENABLE_WND(IDC_T_DESELECT, true);
 		ENABLE_WND(IDC_T_NEFFECT, true);
 		ENABLE_WND(IDC_T_NCOND, true);
 		ENABLE_WND(IDC_T_DUPP, true);
-		ENABLE_WND(IDC_T_EDIT, (data_new->type != TRIGGER));
+		if (data_new->type == TRIGGER) {
+		    SendMessage(editbutton, WM_SETTEXT, 0, (LPARAM) _T("Rename (Enter)"));
+		} else {
+		    SendMessage(editbutton, WM_SETTEXT, 0, (LPARAM) _T("Edit... (Enter)"));
+		}
+		ENABLE_WND(IDC_T_EDIT, true);
 		Triggers_EditMenu(propdata.menu, true);
 
 		tNew = data_new->GetTrigger();
@@ -1458,6 +1461,8 @@ void TrigTree_HandleSelChanged(NMTREEVIEW *treehdr, HWND dialog)
 		ENABLE_WND(IDC_T_NEFFECT, false);
 		ENABLE_WND(IDC_T_NCOND, false);
 		ENABLE_WND(IDC_T_DUPP, false);
+		SendMessage(editbutton, WM_SETTEXT, 0, (LPARAM) _T("Edit / Rename"));
+		ENABLE_WND(IDC_T_EDIT, false);
 		Triggers_EditMenu(propdata.menu, false);
 
 		tNew = NULL;
@@ -1662,8 +1667,11 @@ void TrigTree_HandleKeyDown(HWND dialog, NMTVKEYDOWN * keydown)
 {
 	if (keydown->wVKey == VK_DELETE)
 		TrigTree_HandleDelete(dialog, keydown->hdr.hwndFrom);
-	else if (keydown->wVKey == VK_RETURN)
-		TrigTree_HandleEdit(GetDlgItem(dialog, IDC_T_TREE), dialog);
+	else if (keydown->wVKey == VK_RETURN) {
+	    HWND treeview = GetDlgItem(dialog, IDC_T_TREE);	//all use this
+		TrigTree_HandleEdit(treeview, dialog);
+	    TreeView_EditLabel(treeview, TreeView_GetSelection(treeview));
+	}
 }
 
 void PaintCurrent() {
@@ -1913,7 +1921,8 @@ INT_PTR Handle_WM_NOTIFY(HWND dialog, NMHDR const * header)
 				}
 				else
 				{
-					SendMessage(editbox, EM_SETLIMITTEXT, 40, 0);
+					SendMessage(editbox, WM_SETTEXT, NULL, (LPARAM)TEXT(scen.triggers.at(data->index).name));
+					SendMessage(editbox, EM_SETLIMITTEXT, MAX_TRIGNAME_SAFE_HD - 1, 0);
 					SubclassTreeEditControl(editbox);
 				}
 			}
@@ -1930,13 +1939,7 @@ INT_PTR Handle_WM_NOTIFY(HWND dialog, NMHDR const * header)
 				{
 					ret = TRUE;	//activates DWLP_MSGRESULT
 
-					if (strlen(newname))
-					{
-						strcpy(scen.triggers.at(data->index).name, newname);
-						SetWindowLongPtr(dialog, DWLP_MSGRESULT, TRUE);
-					}
-					else	//reject no-name triggers
-						SetWindowLongPtr(dialog, DWLP_MSGRESULT, FALSE);
+					strcpy(scen.triggers.at(data->index).name, newname);
 				}
 			}
 			break;
