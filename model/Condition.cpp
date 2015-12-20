@@ -130,31 +130,26 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
         case ConditionType::OwnObjects:
         case ConditionType::OwnFewerObjects:
         case ConditionType::ObjectsInArea:
-            { // we define some variables in this block, therefore need scope as we are also in a case
-                if (valid_player()) {
-                    convert << playerPronoun(player) << " has ";
+            switch (type) {
+            case ConditionType::OwnObjects:
+            case ConditionType::ObjectsInArea:
+                if (amount == 0) {
+                    convert << "any number of";
+                } else {
+                    convert << "at least " << amount;
                 }
-                switch (type) {
-                case ConditionType::OwnObjects:
-                case ConditionType::ObjectsInArea:
-                    if (amount == 0) {
-                        convert << "any number of";
-                    } else {
-                        convert << "at least " << amount;
-                    }
-                    break;
-                case ConditionType::OwnFewerObjects:
-                    if (amount == 0) {
-                        convert << "no";
-                    } else {
-                        convert << "at most " << amount;
-                    }
-                    break;
+                break;
+            case ConditionType::OwnFewerObjects:
+                if (amount == 0) {
+                    convert << "no";
+                } else {
+                    convert << "at most " << amount;
                 }
-                convert << " " << selectedUnits();
-                convert << areaName();
-                stype.append(convert.str());
+                break;
             }
+            convert << " " << selectedUnits();
+            convert << areaName();
+            stype.append(convert.str());
             break;
         case ConditionType::DestroyObject:
             convert << get_unit_full_name(object) << " is killed";
