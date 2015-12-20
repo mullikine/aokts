@@ -950,8 +950,8 @@ void HighlightPoint(HWND window, int x, int y)
 
 #define NUM_SB_SIZES 2
 int sb_sizes[NUM_SB_SIZES] =
-{ 360, -1 };
-const char *sb_msg = "R refreshes, Space toggles diamond, -= zooms, S saves bitmap, O reset";
+{ 120, -1 };
+const char *sb_msg = "Keys: R Space - = S O";
 
 HWND makestatus(HWND parent)
 {
@@ -1300,6 +1300,7 @@ LRESULT CALLBACK MapWndProc(HWND window, UINT msg, WPARAM wParam, LPARAM lParam)
 		    Refresh(window, FALSE);
 		    break;
 		case 0x53: // S key
+		    MessageBox(NULL, "Saving map viewer to preview.bmp", "", MB_ICONWARNING);
 	        SaveToFile(data.mapbmp, "preview.bmp");
 	        break;
 		case 0x4F: // O key
