@@ -228,8 +228,8 @@ std::string Effect::selectedUnits() const {
         }
     } else if (class_selected || unit_type_selected) { // account for groups[0]={-1,None}
         if (class_selected && unit_type_selected) {
-            convert << "units of class " << groups[group + 1].name;
-            convert << "and type " << utypes[utype + 1].name;
+            convert << "units of both class " << groups[group + 1].name;
+            convert << " and type " << utypes[utype + 1].name;
         } else if (class_selected) {
             convert << "units of type " << groups[group + 1].name;
         } else {

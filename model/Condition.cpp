@@ -89,12 +89,12 @@ std::string Condition::selectedUnits() const {
         convert << unitTypeName(pUnit);
     } else if (class_selected || unit_type_selected) { // account for groups[0]={-1,None}
         if (class_selected && unit_type_selected) {
-            convert << "units of class " << groups[group + 1].name;
-            convert << "and type " << groups[group + 1].name;
+            convert << "units of both class " << groups[group + 1].name;
+            convert << " and type " << utypes[utype + 1].name;
         } else if (class_selected) {
             convert << "units of class " << groups[group + 1].name;
         } else {
-            convert << "units of type " << groups[group + 1].name;
+            convert << "units of type " << utypes[utype + 1].name;
         }
     } else {
         convert << "units";
@@ -151,20 +151,7 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
                     }
                     break;
                 }
-                if (valid_unit_spec()) {
-                    std::string un(wstringToString(pUnit->name()));
-                    if (amount > 1 && !un.empty() && *un.rbegin() != 's' && !replaced(un, "man", "men")) {
-                        convert << " " << un << "s";
-                    } else {
-                        convert << " " << un;
-                    }
-                } else {
-                    if (amount != 1) {
-                        convert << " units";
-                    } else {
-                        convert << " unit";
-                    }
-                }
+                convert << " " << selectedUnits();
                 convert << areaName();
                 stype.append(convert.str());
             }
@@ -372,19 +359,11 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
                 } else {
                     convert << "at most " << amount;
                 }
-                if (valid_unit_spec()) {
-                    std::string un(wstringToString(pUnit->name()));
-                    if (amount > 1 && !un.empty() && *un.rbegin() != 's' && !replaced(un, "man", "men")) {
-                        convert << " " << un << " foundations";
-                    } else {
-                        convert << " " << un << " foundation";
-                    }
+                convert << " " << selectedUnits();
+                if (amount != 1) {
+                    convert << " foundations";
                 } else {
-                    if (amount != 1) {
-                        convert << " foundations";
-                    } else {
-                        convert << " foundation";
-                    }
+                    convert << " foundation";
                 }
                 convert << areaName();
                 stype.append(convert.str());
