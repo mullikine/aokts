@@ -1533,7 +1533,7 @@ void TrigTree_HandleDrag(HWND treeview, NMTREEVIEW *params)
 
 	/* Do the behind-the-scenes stuff. */
 	id = (ItemData*)params->itemNew.lParam;
-	SetCapture(GetParent(treeview));
+	SetCapture(GetParent(treeview));  // SetCapture = direct all mouse messages to treeview's parent even if the cursor is outside
 	dragging = params->itemNew.hItem;
 }
 
@@ -1557,6 +1557,7 @@ bool HandleMouseMove(HWND dialog)
 		y = lastCursorPos.y;
 		ImageList_DragMove(x, y);
 
+		lastCursorPos.y -= 30;
 		tvht.pt = lastCursorPos;
 		if (TreeView_HitTest(treeview, &tvht) &&
 			tvht.flags & (TVHT_ONITEM | TVHT_ONITEMRIGHT))
@@ -1604,6 +1605,7 @@ void TrigTree_EndDrag(HWND treeview, WORD x, WORD y)
 	HTREEITEM dragged = dragging;
 	dragging = NULL;
 
+    y -= 30;
 	tvhti.pt.x = x;
 	tvhti.pt.y = y;
 
@@ -1966,7 +1968,7 @@ INT_PTR Handle_WM_NOTIFY(HWND dialog, NMHDR const * header)
 			break;
 
 		case TVN_BEGINDRAG:
-			//TrigTree_HandleDrag(header->hwndFrom, (NMTREEVIEW*)header);
+			TrigTree_HandleDrag(header->hwndFrom, (NMTREEVIEW*)header);
 			break;
 
 		case PSN_SETACTIVE:
