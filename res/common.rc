@@ -139,8 +139,8 @@ BEGIN
     POPUP "&Units"
     BEGIN
         MENUITEM "Randomize look (rotation and frame)", IDC_U_RANDOMIZE_ROT
-        MENUITEM "Make water cliffs invisible", ID_MAP_WATER_CLIFF_INVISIBLE
-        MENUITEM "Make water cliffs visible (frame=1, rotation=1)", ID_MAP_WATER_CLIFF_VISIBLE
+        MENUITEM "Make water cliffs invisible (frame=1, rotation=1)", ID_MAP_WATER_CLIFF_INVISIBLE
+        MENUITEM "Make water cliffs visible (frame=0, rotation=0)", ID_MAP_WATER_CLIFF_VISIBLE
         MENUITEM "Delete all player's units",   ID_UNITS_DELETE_ALL
         MENUITEM "Set unit z to terrain elevation", ID_UNITS_TERRAIN_ELEV
     END
