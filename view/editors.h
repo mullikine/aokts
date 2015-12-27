@@ -18,7 +18,7 @@
 
 //Number of property pages (tabs)
 //6 when disabling disables
-#define NUM_PAGES 11
+#define NUM_PAGES 12
 
 /* Global Variables */
 
@@ -84,5 +84,6 @@ INT_PTR CALLBACK TrigDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK TrigtextDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK CompatDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 INT_PTR CALLBACK MapInspectDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
+INT_PTR CALLBACK CampaignDlgProc(HWND page, UINT msg, WPARAM wParam, LPARAM lParam);
 
 #endif	//AOKTS_EDITOR_H

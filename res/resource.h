@@ -13,24 +13,6 @@
 #define IDM_MAIN                                      1004
 #define IDA_MAIN                                      1005
 #define IDS_MAIN                                      1006
-#define IDD_ABOUT                                     1007
-#define IDD_STATS                                     1008
-#define IDD_UNITSEL1                                  1009
-#define IDD_UNITSEL2                                  1010
-#define IDD_PLAYERS                                   1011
-#define IDD_MSGS                                      1012
-#define IDD_PLAYER                                    1013
-#define IDD_AI                                        1014
-#define IDD_CTY                                       1015
-#define IDD_VICTORY                                   1016
-#define IDD_DISABLES                                  1017
-#define IDD_TERRAIN                                   1018
-#define IDD_UNITS                                     1019
-#define IDD_TRIGGERS                                  1020
-#define IDD_TRIGTEXT                                  1021
-#define IDD_MAPINSPECT                                1022
-#define IDD_EFFECT                                    1023
-#define IDD_COND                                      1024
 #define IDB_LOGO                                      1025
 #define IDB_TRIG_ON_GOOD                              1026
 #define IDB_TRIG_ON_BAD                               1027
@@ -597,6 +579,26 @@
 #define IDC_DEP_AOF                                   1588
 #define IDC_DEP_AOAK                                  1589
 #define IDC_T_SHOWTRIGNAMES                           1590
+#define IDD_ABOUT                                     1591
+#define IDD_STATS                                     1592
+#define IDD_UNITSEL1                                  1593
+#define IDD_UNITSEL2                                  1594
+#define IDD_PLAYERS                                   1595
+#define IDD_MSGS                                      1596
+#define IDD_PLAYER                                    1597
+#define IDD_AI                                        1598
+#define IDD_CTY                                       1599
+#define IDD_VICTORY                                   1600
+#define IDD_DISABLES                                  1601
+#define IDD_TERRAIN                                   1602
+#define IDD_UNITS                                     1603
+#define IDD_TRIGGERS                                  1604
+#define IDD_TRIGTEXT                                  1605
+#define IDD_CAMPAIGN                                  1606
+#define IDD_MAPINSPECT                                1607
+#define IDD_EFFECT                                    1608
+#define IDD_COND                                      1609
+#define IDC_G_SCENLIST                                1610
 
 // Next default values for new objects
 // 

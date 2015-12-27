@@ -131,7 +131,7 @@ void FillTrigCB(HWND combobox, size_t select)
         if (setts.showtrignames) {
             name.append(trig->getName(false,true,MAX_RECURSION));
             if (setts.showtrigfunction)
-                name.append("     --     ");
+                name.append("              ");
         }
         if (setts.showtrigfunction)
             name.append(trig->getName(true,true,MAX_RECURSION));
@@ -242,7 +242,7 @@ void ItemData::GetName(char *buffer)
         if (setts.showtrignames) {
             name.append(t->getName(false,true,MAX_RECURSION));
             if (setts.showtrigfunction)
-                name.append("     --     ");
+                name.append("              ");
         }
         if (setts.showtrigfunction)
             name.append(t->getName(true,true,MAX_RECURSION));

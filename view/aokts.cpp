@@ -93,7 +93,8 @@ DLGPROC procs[NUM_PAGES] =
 	&MapDlgProc,
 	&UnitDlgProc,
 	&TrigDlgProc,
-	&TrigtextDlgProc
+	&TrigtextDlgProc,
+	&CampaignDlgProc
 };
 
 /* Strings */
