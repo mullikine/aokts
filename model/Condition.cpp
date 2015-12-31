@@ -112,12 +112,18 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
 	} else {
 	    std::string stype = std::string("");
         std::ostringstream convert;
-        switch (type) {
-        case ConditionType::None:
+
+        if (type == ConditionType::None) {
             // Let this act like a separator
             convert << "                                                                                    ";
             stype.append(convert.str());
-            break;
+            goto end;
+        }
+
+	    if (scen.game == UP && reserved == -256 || (scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6) && reverse_hd == 1)
+	        convert << "not " ;
+
+        switch (type) {
         case ConditionType::BringObjectToArea:
             convert << get_unit_full_name(object) << " " << object;
             convert << " is" << areaName();
@@ -372,6 +378,7 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
             stype.append((type < scen.pergame->max_condition_types) ? types_short[type] : "Unknown!");
         }
 
+end:
         return flags&NameFlags::LIMITLEN?stype.substr(0,MAX_CHARS):stype;
     }
 }

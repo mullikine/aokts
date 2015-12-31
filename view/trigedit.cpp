@@ -568,17 +568,10 @@ void ConditionItemData::GetName(char *buffer)
 	Trigger *t = GetTrigger();
 	assert(t);
 
-	const char * reverse = "";
-	if (scen.game == UP) {
-	    reverse = ((t->conds[index].reserved == -256)?"NOT ":"");
-	} else if (scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6) {
-	    reverse = ((t->conds[index].reverse_hd == 1)?"NOT ":"");
-    }
-
 	if (index == 0) {
-	    sprintf(buffer, "If %s%s", reverse, t->conds[index].getName(setts.displayhints,NameFlags::NONE).c_str());
+	    sprintf(buffer, "If %s", t->conds[index].getName(setts.displayhints,NameFlags::NONE).c_str());
 	} else {
-	    sprintf(buffer, "and %s%s", reverse, t->conds[index].getName(setts.displayhints,NameFlags::NONE).c_str());
+	    sprintf(buffer, "and %s", t->conds[index].getName(setts.displayhints,NameFlags::NONE).c_str());
 	}
 }
 
