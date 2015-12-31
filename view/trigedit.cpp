@@ -1776,7 +1776,8 @@ INT_PTR Handle_WM_COMMAND(HWND dialog, WORD code, WORD id, HWND)
 			break;
 
 		case IDC_T_EDIT:
-			TrigTree_HandleEdit(treeview, dialog);
+		    TrigTree_HandleEdit(treeview, dialog);
+	        TreeView_EditLabel(treeview, TreeView_GetSelection(treeview));
 			break;
 
 		case ID_EDIT_DELETE:
