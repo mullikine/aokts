@@ -599,6 +599,7 @@
 #define IDD_EFFECT                                    1608
 #define IDD_COND                                      1609
 #define IDC_G_SCENLIST                                1610
+#define ID_TRIGGERS_COPY_SCRAWL                       1611
 
 // Next default values for new objects
 // 

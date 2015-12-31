@@ -32,12 +32,14 @@
 #include "../util/zlibfile.h"
 #include "../util/settings.h"
 #include "../model/scen.h"
+#include "../model/TrigScrawlVisitor.h"
 #include "../model/TrigXmlVisitor.h"
 #include "../model/TrigXmlReader.h"
 #include "editors.h"
 #include "mapview.h"
 #include "../util/winugly.h"
 #include "utilui.h"
+#include "../util/MemBuffer.h"
 
 #include <commdlg.h>
 #include "LCombo.h"
@@ -1108,6 +1110,26 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 	case ID_TRIGGERS_HIDENAMES:
 		scen.remove_trigger_names();
 		SetWindowText(propdata.statusbar, "Trigger names removed");
+		break;
+
+	case ID_TRIGGERS_COPY_SCRAWL:
+	    {
+            std::ostringstream ss;
+	        scen.accept(TrigScrawlVisitor(ss));
+            std::string scrawl = std::string("");
+	        scrawl.append(ss.str());
+
+	        const char* output = scrawl.c_str();
+            const size_t len = strlen(output) + 1;
+            HGLOBAL hMem =  GlobalAlloc(GMEM_MOVEABLE, len);
+            memcpy(GlobalLock(hMem), output, len);
+            GlobalUnlock(hMem);
+            OpenClipboard(0);
+            EmptyClipboard();
+            SetClipboardData(CF_TEXT, hMem);
+            CloseClipboard();
+		    SetWindowText(propdata.statusbar, "Copied trigger scrawl");
+		}
 		break;
 
 	case ID_TRIGGERS_SAVE_PSEUDONYMS:

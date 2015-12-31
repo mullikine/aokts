@@ -340,6 +340,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\model\TrigScrawlVisitor.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\model\TrigScrawlVisitor.h"
+				>
+			</File>
+			<File
 				RelativePath=".\model\TrigXmlReader.cpp"
 				>
 			</File>

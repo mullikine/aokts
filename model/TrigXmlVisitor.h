@@ -1,3 +1,6 @@
+#ifndef INC_TRIGXMLVISIT_H
+#define INC_TRIGXMLVISIT_H
+
 /*
 	AOK Trigger Studio (See aokts.cpp for legal conditions.)
 	WINDOWS VERSION.
@@ -28,3 +31,5 @@ private:
     std::ostringstream& _ss;
 	unsigned _trigcount;
 };
+
+#endif // INC_TRIGXMLVISIT_H

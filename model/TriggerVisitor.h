@@ -1,3 +1,6 @@
+#ifndef INC_TRIGVISIT_H
+#define INC_TRIGVISIT_H
+
 /*
 	AOK Trigger Studio (See aokts.cpp for legal conditions.)
 	WINDOWS VERSION.
@@ -29,3 +32,5 @@ public:
 	virtual void visitEnd(Trigger&)
 	{}
 };
+
+#endif // INC_TRIGVISIT_H

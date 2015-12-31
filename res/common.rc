@@ -147,6 +147,7 @@ BEGIN
     POPUP "&Triggers"
     BEGIN
         MENUITEM "Expand all",                  ID_TRIGGERS_EXPAND_ALL
+        MENUITEM "Copy Scrawl",                 ID_TRIGGERS_COPY_SCRAWL
         MENUITEM "Clear all trigger names",     ID_TRIGGERS_HIDENAMES
         MENUITEM "Clear all trigger descriptions", ID_TRIGGERS_HIDE_DESCRIPTIONS
         MENUITEM "Sort conditions and effects", ID_TRIGGERS_SORT_CONDS_EFFECTS

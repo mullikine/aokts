@@ -85,10 +85,10 @@ Trigger::Trigger(Buffer& buffer)
 	display_order = -1;
 }
 
-std::string Trigger::getIDName()
+std::string Trigger::getIDName(bool both)
 {
     std::string name("");
-    if (setts.showdisplayorder && setts.showtrigids) {
+    if (setts.showdisplayorder && setts.showtrigids || both) {
         if (display_order == id) {
             name.append("<").append(toString<long>(id).append(")"));
         } else {
