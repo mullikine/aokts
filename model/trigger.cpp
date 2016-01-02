@@ -455,7 +455,11 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
     if (recursion > 0 && activated >= 0 && activated < scen.triggers.size()) {
         tempss << "{" << scen.triggers.at(activated).getName(setts.showtrigfunction, true, recursion - 1) << "}";
     } else {
-        tempss << "<" << activated << ">";
+        if (activated >= 0 && activated < scen.triggers.size()) {
+            tempss << scen.triggers.at(activated).getIDName(true);
+        } else {
+            tempss << "(INVALID ID " << activated << ")";
+        }
     }
     activated_name = tempss.str();
     tempss.clear();
@@ -464,7 +468,11 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
     if (recursion > 0 && deactivated >= 0 && deactivated < scen.triggers.size()) {
         tempss << "{" << scen.triggers.at(deactivated).getName(setts.showtrigfunction, true, recursion - 1) << "}";
     } else {
-        tempss << "<" << deactivated << ">";
+        if (deactivated >= 0 && deactivated < scen.triggers.size()) {
+            tempss << scen.triggers.at(deactivated).getIDName(true);
+        } else {
+            tempss << "(INVALID ID " << activated << ")";
+        }
     }
     deactivated_name = tempss.str();
 

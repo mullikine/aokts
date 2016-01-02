@@ -2484,6 +2484,8 @@ AOKTS_ERROR Scenario::sync_triggers() {
     // Before doing this, make sure no trigger display orders are set to
     // -1 (not really set). Use the trigview.
 
+    // Don't use this display order, use the treeview.
+
 	size_t num = triggers.size();
 	if (num > 0) {
         for (size_t i = 0; i < num; i++) {

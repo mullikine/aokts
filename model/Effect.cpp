@@ -484,7 +484,7 @@ std::string Effect::getName(bool tip, NameFlags::Value flags, int recursion) con
                             }
                         }
                         if (setts.showdisplayorder || setts.showtrigids) {
-                            stype.append(" ").append(scen.triggers.at(trig_index).getIDName());
+                            stype.append(" ").append(scen.triggers.at(trig_index).getIDName(true));
                         }
                         if (recursion > 0) {
                             stype.append(" ").append(scen.triggers.at(trig_index).getName(setts.showtrigfunction,true,recursion - 1));

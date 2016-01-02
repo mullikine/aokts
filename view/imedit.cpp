@@ -34,13 +34,13 @@ void LoadIM(HWND dialog)
 	CheckDlgButton(dialog, IDC_M_USERPATCH, scen.game == UP);
 
     size_t max_checkboxes = IDC_DEP_AOAK - IDC_DEP_AOK + 1;
+    ENABLE_WND(IDC_M_DSFRAME, scen.header.header_type == HT_AOE2SCENARIO);
     for (size_t i = 0; i <= max_checkboxes; i++) {
         ENABLE_WND(IDC_DEP_AOK + i, (setts.editall?true:i>(size_t)Dataset::AOC_xUnk1) && scen.header.header_type == HT_AOE2SCENARIO);
     }
-
     for (size_t i = 0; i <= max_checkboxes; i++) {
         size_t game_for_checkbox = ((scen.header.uses_expansions != 1)?i:i+2);
-        CheckDlgButton(dialog, IDC_DEP_AOK + i, scen.header.datasetRequired((Dataset::Value)(game_for_checkbox)));
+        CheckDlgButton(dialog, IDC_DEP_AOK + i, scen.header.datasetRequired((Dataset::Value)(game_for_checkbox)) && scen.header.header_type == HT_AOE2SCENARIO);
     }
 }
 
