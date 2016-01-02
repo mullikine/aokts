@@ -624,7 +624,7 @@ std::string Trigger::getName(bool tip, bool limitlen, int recursion)
     }
 
     if (c_object_destroyed) {
-        ss << "killing " << " " << get_unit_full_name(vanquished_unit);
+        ss << "killing " << get_unit_full_name(vanquished_unit);
         if (e_earn_resource) {
             ss << " earns ";
             switch (earner) {
