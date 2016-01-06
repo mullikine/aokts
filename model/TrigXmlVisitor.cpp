@@ -92,14 +92,13 @@ TrigXmlVisitor::~TrigXmlVisitor()
 
 void TrigXmlVisitor::visit(Trigger& t)
 {
-	_ss << "<trigger id=\"" << _trigcount++ << "\">" << NEWLINE;
+	_ss << "<trigger id=\"" << _trigcount++ << "\" display_order=\"" << t.display_order << "\">" << NEWLINE;
 	_ss << "\t<name>" << escape(t.name).c_str() << "</name>" << NEWLINE;
 	_ss << "\t<tip>" << t.getName(true).c_str() << "</tip>" << NEWLINE;
 	_ss << "\t<enabled>" << t.state << "</enabled>" << NEWLINE;
 	_ss << "\t<looping>" << (int)t.loop << "</looping>" << NEWLINE;
 	_ss << "\t<objective>" << (int)t.obj << "</objective>" << NEWLINE;
 	_ss << "\t<desc_order>" << t.obj_order << "</desc_order>" << NEWLINE;
-	_ss << "\t<display_order>" << t.display_order << "</display_order>" << NEWLINE;
 	if (t.description.length())
 		_ss << "\t<description>" << escape(t.description.c_str()).c_str() << "</description>" << NEWLINE;
 }

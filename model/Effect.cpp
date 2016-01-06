@@ -667,7 +667,7 @@ std::string Effect::getName(bool tip, NameFlags::Value flags, int recursion) con
                         }
 	                }
 	            } else {
-                    convert << "patrol / reseed nothing";
+                    convert << "patrol / reseed " << selectedUnits();
 	            }
                 stype.append(convert.str());
             }
@@ -1108,7 +1108,7 @@ bool Effect::check() const
 		return (has_valid_selected || valid_area_selection) && valid_target_player();
 
 	case EffectType::Patrol:
-		return (has_valid_selected && valid_location_coord());
+		return (has_valid_selected || valid_area_selection) && valid_location_coord();
 
 	case EffectType::DisplayInstructions:
 		return (valid_panel() && disp_time >= 0 && (*text.c_str() || textid));	//AOK missing text
