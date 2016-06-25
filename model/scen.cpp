@@ -1350,8 +1350,11 @@ void Scenario::read_data(const char *path)	//decompressed data
 	for (i = 0; i < perversion->messages_count; i++)
 		messages[i].read(dc2in.get(), sizeof(short));
 
-	for (i = 0; i < NUM_CINEM; i++)
+	printf_log("NUM_CINEM: %d\n", NUM_CINEM);
+	for (i = 0; i < NUM_CINEM; i++) {
 		readcs<unsigned short>(dc2in.get(), cinem[i], sizeof(cinem[i]));
+	    printf_log("Cinematic %d: %s\n", i, cinem[i]);
+	}
 
 	/* Bitmap */
 	readbin(dc2in.get(), &bBitmap);

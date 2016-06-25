@@ -250,7 +250,7 @@ public:
 	char	origname[_MAX_FNAME];
 	long	mstrings[NUM_MSGS];
 	SString messages[NUM_MSGS];
-	char	cinem[NUM_CINEM][0x20];	//pre-game, victory, lose, bkg
+	char	cinem[NUM_CINEM][0x40];	//pre-game, victory, lose, bkg 0x20 = 32
 	long	bBitmap;
 	AOKBMP bitmap;
 	Player players[NUM_PLAYERS];

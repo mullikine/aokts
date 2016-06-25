@@ -126,7 +126,7 @@ void SetDlgItemFloat(HWND dialog, UINT id, double value)
 	// See GetDlgItemFloat() for "why Unicode?".
 
 	wchar_t buffer[CONV_BUFF_SIZE];
-	swprintf(buffer, CONV_BUFF_SIZE, L"%.1f", value);
+	swprintf(buffer, CONV_BUFF_SIZE, L"%.2f", value);
 	SetDlgItemTextW(dialog, id, buffer);
 }
 
