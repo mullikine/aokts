@@ -4,16 +4,36 @@
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
-Updated by DoctorWillCU - 09/08/15 18/08/15 03/09/15
+Updated by DoctorWillCU - 09/08/15 18/08/15 03/09/15 09/02/16 19/02/16
 Updated by danielpereira - 18 November 2015
 -->
- 
+
+<!--
+About Reverse Value
+
+(REV) Reverse Value or Negative Value, used for disable that techs/units/buildings
+		could be put into "Disable" or "Triggers" section.
+If put (REV) inside "Disable" section it would become a Positive Value.
+If put (REV) inside "Triggers" section it would become a Switcher of Event-Trigger.
+
+About Town Center
+
+There about 20 of Town Center in prounits list, which only 2 values of them general use in AOE2HD.
+ID "109 - Town Center" = AoK Town Center
+ID "621 - Town Center1X" = AoC-AoFE-AoAK Town Center
+Town Center 2,3,4 & X,A,B,C were (REV) Reverse Value, they can affect to specific player.
+Be careful of using them and Avoiding to put them into "Disable" section in general use.
+This will be research more deatil and update in furture.
+
+Updated by DoctorWillCU, 19/02/16.
+-->
+
 <techs>
 <!--
 (A) - Make available
 (H) - Hidden tech
 (U) - Unimplemented/Unknown/Unused
-(D) - Disable
+(REV) - Reverse Value/Negative Value
 (CIV) - Only available for that civilization
 AP - Attack Points
 HP - Hit Points
@@ -583,7 +603,7 @@ WS - Work Speed
 <tech id="557" name="Enable Cows" />
 <tech id="558" name="Enable Turkeys" />
 <tech id="559" name="All units -15% gold (POR)" />
-<tech id="560" name="Ships +10% faster (POR)" />
+<tech id="560" name="Ships +10% HP (POR)" />
 <tech id="561" name="University +80% faster (POR)" />
 <tech id="562" name="Organ Gun (A) (POR)" />
 <tech id="563" name="Elite Organ Gun (POR)" />
@@ -594,7 +614,7 @@ WS - Work Speed
 <tech id="568" name="Shotel Warrior (A) (ETH)" />
 <tech id="569" name="Elite Shotel Warrior (ETH)" />
 <tech id="570" name="Feitoria (A)" />
-<tech id="571" name="Ships +1/1 armor (BER)" />
+<tech id="571" name="Animals Decay (U)" />
 <tech id="572" name="Carrack (POR)" />
 <tech id="573" name="Arquebus (POR)" />
 <tech id="574" name="Royal Heirs (ETH)" />
@@ -621,15 +641,15 @@ WS - Work Speed
 <tech id="595" name="Buildings cost -25% wood (MAL)" />
 <tech id="596" name="Caravel (A) (POR)" />
 <tech id="597" name="Elite Caravel (POR)" />
-<tech id="598" name="Genitour (A) (U) (BER)" />
-<tech id="599" name="Elite Genitour (BER)" />
+<tech id="598" name="Berbers Genitour (A) (U) (BER)" />
+<tech id="599" name="Elite Berbers Genitour (BER)" />
 <tech id="600" name="Dark Cartography (T) (POR)" />
-<tech id="601" name="Genitour, Dummy (A)" />
+<tech id="601" name="Berbers Genitour, Dummy (A)" />
 <tech id="602" name="Arson" />
 <tech id="603" name="Siege Tower (A)" />
 <tech id="604" name="Fire Galley (A)" />
 <tech id="605" name="Demolition Galley (A)" />
-<tech id="606" name="Elite Genitour (D)" />
+<tech id="606" name="Elite Berbers Genitour (REV)" />
 <tech id="607" name="Archers fire +15% faster (ETH)" />
 <tech id="608" name="Arrowslits" />
 </techs>
@@ -728,7 +748,7 @@ WS - Work Speed
 <protounit id="68" name="Mill" />
 <protounit id="69" name="Fish, Shore" />
 <protounit id="70" name="House" />
-<protounit id="71" name="Town Center 2" />
+<protounit id="71" name="Town Center 2 (REV)" />
 <protounit id="72" name="Wall, Palisade" />
 <protounit id="73" name="Chu Ko Nu" />
 <protounit id="74" name="Militia" />
@@ -798,8 +818,8 @@ WS - Work Speed
 <protounit id="138" name="Spy" />
 <protounit id="139" name="Paladin, D" />
 <protounit id="140" name="Spearman, D" />
-<protounit id="141" name="Town Center 3" />
-<protounit id="142" name="Town Center 4" />
+<protounit id="141" name="Town Center 3 (REV)" />
+<protounit id="142" name="Town Center 4 (REV)" />
 <protounit id="143" name="Rubble 1 X 1" />
 <protounit id="144" name="Rubble 2 X 2" />
 <protounit id="145" name="Rubble 3 X 3" />
@@ -1138,10 +1158,10 @@ WS - Work Speed
 <protounit id="478" name="Proj, Harold Haraade" />
 <protounit id="479" name="PMANG" />
 <protounit id="480" name="Hussar, D" />
-<protounit id="481" name="Town Center 3A" />
-<protounit id="482" name="Town Center 3B" />
-<protounit id="483" name="Town Center 3C" />
-<protounit id="484" name="Town Center 3X" />
+<protounit id="481" name="Town Center 3A (REV)" />
+<protounit id="482" name="Town Center 3B (REV)" />
+<protounit id="483" name="Town Center 3C (REV)" />
+<protounit id="484" name="Town Center 3X (REV)" />
 <protounit id="485" name="Arrow, Town Center" />
 <protounit id="486" name="Bear / Tiger" />
 <protounit id="487" name="Gate, AX2" />
@@ -1254,7 +1274,7 @@ WS - Work Speed
 <protounit id="594" name="Sheep" />
 <protounit id="595" name="Sheep, D" />
 <protounit id="596" name="Elite Genitour" />
-<protounit id="597" name="Town Center 4X" />
+<protounit id="597" name="Town Center 4X (REV)" />
 <protounit id="598" name="Outpost" />
 <protounit id="599" name="Cathedral" />
 <protounit id="600" name="Flag A" />
@@ -1268,16 +1288,16 @@ WS - Work Speed
 <protounit id="608" name="Bridge B Top" />
 <protounit id="609" name="Bridge B Middle" />
 <protounit id="610" name="Bridge B Bottom" />
-<protounit id="611" name="Town Center 4A" />
-<protounit id="612" name="Town Center 4B" />
-<protounit id="613" name="Town Center 4C" />
-<protounit id="614" name="Town Center 2A" />
-<protounit id="615" name="Town Center 2B" />
-<protounit id="616" name="Town Center 2C" />
-<protounit id="617" name="Town Center 2X" />
-<protounit id="618" name="Town Center 1A" />
-<protounit id="619" name="Town Center 1B" />
-<protounit id="620" name="Town Center 1C" />
+<protounit id="611" name="Town Center 4A (REV)" />
+<protounit id="612" name="Town Center 4B (REV)" />
+<protounit id="613" name="Town Center 4C (REV)" />
+<protounit id="614" name="Town Center 2A (REV)" />
+<protounit id="615" name="Town Center 2B (REV)" />
+<protounit id="616" name="Town Center 2C (REV)" />
+<protounit id="617" name="Town Center 2X (REV)" />
+<protounit id="618" name="Town Center 1A (REV)" />
+<protounit id="619" name="Town Center 1B (REV)" />
+<protounit id="620" name="Town Center 1C (REV)" />
 <protounit id="621" name="Town Center 1X" />
 <protounit id="622" name="D Iron Boar" />
 <protounit id="623" name="Rock" />
@@ -1566,9 +1586,7 @@ WS - Work Speed
 <protounit id="907" name="Wooden Bridge B Top" />
 <protounit id="908" name="Wooden Bridge B Middle" />
 <protounit id="909" name="Wooden Bridge B Bottom" />
- 
 <protounit id="910" name="Impaled Corpse" />
- 
 <protounit id="914" name="Quarry" />
 <protounit id="915" name="Lumber" />
 <protounit id="916" name="Goods" />
@@ -1609,7 +1627,6 @@ WS - Work Speed
 <protounit id="1006" name="Elite Caravel" />
 <protounit id="1007" name="Camel Archer" />
 <protounit id="1008" name="Camel Archer, D" />
-<protounit id="1009" name="Elite Camel Archer" />
 <protounit id="1009" name="Elite Camel Archer" />
 <protounit id="1010" name="Berber Genitour" />
 <protounit id="1011" name="Berber Genitour, D" />
@@ -1680,7 +1697,7 @@ WS - Work Speed
 <protounit id="1076" name="Miklos Toldi" />
 <protounit id="1077" name="Little John" />
 <protounit id="1078" name="Zawisza the Black" />
-<protounit id="1079" name="Genitour, Dummy" />
+<protounit id="1079" name="Berbers Genitour, Dummy" />
 <protounit id="1080" name="Sumanguru" />
 <protounit id="1081" name="Storage" />
 <protounit id="1082" name="Hut" />
@@ -2004,8 +2021,8 @@ usual.
 <terrain id="21" color="258625" name="Snow Pine Forest" />
 <terrain id="22" color="003587" name="Water, Deep" />
 <terrain id="23" color="0054B0" name="Water, Medium" />
-<terrain id="24" color="c0b0b0" name="Road" />
-<terrain id="25" color="c0a5a0" name="Road, Broken" />
+<terrain id="24" color="e09545" name="Road" />
+<terrain id="25" color="d49242" name="Road, Broken" />
 <terrain id="26" color="BDD1FD" name="Ice (no ships)" />
 <terrain id="27" color="d59545" name="Dirt 2 (no beach, building residue, dockable)" />
 <terrain id="28" color="905db6" name="Water, Bridge (walkable, no ships)" />
@@ -2040,7 +2057,7 @@ usual.
 <group name="Archers" units="4,5,24,39,474,492" />
 <group name="Arrows" units="54,97,245,246,315,316,317,318,319,320,321,322,328,360,363,364,367,372,375,378,381,385,466,470,471,475,476,477,478,485,503,504,505,507,509,510,511,512,514,516,517,518,519,521,522,523,524,525,537,538,540,541,627,628,746,747,786,787" />
 <group name="Betas" units="76,158,299,444,479,493,544,571,573,575,577,748,749" />
-<group name="Buildings" units="117,115,10,12,14,18,19,20,30,31,32,33,45,47,49,50,51,68,70,71,72,79,82,84,86,87,101,103,104,105,109,110,116,129,130,131,132,133,137,141,142,150,153,179,199,208,209,210,234,235,236,276,278,345,445,446,463,464,465,481,482,483,484,498,562,563,564,565,584,585,586,587,597,598,599,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,624,625,626,655,684,685,689,690,696,712,713,714,715,716,717,718,719,738,739,740,741,742,743,785,805,806,807,808,826,63,64,67,78,80,81,85,88,90,91,92,95,487,488,490,491,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804" />
+<group name="Buildings" units="117,115,10,12,14,18,19,20,30,31,32,33,45,47,49,50,51,68,70,71,72,79,82,84,86,87,101,103,104,105,109,110,116,129,130,131,132,133,137,141,142,150,153,179,199,208,209,210,234,235,236,276,278,345,445,446,463,464,465,481,482,483,484,498,562,563,564,565,584,585,586,587,597,598,599,605,606,607,608,609,610,611,612,613,614,615,616,617,618,619,620,621,624,625,626,655,684,685,689,690,696,712,713,714,715,716,717,718,719,738,739,740,741,742,743,785,805,806,807,808,826,63,64,67,78,80,81,85,88,90,91,92,95,487,488,490,491,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804,1021" />
 <group name="Castle" units="6,7,8,11,25,40,41,42,46,73,94,232,239,281,282,291,331,434,440,441,530,531,534,553,554,555,556,557,558,559,560,561,583,596,692,694,725,726,755,757,759,761,763,765,771,773,827,829" />
 <group name="Cavalry" units="37,38,283,329,330,448,546,569" />
 <group name="Cliffs" units="265,266,270,271,272,273" />
@@ -2054,7 +2071,7 @@ usual.
 <group name="Ships" units="13,15,17,21,61,250,420,436,438,443,527,528,529,532,533,535,536,539,545,691,831,832" />
 <group name="Siege" units="5,35,36,279,280,422,542,548,550,588" />
 <group name="Trees" units="284,348,349,350,351,399,400,401,402,403,404,405,406,407,408,409,410,411,413,414,415,809" />
-<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,,250,279,280,281,282,291,331,358,359,420,422,434,440,441,442,473,474,492,527,528,530,531,533,534,539,542,545,548,550,553,554,555,556,557,558,559,560,561,567,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882" />
+<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,242,244,250,279,280,281,282,291,331,358,359,420,422,434,440,441,442,473,474,492,527,528,529,530,531,532,533,534,539,542,545,548,550,553,554,555,556,557,558,559,560,561,567,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882,1001,1003,1004,1006,1007,1009,1010,1012,1013,1015,1016,1018,1103,1104,1105" />
 <group name="Villagers" units="56,57,83,118,120,122,123,124,156,206,207,212,214,216,218,220,222,259,293,354,579,581,590,592" />
 <group name="Walls" units="63,64,67,78,80,81,85,88,90,91,92,95,117,155,487,488,490,491,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804" />
 </unitgroups>
