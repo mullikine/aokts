@@ -142,12 +142,8 @@ void PlayersCTY_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
 
 		case IDC_P_CLEARCTY:
 		    {
-		        char *cstr = p->ctyfile.unlock(1);
-	            strcpy(cstr, "");
-		        p->ctyfile.lock();
+		        p->clear_cty();
 		        SetDlgItemText(dialog, IDC_P_CTYSCRIPT, p->ctyfile.c_str());
-
-	            strcpy(p->cty, "");
 	            SetDlgItemText(dialog, IDC_P_CTY, p->cty);
 		    }
 			break;

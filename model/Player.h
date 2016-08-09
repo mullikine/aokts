@@ -54,6 +54,9 @@ public:
 	void erase_unit(std::vector<Unit>::size_type);
 
 	bool read_aifiles(FILE *in);	//returns false if out-of-memory
+	void clear_ai();
+	void clear_cty();
+	void clear_vc();
 
 	void read_header_name(FILE *in);
 	void read_header_stable(FILE *in);

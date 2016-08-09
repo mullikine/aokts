@@ -157,17 +157,10 @@ void PlayersAI_HandleCommand(HWND dialog, WORD code, WORD id, HWND control)
 
 		case IDC_P_CLEARAI:
 		    {
-		        char *cstr = p->aifile.unlock(1);
-	            strcpy(cstr, "");
-		        p->aifile.lock();
+		        p->clear_ai();
 		        SetDlgItemText(dialog, IDC_P_AISCRIPT, p->aifile.c_str());
-
-                p->aimode = AI_none;
-
 	            SendDlgItemMessage(dialog, IDC_P_AIMODE, BM_SETCHECK, p->aimode == AI_standard, 0);
 			    SetDlgItemInt(dialog, IDC_P_AIMODE_VAL, p->aimode, FALSE);
-
-	            strcpy(p->ai, "");
 	            SetDlgItemText(dialog, IDC_P_AI, p->ai);
 		    }
 			break;

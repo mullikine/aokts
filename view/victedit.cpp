@@ -199,12 +199,8 @@ void Victory_HandleCommand(HWND dialog, WORD code, WORD id, HWND)
 
 		case IDC_P_CLEARVC:
 		    {
-		        char *cstr = p->vcfile.unlock(1);
-	            strcpy(cstr, "");
-		        p->vcfile.lock();
+		        p->clear_vc();
 		        SetDlgItemText(dialog, IDC_P_VCSCRIPT, p->vcfile.c_str());
-
-	            strcpy(p->vc, "");
 	            SetDlgItemText(dialog, IDC_P_VC, p->vc);
 		    }
 			break;

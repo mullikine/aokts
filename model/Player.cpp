@@ -180,6 +180,31 @@ bool Player::read_aifiles(FILE *in)
 	return true;
 }
 
+void Player::clear_ai()
+{
+	char *cstr = aifile.unlock(1);
+	strcpy(cstr, "");
+	aifile.lock();
+    aimode = AI_none;
+	strcpy(ai, "");
+}
+
+void Player::clear_cty()
+{
+	char *cstr = ctyfile.unlock(1);
+	strcpy(cstr, "");
+	ctyfile.lock();
+	strcpy(cty, "");
+}
+
+void Player::clear_vc()
+{
+	char *cstr = vcfile.unlock(1);
+	strcpy(cstr, "");
+	vcfile.lock();
+	strcpy(cty, "");
+}
+
 void Player::read_header_name(FILE * in)
 {
 	readbin(in, name, sizeof(name));

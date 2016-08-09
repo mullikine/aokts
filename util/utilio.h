@@ -168,6 +168,7 @@ void check(T value, T expected, const char * name, bool err = false)
  */
 template <class T> void readcs(FILE * in, char * dest, size_t space)
 {
+	printf("enter readcs()");
 	T len;
 
 	readbin(in, &len);
@@ -180,6 +181,7 @@ template <class T> void readcs(FILE * in, char * dest, size_t space)
 
 	readbin(in, dest, len);
 	dest[len] = '\0'; // Scenario strings are not always null-terminated.
+	printf("exit readcs()");
 }
 
 /* Output */

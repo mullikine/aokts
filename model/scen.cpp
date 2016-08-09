@@ -3341,6 +3341,16 @@ AOKTS_ERROR Scenario::change_unit_type_for_all_of_type(UCNST from_type, UCNST to
 	return ERR_none;
 }
 
+AOKTS_ERROR Scenario::clearaicpvc()
+{
+	for (int i = 0; i < NUM_PLAYERS; i++) {
+	    players[i].clear_ai();
+	    players[i].clear_cty();
+	    players[i].clear_vc();
+	}
+	return ERR_none;
+}
+
 AOKTS_ERROR Scenario::randomize_unit_frames()
 {
     // compiler will set first array element to the value you've

@@ -993,6 +993,7 @@ void SetDrawTriggerCheckboxes(HWND sheet)
 bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 {
 	bool ret = true;
+	Player *p = propdata.p;
 
 	switch (id)
 	{
@@ -1039,6 +1040,12 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 		} else {
 		    SetWindowText(propdata.statusbar, "Per files saved to disk");
 		}
+		break;
+
+	case IDC_U_CLEARAICPVC:
+	    scen.clearaicpvc();
+		SetWindowText(propdata.statusbar, "Removed All AI, City Plan and VC files");
+	    SendMessage(PropSheet_GetCurrentPageHwnd(sheet), AOKTS_Loading, 0, 0);
 		break;
 
 	case IDC_U_RANDOMIZE_ROT:

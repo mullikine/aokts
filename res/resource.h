@@ -601,6 +601,7 @@
 #define IDC_G_SCENLIST                                1610
 #define ID_TRIGGERS_COPY_SCRAWL                       1611
 #define IDC_M_DSFRAME                                 1612
+#define IDC_U_CLEARAICPVC                             1613
 
 // Next default values for new objects
 // 
