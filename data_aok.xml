@@ -4,7 +4,7 @@
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
-Updated by DoctorWillCU - 09/08/15 18/08/15 03/09/15 09/02/16 19/02/16
+Updated by DoctorWillCU - 09-Aug-15 18-Aug-15 03-Sep-15 09-Feb-16 19-Feb-16 22-Dec-16
 Updated by danielpereira - 18 November 2015
 -->
 
@@ -70,7 +70,7 @@ WS - Work Speed
 <tech id="24" name="Garland Wars (AZT)" />
 <tech id="25" name="Stable (A)" />
 <tech id="26" name="Plumed Archer (A)(MAY)" />
-<tech id="27" name="Elited Plumed Archer (MAY)" />
+<tech id="27" name="Elite Plumed Archer (MAY)" />
 <tech id="28" name="Compass (U)" />
 <tech id="29" name="Atonement +5 Monk HP (AZT)" />
 <tech id="30" name="Sanctity +5 Monk HP (AZT)" />
@@ -652,6 +652,16 @@ WS - Work Speed
 <tech id="606" name="Elite Berbers Genitour (REV)" />
 <tech id="607" name="Archers fire +15% faster (ETH)" />
 <tech id="608" name="Arrowslits" />
+<tech id="617" name="Elite Karambit Warrior(A)(MLY)" />
+<tech id="621" name="Elite Rattan Archer (A)(VIT)" />
+<tech id="624" name="Thalassocracy (MLY)" />
+<tech id="629" name="Paper Money (VIT)" />
+<tech id="631" name="Elite Battle Elephant" />
+<tech id="650" name="Civ: Khmer (KHM)" />
+<tech id="651" name="Civ: Malay (MLY)" />
+<tech id="652" name="Civ: Burmese (BUR)" />
+<tech id="653" name="Civ: Vietnamese (VIT)" />
+
 </techs>
  
 <pcolors>
@@ -718,7 +728,7 @@ WS - Work Speed
 <protounit id="38" name="Knight" />
 <protounit id="39" name="Cavalry Archer" />
 <protounit id="40" name="Cataphract" />
-<protounit id="41" name="Huskarl (Castle)" />
+<protounit id="41" name="Huskarl" />
 <protounit id="42" name="Trebuchet, Unpacked" />
 <protounit id="43" name="Deer, D" />
 <protounit id="44" name="Mameluke, D" />
@@ -739,7 +749,7 @@ WS - Work Speed
 <protounit id="59" name="Forage Bush" />
 <protounit id="60" name="Fisher, F D" />
 <protounit id="61" name="Trireme / Dolphin" />
-<protounit id="62" name="Huskarl Huskarl (Castle), D" />
+<protounit id="62" name="Huskarl, D" />
 <protounit id="63" name="Gate, AA3" />
 <protounit id="64" name="Gate, AA2" />
 <protounit id="65" name="Deer" />
@@ -1232,7 +1242,7 @@ WS - Work Speed
 <protounit id="552" name="Proj, Onager F" />
 <protounit id="553" name="Elite Cataphract" />
 <protounit id="554" name="Elite Teutonic Knight" />
-<protounit id="555" name="Elite Huskarl (Castle)" />
+<protounit id="555" name="Elite Huskarl" />
 <protounit id="556" name="Elite Mameluke" />
 <protounit id="557" name="Elite Janissary" />
 <protounit id="558" name="Elite War Elephant" />
@@ -1432,14 +1442,14 @@ WS - Work Speed
 <protounit id="752" name="Elite Eagle Warrior" />
 <protounit id="753" name="Eagle Warrior" />
 <protounit id="754" name="Eagle Warrior, D" />
-<protounit id="755" name="Tarkan (Castle)" />
-<protounit id="756" name="Tarkan (Castle), D" />
-<protounit id="757" name="Elite Tarkan (Castle)" />
+<protounit id="755" name="Tarkan" />
+<protounit id="756" name="Tarkan, D" />
+<protounit id="757" name="Elite Tarkan" />
 <protounit id="758" name="Burned Building" />
-<protounit id="759" name="Huskarl (Barrack)" />
-<protounit id="760" name="Huskarl (Barrack), Dead" />
-<protounit id="761" name="Elite Huskarl (Barrack)" />
-<protounit id="762" name="Elite Huskarl (Barrack), Dead" />
+<protounit id="759" name="Huskarl 2" />
+<protounit id="760" name="Huskarl 2, Dead" />
+<protounit id="761" name="Elite Huskarl" />
+<protounit id="762" name="Elite Huskarl, Dead" />
 <protounit id="763" name="Plumed Archer" />
 <protounit id="764" name="Plumed Archer, D" />
 <protounit id="765" name="Elite Plumed Archer" />
@@ -1563,8 +1573,8 @@ WS - Work Speed
 <protounit id="883" name="Condottiero, D" />
 <protounit id="884" name="Wild Camel" />
 <protounit id="885" name="Siege Tower (AoFE)" />
-<protounit id="886" name="Tarkan (Stable)" />
-<protounit id="887" name="Elite Tarkan (Stable)" />
+<protounit id="886" name="Tarkan 2" />
+<protounit id="887" name="Elite Tarkan 2" />
 <protounit id="888" name="Inca_Turkey+Eagle" />
 <protounit id="889" name="Inca_Eagle" />
 <protounit id="890" name="Inca_Turkey" />
@@ -1729,7 +1739,19 @@ WS - Work Speed
 <protounit id="1108" name="Dagnajan, D" />
 <protounit id="1109" name="Gidajan" />
 <protounit id="1110" name="Gidajan, D" />
- 
+<protounit id="1120" name="Ballista Elephant" />
+<protounit id="1122" name="Elite Ballista Elephant" />
+<protounit id="1123" name="Karambit Warrior" />
+<protounit id="1125" name="Elite Karambit Warrior" />
+<protounit id="1126" name="Arambai" />
+<protounit id="1128" name="Elite Arambai" />
+<protounit id="1129" name="Rattan Archer" />
+<protounit id="1131" name="Elite Rattan Archer" />
+<protounit id="1132" name="Battle Elephant" />
+<protounit id="1134" name="Elite Battle Elephant" />
+<protounit id="1142" name="Water Buffalo" />
+<protounit id="1155" name="Imperial Skrimisher" />
+
 </units>
 
 <resources>
@@ -2071,7 +2093,7 @@ usual.
 <group name="Ships" units="13,15,17,21,61,250,420,436,438,443,527,528,529,532,533,535,536,539,545,691,831,832" />
 <group name="Siege" units="5,35,36,279,280,422,542,548,550,588" />
 <group name="Trees" units="284,348,349,350,351,399,400,401,402,403,404,405,406,407,408,409,410,411,413,414,415,809" />
-<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,242,244,250,279,280,281,282,291,331,358,359,420,422,434,440,441,442,473,474,492,527,528,529,530,531,532,533,534,539,542,545,548,550,553,554,555,556,557,558,559,560,561,567,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882,1001,1003,1004,1006,1007,1009,1010,1012,1013,1015,1016,1018,1103,1104,1105" />
+<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,242,244,250,279,280,281,282,291,331,358,359,420,422,434,440,441,442,473,474,492,527,528,529,530,531,532,533,534,539,542,545,548,550,553,554,555,556,557,558,559,560,561,567,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882,1001,1003,1004,1006,1007,1009,1010,1012,1013,1015,1016,1018,1103,1104,1105,1120,1122,1123,1125,1126,1128,1129,1131,1132,1134,1155" />
 <group name="Villagers" units="56,57,83,118,120,122,123,124,156,206,207,212,214,216,218,220,222,259,293,354,579,581,590,592" />
 <group name="Walls" units="63,64,67,78,80,81,85,88,90,91,92,95,117,155,487,488,490,491,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804" />
 </unitgroups>
@@ -2105,6 +2127,11 @@ usual.
 <civ id="25" name="Ethiopians" />
 <civ id="26" name="Malians" />
 <civ id="27" name="Berbers" />
+<civ id="28" name="Khmer" />
+<civ id="29" name="Malay" />
+<civ id="30" name="Burmese" />
+<civ id="31" name="Vietnamese" />
+
 </civs>
 
 </geniedata>
