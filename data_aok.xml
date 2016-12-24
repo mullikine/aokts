@@ -4,7 +4,7 @@
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
-Updated by DoctorWillCU - 09-Aug-15 18-Aug-15 03-Sep-15 09-Feb-16 19-Feb-16 22-Dec-16
+Updated by DoctorWillCU - 09-Aug-15 18-Aug-15 03-Sep-15 09-Feb-16 19-Feb-16 22-Dec-16 24-Dec-16
 Updated by danielpereira - 18 November 2015
 -->
 
@@ -33,7 +33,7 @@ Updated by DoctorWillCU, 19/02/16.
 (A) - Make available
 (H) - Hidden tech
 (U) - Unimplemented/Unknown/Unused
-(REV) - Reverse Value/Negative Value
+(REV) - Reverse Condition
 (CIV) - Only available for that civilization
 AP - Attack Points
 HP - Hit Points
@@ -654,7 +654,10 @@ WS - Work Speed
 <tech id="608" name="Arrowslits" />
 <tech id="617" name="Elite Karambit Warrior(A)(MLY)" />
 <tech id="621" name="Elite Rattan Archer (A)(VIT)" />
+<tech id="623" name="Double Crossbow (KHM)" />
 <tech id="624" name="Thalassocracy (MLY)" />
+<tech id="626" name="Howdah (BUR)" />
+<tech id="628" name="Chatras (VIT)" />
 <tech id="629" name="Paper Money (VIT)" />
 <tech id="631" name="Elite Battle Elephant" />
 <tech id="650" name="Civ: Khmer (KHM)" />
