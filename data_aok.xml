@@ -4,7 +4,7 @@
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
-Updated by DoctorWillCU - 09-Aug-15 18-Aug-15 03-Sep-15 09-Feb-16 19-Feb-16 22-Dec-16 24-Dec-16
+Updated by DoctorWillCU - 09 August 2015 to 26 January 2017
 Updated by danielpereira - 18 November 2015
 -->
 
@@ -652,7 +652,8 @@ WS - Work Speed
 <tech id="606" name="Elite Berbers Genitour (REV)" />
 <tech id="607" name="Archers fire +15% faster (ETH)" />
 <tech id="608" name="Arrowslits" />
-<tech id="617" name="Elite Karambit Warrior(A)(MLY)" />
+<tech id="615" name="Elite Ballisita Elephant (A)(KHM)" />
+<tech id="617" name="Elite Karambit Warrior (A)(MLY)" />
 <tech id="621" name="Elite Rattan Archer (A)(VIT)" />
 <tech id="623" name="Double Crossbow (KHM)" />
 <tech id="624" name="Thalassocracy (MLY)" />
