@@ -4,7 +4,7 @@
 <geniedata>
 <!--
 Updated by JustTesting1234 - 02/01/12
-Updated by DoctorWillCU - 09 August 2015 to 26 January 2017
+Updated by DoctorWillCU - 09 August 2015 to 01 February 2017
 Updated by danielpereira - 18 November 2015
 -->
 
@@ -652,19 +652,45 @@ WS - Work Speed
 <tech id="606" name="Elite Berbers Genitour (REV)" />
 <tech id="607" name="Archers fire +15% faster (ETH)" />
 <tech id="608" name="Arrowslits" />
-<tech id="615" name="Elite Ballisita Elephant (A)(KHM)" />
-<tech id="617" name="Elite Karambit Warrior (A)(MLY)" />
-<tech id="621" name="Elite Rattan Archer (A)(VIT)" />
+<tech id="614" name="Ballisita Elephant (A) (KHM)" />
+<tech id="615" name="Elite Ballisita Elephant (KHM)" />
+<tech id="616" name="Karambit Warrior (A) (MLY)" />
+<tech id="617" name="Elite Karambit Warrior (MLY)" />
+<tech id="618" name="Arambai (A) (BUR)" />
+<tech id="619" name="Elite Arambai (BUR)" />
+<tech id="620" name="Rattan Archer (A) (VIT)" />
+<tech id="621" name="Elite Rattan Archer (VIT)" />
+<tech id="622" name="Tusk Swords (KHM)" />
 <tech id="623" name="Double Crossbow (KHM)" />
 <tech id="624" name="Thalassocracy (MLY)" />
+<tech id="625" name="Forced Levy (MLY)" />
 <tech id="626" name="Howdah (BUR)" />
+<tech id="627" name="Manipur Cavalry (BUR)" />
 <tech id="628" name="Chatras (VIT)" />
 <tech id="629" name="Paper Money (VIT)" />
+<tech id="630" name="Battle Elephant (A)" />
 <tech id="631" name="Elite Battle Elephant" />
+<tech id="632" name="Archer HP +10% (VIT)" />
+<tech id="633" name="Infantry +1 Attack, Dark Age (BUR)" />
+<tech id="634" name="Age up Faster (MLY)" />
+<tech id="635" name="Fishing Ships Fish Traps -33% Cheaper (MLY)" />
+<tech id="645" name="Free Lumberjack Upgrade (BUR)" />
+<tech id="646" name="Infantry +1 Attack, Fedual Age (BUR)" />
+<tech id="647" name="Infantry +1 Attack, Castle Age (BUR)" />
+<tech id="648" name="Infantry +1 Attack, Imperial Age (BUR)" />
+<tech id="649" name="Monastery Techs -50% Cheaper (BUR)" />
 <tech id="650" name="Civ: Khmer (KHM)" />
 <tech id="651" name="Civ: Malay (MLY)" />
 <tech id="652" name="Civ: Burmese (BUR)" />
 <tech id="653" name="Civ: Vietnamese (VIT)" />
+<tech id="655" name="Imperial Skirmisher" />
+<tech id="656" name="Imperial Skirmisher (REV)" />
+<tech id="657" name="Houses Garrison (KHM)" />
+<tech id="662" name="Age up Faster (MLY)" />
+<tech id="663" name="Archer HP +15% (VIT)" />
+<tech id="664" name="Archer HP +20% (VIT)" />
+<tech id="665" name="Disable Vietnamese Vision (VIT)" />
+<tech id="672" name="Battle Elephant +15% Faster (KHM)" />
 
 </techs>
  
@@ -1744,17 +1770,68 @@ WS - Work Speed
 <protounit id="1109" name="Gidajan" />
 <protounit id="1110" name="Gidajan, D" />
 <protounit id="1120" name="Ballista Elephant" />
+<protounit id="1121" name="Ballista Elephant, D" />
 <protounit id="1122" name="Elite Ballista Elephant" />
 <protounit id="1123" name="Karambit Warrior" />
+<protounit id="1124" name="Karambit Warrior, D" />
 <protounit id="1125" name="Elite Karambit Warrior" />
 <protounit id="1126" name="Arambai" />
+<protounit id="1127" name="Arambai, D" />
 <protounit id="1128" name="Elite Arambai" />
 <protounit id="1129" name="Rattan Archer" />
+<protounit id="1130" name="Rattan Archer, D" />
 <protounit id="1131" name="Elite Rattan Archer" />
 <protounit id="1132" name="Battle Elephant" />
+<protounit id="1133" name="Battle Elephant, D" />
 <protounit id="1134" name="Elite Battle Elephant" />
+<protounit id="1135" name="Komodo Dragon" />
+<protounit id="1136" name="Komodo Dragon, D" />
+<protounit id="1137" name="Tiger" />
+<protounit id="1138" name="Tiger, D" />
+<protounit id="1139" name="Rhinoceros" />
+<protounit id="1140" name="Rhinoceros, D" />
+<protounit id="1141" name="Box Turtles" />
 <protounit id="1142" name="Water Buffalo" />
-<protounit id="1155" name="Imperial Skrimisher" />
+<protounit id="1143" name="Water Buffalo, D" />
+<protounit id="1144" name="Mangrove Tree" />
+<protounit id="1146" name="Rainforest Tree" />
+<protounit id="1148" name="Rock (Beach)" />
+<protounit id="1149" name="Rock (Jungle)" />
+<protounit id="1150" name="Flag G" />
+<protounit id="1151" name="Flag H" />
+<protounit id="1152" name="Flag I" />
+<protounit id="1153" name="Flag J" />
+<protounit id="1155" name="Imperial Skirmisher" />
+<protounit id="1156" name="Imperial Skirmisher, D" />
+<protounit id="1157" name="Gajah Mada" />
+<protounit id="1158" name="Jayanegara" />
+<protounit id="1159" name="Raden Wijaya" />
+<protounit id="1160" name="Sunda Royal Fighter" />
+<protounit id="1161" name="Sunda Royal Fighter, D" />
+<protounit id="1162" name="Suryavarman I" />
+<protounit id="1163" name="Udayadityavarman I" />
+<protounit id="1164" name="Jayaviravarman" />
+<protounit id="1165" name="Bayinnaung" />
+<protounit id="1166" name="Tabinshwehti" />
+<protounit id="1171" name="Buddha Statue A" />
+<protounit id="1172" name="Buddha Statue B" />
+<protounit id="1173" name="Buddha Statue C" />
+<protounit id="1174" name="Buddha Statue D" />
+<protounit id="1175" name="Fern Patch" />
+<protounit id="1176" name="Trowulan Gate" />
+<protounit id="1177" name="Vases" />
+<protounit id="1178" name="Le Loi" />
+<protounit id="1179" name="Le Lai (Disguised)" />
+<protounit id="1180" name="Le Lai" />
+<protounit id="1181" name="Le Trien" />
+<protounit id="1182" name="Luu Nhan Chu" />
+<protounit id="1183" name="Bui Bi" />
+<protounit id="1184" name="Dinh Le" />
+<protounit id="1185" name="Wang Tong" />
+<protounit id="1186" name="Envoy" />
+<protounit id="1187" name="Rice Farm" />
+<protounit id="1188" name="Dead Rice Farm" />
+<protounit id="1189" name="Harbor" />
 
 </units>
 
@@ -2074,6 +2151,21 @@ usual.
 <terrain id="48" color="FFE094" name="Dragon Forest" />
 <terrain id="49" color="FFE094" name="Baobab Forest" />
 <terrain id="50" color="FFE094" name="Acacia Forest" />
+<terrain id="51" color="E1E372" name="Beach 2" />
+<terrain id="52" color="E1E372" name="Beach 3" />
+<terrain id="53" color="E1E372" name="Beach 4" />
+<terrain id="54" color="5492b0" name="Mangrove Shallow" />
+<terrain id="55" color="94ffe0" name="Mangrove Forest" />
+<terrain id="56" color="94ffe0" name="Rainforest" />
+<terrain id="60" color="339927" name="Jungle Grass" />
+<terrain id="61" color="e09545" name="Jungle Road" />
+<terrain id="62" color="339927" name="Jungle Leaves" />
+<terrain id="63" color="82884d" name="Rice Farm" />
+<terrain id="64" color="32381d" name="Dead Rice Farm" />
+<terrain id="65" color="42482d" name="Rice Farm 1" />
+<terrain id="66" color="62683d" name="Rice Farm 2" />
+<terrain id="67" color="708040" name="Rice Farm 3" />
+
 </terrains>
  
 <!-- The following are custom unit groups. They have no effect on the saved scenario,
@@ -2097,7 +2189,7 @@ usual.
 <group name="Ships" units="13,15,17,21,61,250,420,436,438,443,527,528,529,532,533,535,536,539,545,691,831,832" />
 <group name="Siege" units="5,35,36,279,280,422,542,548,550,588" />
 <group name="Trees" units="284,348,349,350,351,399,400,401,402,403,404,405,406,407,408,409,410,411,413,414,415,809" />
-<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,242,244,250,279,280,281,282,291,331,358,359,420,422,434,440,441,442,473,474,492,527,528,529,530,531,532,533,534,539,542,545,548,550,553,554,555,556,557,558,559,560,561,567,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882,1001,1003,1004,1006,1007,1009,1010,1012,1013,1015,1016,1018,1103,1104,1105,1120,1122,1123,1125,1126,1128,1129,1131,1132,1134,1155" />
+<group name="Units" units="4,5,5,6,7,8,11,13,17,21,24,25,35,36,38,39,40,41,42,46,73,74,75,77,83,93,94,125,204,232,239,242,244,250,279,280,281,282,283,291,331,358,359,420,422,434,440,441,442,448,473,474,492,527,528,529,530,531,532,533,534,539,542,545,546,548,550,553,554,555,556,557,558,559,560,561,567,569,583,588,596,691,692,694,725,726,751,752,755,757,759,761,763,765,771,773,775,827,829,831,832,866,868,869,871,873,875,876,878,879,881,882,1001,1003,1004,1006,1007,1009,1010,1012,1013,1015,1016,1018,1103,1104,1105,1120,1122,1123,1125,1126,1128,1129,1131,1132,1134,1155" />
 <group name="Villagers" units="56,57,83,118,120,122,123,124,156,206,207,212,214,216,218,220,222,259,293,354,579,581,590,592" />
 <group name="Walls" units="63,64,67,78,80,81,85,88,90,91,92,95,117,155,487,488,490,491,659,660,661,662,663,664,665,666,667,668,669,670,671,672,673,674,789,790,791,792,793,794,795,796,797,798,799,800,801,802,803,804" />
 </unitgroups>
