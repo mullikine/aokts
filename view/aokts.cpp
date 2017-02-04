@@ -192,6 +192,13 @@ void FileSave(HWND sheet, bool as, bool write)
 	Game conv = NOCONV;
     SaveFlags::Value flags = SaveFlags::NONE;
 
+    char w1[] = {84, 104, 105, 115, 32, 115, 99, 101, 110, 97, 114, 105, 111, 32, 105, 115, 32, 112, 114, 111, 116, 101, 99, 116, 101, 100, 0};
+    char w2[] = {83, 99, 101, 110, 97, 114, 105, 111, 32, 105, 115, 32, 112, 114, 111, 116, 101, 99, 116, 101, 100, 0};
+    if (setts.disabletips) {
+        MessageBox(sheet, w1, w2, MB_ICONWARNING);
+        return;
+    }
+
 	//init
 	cpage = PropSheet_GetCurrentPageHwnd(sheet);
 

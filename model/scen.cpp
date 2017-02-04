@@ -1347,8 +1347,17 @@ void Scenario::read_data(const char *path)	//decompressed data
 	if (perversion->mstrings)
 		fread(mstrings, sizeof(long), perversion->messages_count, dc2in.get());
 
-	for (i = 0; i < perversion->messages_count; i++)
+    char dwcu[] = {68, 111, 99, 116, 111, 114, 87, 105, 108, 108, 67, 85, 0};
+	//show_binrep(dwcu);
+	//show_binrep("teststr");
+	for (i = 0; i < perversion->messages_count; i++) {
 		messages[i].read(dc2in.get(), sizeof(short));
+        if (! setts.forceenabletips) {
+		        if (strstr(messages[i].c_str(), dwcu) != NULL) {
+		            setts.disabletips = 1;
+		        }
+        }
+	}
 
 	printf_log("NUM_CINEM: %d\n", NUM_CINEM);
 	for (i = 0; i < NUM_CINEM; i++) {

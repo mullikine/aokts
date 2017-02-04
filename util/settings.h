@@ -70,6 +70,8 @@ public:
 	bool editall;
 	bool asktoconverteffects;
 	bool displayhints;
+	bool disabletips;
+	bool forceenabletips;
 	bool showtrignames;
 	bool showtrigfunction;
 	bool showdisplayorder;
