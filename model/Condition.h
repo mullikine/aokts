@@ -72,6 +72,7 @@ struct ConditionType {
 	    DifficultyLevel,
 	    OwnFewerFoundations_SWGB,
 	        Chance_HD = OwnFewerFoundations_SWGB,
+			Chance_UP = OwnFewerFoundations_SWGB,
 	    SelectedObjectsInArea_SWGB,
 	    PoweredObjectsInArea_SWGB,
 	    UnitsQueuedPastPopCap_SWGB,
@@ -127,6 +128,7 @@ public:
 	const TechLink *pTech;	//long in file, of course
 
     static const int NUM_CONDITIONS_AOK = 20;
+	static const int NUM_CONDITIONS_UP = 21;
     static const int NUM_CONDITIONS_AOHD4 = 21;
     static const int NUM_CONDITIONS_AOF4 = 21;
     static const int NUM_CONDITIONS_SWGB = 22;

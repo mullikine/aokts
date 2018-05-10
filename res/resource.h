@@ -602,6 +602,7 @@
 #define ID_TRIGGERS_COPY_SCRAWL                       1611
 #define IDC_M_DSFRAME                                 1612
 #define IDC_U_CLEARAICPVC                             1613
+#define ID_TOOLS_WKCONVERT                            1614
 
 // Next default values for new objects
 // 

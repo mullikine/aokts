@@ -17,6 +17,8 @@
 #include "datatypes.h"
 #include "trigger.h"
 #include "Player.h"
+#include "wk_const.h"
+#include "../util/conversions.h"
 
 //MAC USERS: Please replace this block of code with whatever you need.
 #define WIN32_LEAN_AND_MEAN
@@ -25,6 +27,7 @@
 
 #include <stdlib.h>	//for _MAX_FNAME and the like.
 #include <time.h>		//for time_t typedef.
+#include <array>  // Used in wk convert
 
 typedef struct _iobuf FILE;	//makes including <stdio.h> unnecessary
 
@@ -46,7 +49,7 @@ struct AOKFile
 
 struct TerrainFlags {
     enum Value{
-        NONE                           = 0x00,
+        NONE						   = 0x00,
         FORCE                          = 0x01,
         EIGHT                          = 0x02,
     };
@@ -218,6 +221,8 @@ public:
 	ScenVersion1 ver1;
 	// Internal use, set according to version2
 	ScenVersion2 ver2;
+	// Internal use, whether to use a terrain override file (UP1.5)
+	bool terrainOverride = false;
 
 //	Un-compressed Header
 	struct _header
@@ -317,6 +322,7 @@ public:
     static const unsigned char TEMPTERRAIN2 = (unsigned char)(-3);
     static const unsigned char OUTOFBOUNDS = (unsigned char)(-2);
     void swapTerrain(unsigned char newcnst, unsigned char oldcnst);
+	int swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains);
     void outline(unsigned long x, unsigned long y, unsigned char newcnst, unsigned char oldcnst, TerrainFlags::Value flags=TerrainFlags::NONE);
     unsigned char outlineDraw(unsigned long x, unsigned long y, unsigned char newcnst, unsigned char oldcnst, TerrainFlags::Value flags=TerrainFlags::NONE);
     void floodFill4(unsigned long x, unsigned long y, unsigned char newcnst, unsigned char oldcnst);
@@ -340,6 +346,7 @@ public:
 	AOKTS_ERROR prefix_display_order();
 	AOKTS_ERROR remove_display_order_prefix();
 	AOKTS_ERROR swap_trigger_names_descriptions();
+	AOKTS_ERROR convert_unicode_to_ansi();
 	AOKTS_ERROR up_to_hd();
 	AOKTS_ERROR aoc_to_hd4();
 	AOKTS_ERROR aoc_to_hd6();
@@ -351,7 +358,9 @@ public:
 	AOKTS_ERROR aok_to_aoc();
     AOKTS_ERROR strip_patch4();
     AOKTS_ERROR strip_patch6();
-	AOKTS_ERROR hd_to_up();
+	int createZipFile(std::map<std::string, std::string> sourcesForOverrideSlp);
+	AOKTS_ERROR hd_to_wk();
+	AOKTS_ERROR hd_to_up(bool convTriggers, bool switchUnits = true);
 	AOKTS_ERROR hd_to_10c();
 	AOKTS_ERROR hd_to_swgb();
 	AOKTS_ERROR up_to_swgb();
