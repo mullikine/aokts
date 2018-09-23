@@ -2203,8 +2203,6 @@ int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
 			unsigned char id = map.terrain[i][j].cnst;
 			usedTerrains[id]++;
 			switch (id) {
-			case TerrainTypes::Savannah :
-			case TerrainTypes::Dirt4:
 			case TerrainTypes::DryRoad:
 			case TerrainTypes::Moorland:
 			case TerrainTypes::DragonForest:
@@ -2228,8 +2226,14 @@ int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
 			case TerrainTypes::Black:
 				terrainFlags = terrainFlags | WKTerrainFlags::FixedTerrain;
 				break;
+			case TerrainTypes::BuildingDirt:
+			case TerrainTypes::BuildingSnow:
+			case TerrainTypes::SnowRoad:
+			case TerrainTypes::Dirt4:
+			case TerrainTypes::NewMangroveShallows:
 			case TerrainTypes::CrackedEarth:
-			case TerrainTypes::OldGrass:
+			case TerrainTypes::NewCrackedEarth:
+			case TerrainTypes::NewBaobabForest:
 			case TerrainTypes::OakForest:
 			case TerrainTypes::BaobabForest:
 			case TerrainTypes::AcaciaForest:
@@ -2256,18 +2260,15 @@ int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
 		// Dynamic Terrain is where we can consider multiple options for replacement
 		// If a replacement candidate for a terrain is also used in the map, we change the replacement
 		// Some terrains only have one replacement candidate, we'll ignore those
-		std::array<unsigned char, 11> dynamicTerrains = { TerrainTypes::Savannah, TerrainTypes::Dirt4, 
-			TerrainTypes::DryRoad, TerrainTypes::Moorland, TerrainTypes::CrackedEarth,
+		std::array<unsigned char, 7> dynamicTerrains = {
+			TerrainTypes::DryRoad, TerrainTypes::Moorland,
 			TerrainTypes::DragonForest, TerrainTypes::Rainforest,
 			TerrainTypes::JungleGrass,TerrainTypes::JungleRoad,TerrainTypes::JungleLeaves };
-		for (std::array<unsigned char, 11>::iterator iter = dynamicTerrains.begin();
+		for (std::array<unsigned char, 7>::iterator iter = dynamicTerrains.begin();
 			iter != dynamicTerrains.end(); iter++) {
 			if (usedTerrains[*iter] > 0 && usedTerrains[swapTerrains[*iter]] > 0) { // new terrain & replacement candidate in same map
 				int code;
 				switch (*iter) {
-				case TerrainTypes::Black:
-				case TerrainTypes::Quicksand:
-					code = TerrainTypes::UnbuildableTerrain; break;
 				case TerrainTypes::Rainforest:
 				case TerrainTypes::DragonForest:
 					code = TerrainTypes::ForestTerrain; break;
@@ -2289,8 +2290,8 @@ int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
 	for (LONG i = 0; i < map.x; i++) {
 		for (LONG j = 0; j < map.y; j++) {
 			unsigned char id = map.terrain[i][j].cnst;
-			if (id > 40 || id == TerrainTypes::OakForest || id == TerrainTypes::OldGrass
-				|| id == TerrainTypes::SnowRoad || id == TerrainTypes::SnowDirt) {
+			if (id > 41 || id == TerrainTypes::OakForest || id == TerrainTypes::NewBaobabForest
+				|| id == TerrainTypes::SnowRoad || id == TerrainTypes::NewMangroveShallows || id == TerrainTypes::NewCrackedEarth) {
 				map.terrain[i][j].cnst = swapTerrains[id];
 			}
 		}
@@ -2302,6 +2303,8 @@ int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
 			swappedTerrains[i - 41] = swapTerrains[i];
 	}
 	//These are terrains built into WK, no terrain override needed
+	swappedTerrains[0] = 99;
+	swappedTerrains[1] = 99;
 	swappedTerrains[4] = 99;
 	swappedTerrains[8] = 99; 
 	swappedTerrains[9] = 99;
@@ -3212,6 +3215,8 @@ AOKTS_ERROR Scenario::strip_patch6() {
 }
 
 AOKTS_ERROR Scenario::hd_to_wk() {
+	if (game == UP) //This is the game version after conversion, don't want to do this twice
+		return ERR_none;
 	for (int i = 0; i < NUM_PLAYERS; i++) {
 		// units
 		for (std::vector<Unit>::iterator unit = players[i].units.begin(); unit != players[i].units.end(); ++unit) {
@@ -3226,7 +3231,7 @@ AOKTS_ERROR Scenario::hd_to_wk() {
 				break;
 			default:
 				int oldId = unit->getType()->id();
-				for (std::array<std::pair<int, int>, 33U>::const_iterator it = unitSwaps.begin();
+				for (std::array<std::pair<int, int>, 34U>::const_iterator it = unitSwaps.begin();
 						it != unitSwaps.end(); it++) {
 					if (oldId == it->first) {
 						unit->setType(esdata.units.getById(it->second));
@@ -3245,7 +3250,7 @@ AOKTS_ERROR Scenario::hd_to_wk() {
 	std::fill(swappedTerrains.begin(), swappedTerrains.end(), 99);
 	int terrainFlags = swapWKTerrain(swappedTerrains);
 
-	if (terrainFlags && (WKTerrainFlags::FixedTerrain || WKTerrainFlags::FixedTerrain)) {
+	if (terrainFlags && (WKTerrainFlags::DynamicTerrain || WKTerrainFlags::FixedTerrain)) {
 		scen.terrainOverride = true;
 		std::map<std::string, std::string> sourcesForOverrideSlp;
 		for (int i = 0; i < swappedTerrains.size(); i++) {
@@ -3258,8 +3263,9 @@ AOKTS_ERROR Scenario::hd_to_wk() {
 	int i;
 	Player *p;
 	FEP(p) {
-		p->aimode = AI_none;
-		strcpy(p->ai, "");
+		if (p->aimode == AI_standard) {
+			strcpy(p->ai, "Promi");
+		}
 	}
 	game = UP;
 	adapt_game();

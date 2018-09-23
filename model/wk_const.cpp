@@ -8,12 +8,13 @@
 
 #include "wk_const.h"
 
- std::array<std::pair<int, int>,33> const unitSwaps = { {
+ std::array<std::pair<int, int>,34> const unitSwaps = { {
 
     {1103, 529}, // Fire Galley, Fire Ship
     {1104, 527}, // Demolition Raft, Demolition Ship NOTE: These two are special to make the tech tree work
 
     {1001, 106}, // Organ Gun, INFIL_D
+	{949, 108 }, // X Patch Trade Cart, JUNKX_D
     {1003, 114}, // Elite Organ Gun, LNGBT_D
     {1006, 183}, // Elite Caravel, TMISB
     {1007, 203}, // Camel Archer, VDML
@@ -21,13 +22,14 @@
     {1010, 223}, // Genitour, VFREP_D
     {1012, 230}, // Elite Genitour, VMREP_D
     {1013, 260}, // Gbeto, OLD-FISH3
+	{936, 412 }, // Elephant, MONKX_S_D
     {1015, 418}, // Elite Gbeto, TROCK
     {1016, 453}, // Shotel Warrior, DOLPH4
     {1018, 459}, // Elite Shotel Warrior, FISH5
     {1103, 467}, // Fire Ship, Nonexistent
     {1105, 494}, // Siege Tower, CVLRY_D
     {1104, 653}, // Demolition Ship, HFALS_D
-    {947, 699}, // Cutting Mangonel, HSUBO_D
+    //{947, 699}, // Cutting Mangonel, HSUBO_D
     {948, 701}, // Cutting Onager, HWOLF_D
     {1079, 732}, // Genitour placeholder, HKHAN_D
     {1021, 734}, // Feitoria, Nonexistent
@@ -140,16 +142,16 @@ const std::array<unsigned char, 68> initSwapTerrains = {
 	TerrainTypes::RestrictedTerrain, // 8 DEAD FARM <-> DEAD RICE FARM
 	TerrainTypes::LandTerrain, // 9 GRASS3 <-> GRASS4/MOORLAND
 	TerrainTypes::ForestTerrain, // 10 FOREST <-> DLC_RAINFOREST (TREE UPGRADE??)
-	TerrainTypes::BuildingDirt, // 11 DIRT2 <-> DLC_JUNGLELEAVES
+	TerrainTypes::BuildingDirt, // 11 DIRT2 -> BUILDING_DIRT
 	TerrainTypes::LandTerrain, // 12 GRASS2 <-> DLC_JUNGLEGRASS
 	TerrainTypes::ForestTerrain, // 13 PALM DESERT, no change
 	TerrainTypes::LandTerrain, // 14 DESERT <-> SAVANNAH
 	TerrainTypes::RestrictedTerrain, // 15 NO DOCK WATER, no change
-	TerrainTypes::Grass, // 16 OLD GRASS <-> BAOBAB
+	TerrainTypes::Grass, // 16 OLD GRASS -> GRASS
 	TerrainTypes::RestrictedTerrain, // 17 JUNGLE, no change
 	TerrainTypes::RestrictedTerrain, // 18 BAMBOO, no change
 	TerrainTypes::RestrictedTerrain, // 19 PINE FOREST, no change
-	TerrainTypes::Forest, // 20 OAK FOREST <-> MANGROVE FOREST
+	TerrainTypes::Forest, // 20 OAK FOREST -> FOREST
 	TerrainTypes::ForestTerrain, // 21 SNOW PINE FOREST <-> DRAGON_FOREST (TREE UPGRADE??)
 	TerrainTypes::DeepWaterTerrain, // 22 WATER2/DEEP <-> DLC_WATER4
 	TerrainTypes::DeepWaterTerrain, // 23 WATER3/MEDIUM, no change
@@ -161,29 +163,29 @@ const std::array<unsigned char, 68> initSwapTerrains = {
 	TerrainTypes::RestrictedTerrain, // 29 FARM1 <-> RICE FARM1
 	TerrainTypes::RestrictedTerrain, // 30 FARM2 <-> RICE FARM2
 	TerrainTypes::RestrictedTerrain, // 31 FARM3 <-> RICE FARM3
-	TerrainTypes::LandTerrain, // 32 SNOW, no change
+	TerrainTypes::RestrictedTerrain, // 32 SNOW, no change
 	TerrainTypes::BuildingSnow, // 33 SNOW DIRT, no change
-	TerrainTypes::LandTerrain, // 34 SNOW GRASS, no change
+	TerrainTypes::RestrictedTerrain, // 34 SNOW GRASS, no change
 	TerrainTypes::UnbuildableTerrain, // 35 ICE NO SHIPS
 	TerrainTypes::RestrictedTerrain, // 36BULDING SNOW, no change
 	TerrainTypes::RestrictedTerrain, // 37 ICE BEACH, no change
-	TerrainTypes::SnowDirt, // 38 SNOW ROAD, no change
+	TerrainTypes::SnowRoad, // 38 SNOW ROAD -> moved to 33
 	TerrainTypes::LandTerrain, // 39 FUNGUS ROAD <-> DLC_JUNGLEROAD
 	TerrainTypes::UnbuildableTerrain , // 40, also 47 PROBLEM KOTH <-> QUICKSAND, BLACK
-	TerrainTypes::Savannah, // 41 SAVANNAH <-> DESERT PROBLEM ACACIA 50
-	TerrainTypes::OldGrass, // 42 DIRT4 <-> BAOBAB (Trees aren't included)
+	TerrainTypes::RestrictedTerrain, // 41 SAVANNAH -> ACACIA (Trees aren't included, no change to id)
+	TerrainTypes::NewBaobabForest, // 42 DIRT4 <-> BAOBAB (Trees aren't included)
 	TerrainTypes::BrokenRoad, // 43 DESERT/DRYROAD <-> ROAD, BRKEN
 	TerrainTypes::Grass3, // 44 GRASS3 <-> GRASS4/MOORLAND
 	TerrainTypes::SnowRoad, // 45 ROAD_SNOW <-> CRACKEDIT
 	TerrainTypes::Koth, // 46, also 47 PROBLEM KOTH <-> QUICKSAND, BLACK
 	TerrainTypes::Koth, // 47, also 47 PROBLEM KOTH <-> QUICKSAND, BLACK
 	TerrainTypes::PineForest, // 48 SNOW PINE FOREST <-> DRAGON_FOREST
-	TerrainTypes::OldGrass, // 49 OLD GRASS <-> BAOBAB
-	TerrainTypes::Savannah, // 50 UNUSED <-> ACACIA_FOREST
+	TerrainTypes::NewBaobabForest, // 49 BAOBAB -> moved to 16
+	TerrainTypes::NewAcaciaForest, // 50 UNUSED <-> ACACIA_FOREST
 	TerrainTypes::Beach, // 51 DLC_BEACH2
 	TerrainTypes::Beach, // 52
 	TerrainTypes::Beach, // 53
-	TerrainTypes::Dirt2 , // 54 Dirt2 <-> MANGROVE SHALLOW
+	TerrainTypes::NewMangroveShallows , // 54 Dirt2 <-> MANGROVE SHALLOW
 	TerrainTypes::OakForest, // 55 OAK FOREST <-> MANGROVE FOREST
 	TerrainTypes::Forest, // 56 FOREST <-> DLC_RAINFOREST
 	TerrainTypes::DeepWater2, // 57 WATER2/DEEP <-> DLC_WATER4

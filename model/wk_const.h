@@ -19,12 +19,12 @@ struct TerrainTypes {
 		DeadFarm,
 		Grass3,
 		Forest,
-		Dirt2,
+		NewMangroveShallows,
 		Grass2,
 		PalmForest,
 		Desert,
 		ShorelessWater,
-		OldGrass,
+		NewBaobabForest,
 		JungleForest,
 		BambooForest,
 		PineForest,
@@ -41,15 +41,15 @@ struct TerrainTypes {
 		Farm2,
 		Farm3,
 		Snow,
-		SnowDirt,
+		SnowRoad,
 		SnowGrass,
 		ShipIce,
 		BuildingSnow,
 		IceBeach,
-		SnowRoad,
+		NewCrackedEarth,
 		FungusRoad,
 		Koth,
-		Savannah,
+		NewAcaciaForest,
 		Dirt4,
 		DryRoad,
 		Moorland,
@@ -94,7 +94,7 @@ struct WKTerrainFlags {
 	};
 };
 
-extern const std::array<std::pair<int, int>,33> unitSwaps;
+extern const std::array<std::pair<int, int>,34> unitSwaps;
 extern const std::array<std::string,42> slpNames;
 extern const std::array<std::string,28> terrainFiles;
 extern const std::array<unsigned char,68> initSwapTerrains;
