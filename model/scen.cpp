@@ -11,10 +11,11 @@
 #include "../util/zlibfile.h"
 #include "../view/utilui.h"
 #include "../util/utilio.h"
-#include "../util/cpp11compat.h"
+// #include "../util/cpp11compat.h"
 #include "../util/settings.h"
 #include "../util/Buffer.h"
 #include "../util/helper.h"
+#include "../util/zip.h"
 
 #include <direct.h>
 #include <string.h>
@@ -25,9 +26,11 @@
 #include <functional>
 #include <iterator>
 #include <stdexcept>
+#include <cstdio>
 
 const char datapath_aok[] = "data_aok.xml";
 const char datapath_swgb[] = "data_swgb.xml";
+const char datapath_wk[] = "data_wk.xml";
 
 using std::vector;
 using std::pair;
@@ -158,10 +161,10 @@ const PerGame Scenario::pgUP =
 	460,
 	514,
 	42, // including 1 undefined
-	20,
+	21,
 	34,
 	8,
-	28,
+	33,
 };
 
 const PerGame Scenario::pgSWGB =
@@ -757,7 +760,7 @@ Game Scenario::open(const char *path, const char *dpath, Game version)
 		throw bad_data_error("invalid compressed data");
 
 	case Z_MEM_ERROR:
-		throw std::bad_alloc("not enough memory for decompression");
+		throw std::bad_alloc();
 
 	case Z_BUF_ERROR:
 		throw logic_error("internal logic fault: zlib buffer error");
@@ -813,8 +816,7 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 		case AOF4:
 		case AOHD6:
 		case AOF6:
-			if ((flags & SaveFlags::CONVERT_EFFECTS))
-			    hd_to_up();
+			hd_to_up(flags & SaveFlags::CONVERT_EFFECTS);
 			break;
 		case AOK:
 			aok_to_aoc();
@@ -991,9 +993,11 @@ int Scenario::save(const char *path, const char *dpath, bool write, Game convert
 	}
 
 	delete [] uncompressed;
+
 	fflush(stdout);	//report errors to logfile
 
 	adapt_game();
+
 
 	return code;
 }
@@ -1310,7 +1314,7 @@ void Scenario::read_data(const char *path)	//decompressed data
 		    esdata.load(datapath_swgb);
 		    break;
 	    default:
-		    esdata.load(datapath_aok);
+			esdata.load(datapath_aok);
 	    }
 	}
 	catch (std::exception& ex)
@@ -2189,6 +2193,127 @@ void Scenario::swapTerrain(unsigned char newcnst, unsigned char oldcnst) {
 	}
 }
 
+int Scenario::swapWKTerrain(std::array<unsigned char, 28> &swappedTerrains) {
+	unsigned char usedTerrains[68] = {};
+	std::array<unsigned char, 68> swapTerrains = initSwapTerrains;
+	int terrainFlags = WKTerrainFlags::None; 
+	//First loop, we check what terrains are used in the map
+	for (LONG i = 0; i < map.x; i++) {
+		for (LONG j = 0; j < map.y; j++) {
+			unsigned char id = map.terrain[i][j].cnst;
+			usedTerrains[id]++;
+			switch (id) {
+			case TerrainTypes::DryRoad:
+			case TerrainTypes::Moorland:
+			case TerrainTypes::DragonForest:
+			case TerrainTypes::Rainforest:
+			case TerrainTypes::JungleGrass:
+			case TerrainTypes::JungleRoad:
+			case TerrainTypes::JungleLeaves:
+				terrainFlags = terrainFlags | WKTerrainFlags::DynamicTerrain;
+				break;
+			case TerrainTypes::RiceFarm:
+			case TerrainTypes::RiceFarm1:
+			case TerrainTypes::RiceFarm2:
+			case TerrainTypes::RiceFarm3:
+			case TerrainTypes::DeadRiceFarm:
+			case TerrainTypes::DeepWater4:
+			case TerrainTypes::ShallowWater5:
+			case TerrainTypes::Beach2:
+			case TerrainTypes::Beach3:
+			case TerrainTypes::Beach4:
+			case TerrainTypes::Quicksand:
+			case TerrainTypes::Black:
+				terrainFlags = terrainFlags | WKTerrainFlags::FixedTerrain;
+				break;
+			case TerrainTypes::BuildingDirt:
+			case TerrainTypes::BuildingSnow:
+			case TerrainTypes::SnowRoad:
+			case TerrainTypes::Dirt4:
+			case TerrainTypes::NewMangroveShallows:
+			case TerrainTypes::CrackedEarth:
+			case TerrainTypes::NewCrackedEarth:
+			case TerrainTypes::NewBaobabForest:
+			case TerrainTypes::OakForest:
+			case TerrainTypes::BaobabForest:
+			case TerrainTypes::AcaciaForest:
+			case TerrainTypes::MangroveShallows:
+			case TerrainTypes::MangroveForest:
+				terrainFlags = terrainFlags | WKTerrainFlags::NativeTerrain;
+				break;
+			}
+		}
+	}
+	//Some Terrains/Forests share the same SLP, for replacement they can be only used once at most
+	usedTerrains[5] += usedTerrains[10];
+	usedTerrains[5] += usedTerrains[17];
+	usedTerrains[5] += usedTerrains[18];
+	usedTerrains[5] += usedTerrains[19];
+	usedTerrains[10] += usedTerrains[5];
+	usedTerrains[14] += usedTerrains[13];
+	usedTerrains[13] += usedTerrains[14];
+	usedTerrains[26] += usedTerrains[37];
+	usedTerrains[37] += usedTerrains[26];
+	if (terrainFlags == WKTerrainFlags::None)
+		return terrainFlags;
+	else if (terrainFlags & WKTerrainFlags::DynamicTerrain) {
+		// Dynamic Terrain is where we can consider multiple options for replacement
+		// If a replacement candidate for a terrain is also used in the map, we change the replacement
+		// Some terrains only have one replacement candidate, we'll ignore those
+		std::array<unsigned char, 7> dynamicTerrains = {
+			TerrainTypes::DryRoad, TerrainTypes::Moorland,
+			TerrainTypes::DragonForest, TerrainTypes::Rainforest,
+			TerrainTypes::JungleGrass,TerrainTypes::JungleRoad,TerrainTypes::JungleLeaves };
+		for (std::array<unsigned char, 7>::iterator iter = dynamicTerrains.begin();
+			iter != dynamicTerrains.end(); iter++) {
+			if (usedTerrains[*iter] > 0 && usedTerrains[swapTerrains[*iter]] > 0) { // new terrain & replacement candidate in same map
+				int code;
+				switch (*iter) {
+				case TerrainTypes::Rainforest:
+				case TerrainTypes::DragonForest:
+					code = TerrainTypes::ForestTerrain; break;
+				default: 
+					code = TerrainTypes::LandTerrain;
+				}
+				for (char j = 0; j < 40; j++) { //look for new replacement
+					if (swapTerrains[j] == code && usedTerrains[j] == 0) { // unused terrain with the right restrictions
+						swapTerrains[*iter] = j;
+						swapTerrains[j] = 99; //99 = NEIN NEIN = This terrain is not available for swapping :D
+					}
+				}
+			}
+			usedTerrains[swapTerrains[*iter]] += usedTerrains[*iter];
+		}
+	}
+
+	//We loop through the map again and change all new terrains to old replacement ones
+	for (LONG i = 0; i < map.x; i++) {
+		for (LONG j = 0; j < map.y; j++) {
+			unsigned char id = map.terrain[i][j].cnst;
+			if (id > 41 || id == TerrainTypes::OakForest || id == TerrainTypes::NewBaobabForest
+				|| id == TerrainTypes::SnowRoad || id == TerrainTypes::NewMangroveShallows || id == TerrainTypes::NewCrackedEarth) {
+				map.terrain[i][j].cnst = swapTerrains[id];
+			}
+		}
+	}
+
+	// Save in swappedTerrains what terrains were swapped
+	for (int i = 41; i < 68; i++) {
+		if (usedTerrains[i] > 0)
+			swappedTerrains[i - 41] = swapTerrains[i];
+	}
+	//These are terrains built into WK, no terrain override needed
+	swappedTerrains[0] = 99;
+	swappedTerrains[1] = 99;
+	swappedTerrains[4] = 99;
+	swappedTerrains[8] = 99; 
+	swappedTerrains[9] = 99;
+	swappedTerrains[13] = 99;
+	swappedTerrains[14] = 99;
+
+	return terrainFlags;
+}
+
 void Scenario::outline(unsigned long x, unsigned long y, unsigned char newcnst, unsigned char oldcnst, TerrainFlags::Value flags) {
     floodFill4(x,y,TEMPTERRAIN,oldcnst);
     if (flags & TerrainFlags::FORCE) {
@@ -2726,9 +2851,7 @@ AOKTS_ERROR Scenario::remove_trigger_descriptions()
 	    long i = num;
 	    while (i--)
 	    {
-		    char *cstr = trig->description.unlock(1);
-	        strcpy(cstr, "");
-		    trig->description.lock();
+			trig->description.erase();
 		    trig++;
 	    }
 	}
@@ -2823,16 +2946,53 @@ AOKTS_ERROR Scenario::swap_trigger_names_descriptions()
 	        char buffer[MAX_TRIGNAME];
 		    char *cstr = trig->description.unlock(MAX_TRIGNAME);
 	        strncpy ( buffer, cstr, MAX_TRIGNAME );
-	        buffer[MAX_TRIGNAME] = '\0';
+	        buffer[MAX_TRIGNAME-1] = '\0';
 	        strncpy ( cstr, trig->name, MAX_TRIGNAME );
-	        cstr[MAX_TRIGNAME] = '\0';
+	        cstr[MAX_TRIGNAME-1] = '\0';
 		    trig->description.lock();
 	        strncpy ( trig->name, buffer, MAX_TRIGNAME );
-	        trig->name[MAX_TRIGNAME] = '\0';
+	        trig->name[MAX_TRIGNAME-1] = '\0';
 		    trig++;
 	    }
 	}
 
+	return ERR_none;
+}
+
+AOKTS_ERROR Scenario::convert_unicode_to_ansi() {
+	
+	//Not really necessary for Triggers I guess?
+	long num = triggers.size();
+	if (num > 0) {
+		Trigger *trig = &(*triggers.begin());
+
+		// triggers
+		long i = num;
+		while (i--)
+		{
+			std::wstring unicode = strtowstr(std::string(trig->description.c_str()));
+			std::string ansi;
+			ConvertUnicode2CP(unicode.c_str(), ansi);
+			trig->description.set(ansi.c_str());
+			unicode = strtowstr(std::string(trig->name));
+			ConvertUnicode2CP(unicode.c_str(), ansi);
+			strncpy(trig->name, ansi.c_str(), MAX_TRIGNAME_SAFE_AOC);
+			trig->name[MAX_TRIGNAME_SAFE_AOC] = '\0';
+			for (std::vector<Effect>::iterator effect = trig->effects.begin();
+				effect != trig->effects.end(); effect++) {
+				unicode = strtowstr(std::string(effect->text.c_str()));
+				ConvertUnicode2CP(unicode.c_str(), ansi);
+				effect->text.set(ansi.c_str());
+			}
+			trig++;
+		}
+	}
+	for(int i = 0; i < sizeof(scen.messages)/sizeof(scen.messages[0]); i++ ) {
+		std::wstring unicode = strtowstr(std::string(scen.messages[i].c_str()));
+		std::string ansi;
+		ConvertUnicode2CP(unicode.c_str(), ansi);
+		scen.messages[i].set(ansi.c_str());
+	}
 	return ERR_none;
 }
 
@@ -3054,10 +3214,144 @@ AOKTS_ERROR Scenario::strip_patch6() {
 	return ERR_none;
 }
 
-AOKTS_ERROR Scenario::hd_to_up() {
+AOKTS_ERROR Scenario::hd_to_wk() {
+	if (game == UP) //This is the game version after conversion, don't want to do this twice
+		return ERR_none;
+	for (int i = 0; i < NUM_PLAYERS; i++) {
+		// units
+		for (std::vector<Unit>::iterator unit = players[i].units.begin(); unit != players[i].units.end(); ++unit) {
+			switch (unit->getType()->id()) {
+			case 445: // Church 4 (AOF) / INVALID (AOFE)
+						// change to Monastery (104)
+				unit->setType(esdata.units.getById(104));
+				break;
+			case 918: // Brown Rock (AOF) / Monk With Relic (AOFE)
+						// change to Rock (104)
+				unit->setType(esdata.units.getById(623));
+				break;
+			default:
+				int oldId = unit->getType()->id();
+				for (std::array<std::pair<int, int>, 34U>::const_iterator it = unitSwaps.begin();
+						it != unitSwaps.end(); it++) {
+					if (oldId == it->first) {
+						unit->setType(esdata.units.getById(it->second));
+						break;
+					} else if (oldId == it->second) {
+						unit->setType(esdata.units.getById(it->first));
+						break;
+					}
+				}
+			}
+		}
+	}
+	if (game == AOHD || game == AOHD4 || game == AOHD6 || game == AOF || game == AOF4 || game == AOF6)
+		hd_to_up(true, false);	
+	std::array<unsigned char, 28> swappedTerrains;
+	std::fill(swappedTerrains.begin(), swappedTerrains.end(), 99);
+	int terrainFlags = swapWKTerrain(swappedTerrains);
+
+	if (terrainFlags && (WKTerrainFlags::DynamicTerrain || WKTerrainFlags::FixedTerrain)) {
+		scen.terrainOverride = true;
+		std::map<std::string, std::string> sourcesForOverrideSlp;
+		for (int i = 0; i < swappedTerrains.size(); i++) {
+			if (swappedTerrains[i] != 99) {
+				sourcesForOverrideSlp[slpNames[swappedTerrains[i]]] = global::exedir + ("\\res\\" + terrainFiles[i]);
+			}
+		}
+		createZipFile(sourcesForOverrideSlp);
+	}
+	int i;
+	Player *p;
+	FEP(p) {
+		if (p->aimode == AI_standard) {
+			strcpy(p->ai, "Promi");
+		}
+	}
+	game = UP;
+	adapt_game();
+	return ERR_none;
+}
+
+int Scenario::createZipFile(std::map<std::string,std::string> sourcesForOverrideSlp)
+{
+	std::string zipPath = std::string(global::exedir) + "\\scenario.zip";
+	int result = remove(zipPath.c_str());
+	if (result && std::ifstream(zipPath).good())
+		return 5; //Couldn't be removed?
+
+	zipFile zf = zipOpen(zipPath.c_str(), APPEND_STATUS_CREATE);
+	if (zf == NULL)
+		return 1;
+
+	bool _return = true;
+	for (auto const& overrideSlp : sourcesForOverrideSlp)
+	{
+		std::fstream file(overrideSlp.second.c_str(), std::ios::binary | std::ios::in);
+		if (file.is_open())
+		{
+			file.seekg(0, std::ios::end);
+			long size = file.tellg();
+			file.seekg(0, std::ios::beg);
+
+			std::vector<char> buffer(size);
+			if (size == 0 || file.read(&buffer[0], size))
+			{
+				zip_fileinfo zfi = { 0 };
+
+				if (S_OK == zipOpenNewFileInZip(zf, overrideSlp.first.c_str(), &zfi, NULL, 0, NULL, 0, NULL, Z_NO_COMPRESSION, Z_NO_COMPRESSION))
+				{
+					if (zipWriteInFileInZip(zf, size == 0 ? "" : &buffer[0], size))
+						_return = false;
+
+					if (zipCloseFileInZip(zf))
+						_return = false;
+
+					file.close();
+					continue;
+				}
+			}
+			file.close();
+		}
+		_return = false;
+	}
+
+	if (zipClose(zf, NULL))
+		return 3;
+
+	if (!_return)
+		return 4;
+	return S_OK;
+}
+
+AOKTS_ERROR Scenario::hd_to_up(bool convTriggers, bool switchUnits) {
+	if (bBitmap == 3)
+		bBitmap = 0;
+
+	// each player i
+	if (switchUnits) {
+		for (int i = 0; i < NUM_PLAYERS; i++) {
+			// units
+			for (std::vector<Unit>::iterator unit = players[i].units.begin(); unit != players[i].units.end(); ++unit) {
+				switch (unit->getType()->id()) {
+				case 445: // Church 4 (AOF) / INVALID (AOFE)
+						  // change to Monastery (104)
+					unit->setType(esdata.units.getById(104));
+					break;
+				case 918: // Brown Rock (AOF) / Monk With Relic (AOFE)
+						  // change to Rock (104)
+					unit->setType(esdata.units.getById(623));
+					break;
+				}
+			}
+		}
+	}
+
+	if (!convTriggers)
+		return ERR_none;
 	long num = triggers.size();
 	if (num < 1)
 	    return ERR_none;
+	convert_unicode_to_ansi();
 	Trigger *trig = &(*triggers.begin());
 
     // triggers
@@ -3072,46 +3366,45 @@ AOKTS_ERROR Scenario::hd_to_up() {
 	            iter->reserved = -1;
 	        }
 	        iter->reverse_hd = -1;
+			/*
+			switch (iter->type) {
+				case ConditionType::Chance_HD:
+					iter->type = 20; //JINETODO add to enum
+			}*/
 		}
 
 	    // effects
 	    vector<Effect> neweffects;
 	    for (vector<Effect>::iterator iter = trig->effects.begin(); iter != trig->effects.end(); ++iter) {
-	        switch (iter->type) {
+	        switch (iter->type) {		
+				case EffectType::HealObject_HD:
+					iter->type = EffectType::ChangeObjectHP;
+					iter->panel = 2;
+					break;
+				case EffectType::TeleportObject_HD:
+					iter->type = 12;
+					iter->panel = 1; //JINETODO: This only works for UP 1.5, differentiate?
+					break;
+				case EffectType::AttackMove_HD:
+					iter->type = EffectType::Patrol;
+					break;
 	            case EffectType::ChangeSpeed_HD:
 	                iter->type = EffectType::ChangeSpeed_UP;
-	            break;
+					break;
 	            case EffectType::ChangeRange_HD:
 	                iter->type = EffectType::ChangeRange_UP;
-	            break;
+					break;
 	            case EffectType::ChangeArmor_HD:
 	                iter->type = EffectType::ChangeMeleArmor_UP;
 		            neweffects.push_back(*iter);
 		            neweffects.back().type = EffectType::ChangePiercingArmor_UP;
-	            break;
+					break;
 	        }
 		}
 	    for (vector<Effect>::iterator iter = neweffects.begin(); iter != neweffects.end(); ++iter) {
 	        trig->effects.push_back(*iter);
 	    }
 		trig++;
-	}
-
-    // each player i
-	for (int i = 0; i < NUM_PLAYERS; i++) {
-        // units
-	    for (std::vector<Unit>::iterator unit = players[i].units.begin(); unit != players[i].units.end(); ++unit) {
-            switch (unit->getType()->id()) {
-            case 445: // Church 4 (AOF) / INVALID (AOFE)
-                // change to Monastery (104)
-                unit->setType(esdata.units.getById(104));
-                break;
-            case 918: // Brown Rock (AOF) / Monk With Relic (AOFE)
-                // change to Rock (104)
-                unit->setType(esdata.units.getById(623));
-                break;
-            }
-	    }
 	}
 
 	return ERR_none;

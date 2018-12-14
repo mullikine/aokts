@@ -48,6 +48,7 @@ struct EffectVirtualTypeUP {
 	    SetAISignal,
 	    SetAISharedGloal,
 	    EnableCheats,
+		TeleportObject
     };
 };
 
@@ -269,7 +270,7 @@ public:
 
     static const int NUM_VIRTUAL_EFFECTS_AOK = 3;
     static const int NUM_VIRTUAL_EFFECTS_AOC = 9;
-    static const int NUM_VIRTUAL_EFFECTS_UP = 32;
+    static const int NUM_VIRTUAL_EFFECTS_UP = 33;
     static const int NUM_VIRTUAL_EFFECTS_AOHD = 6;
     static const int NUM_VIRTUAL_EFFECTS_AOF = 6;
     static const int NUM_VIRTUAL_EFFECTS_SWGB = 6;

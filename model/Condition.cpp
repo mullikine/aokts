@@ -347,6 +347,7 @@ std::string Condition::getName(bool tip, NameFlags::Value flags, int recursion) 
             case AOF4:
             case AOHD6:
             case AOF6:
+			case UP:
                 convert << amount << "% chance ";
                 stype.append(convert.str());
                 break;
@@ -469,7 +470,7 @@ bool Condition::check() const
 		return (player >= 0 && amount >= 0 && valid_area());
 
 	case ConditionType::OwnFewerFoundations_SWGB: // Chance_HD:
-	    if (scen.game == AOHD || scen.game == AOF || scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6) {
+	    if (scen.game == AOHD || scen.game == AOF || scen.game == AOHD4 || scen.game == AOF4 || scen.game == AOHD6 || scen.game == AOF6 || scen.game == UP) {
 	        return (amount >= 0 && amount <= 100);
 	    } else {
 		    return (player >= 0 && amount >= 0 && valid_area());

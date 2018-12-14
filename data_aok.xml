@@ -1813,6 +1813,7 @@ WS - Work Speed
 <protounit id="1164" name="Jayaviravarman" />
 <protounit id="1165" name="Bayinnaung" />
 <protounit id="1166" name="Tabinshwehti" />
+<protounit id="1169" name="Arrow" />
 <protounit id="1171" name="Buddha Statue A" />
 <protounit id="1172" name="Buddha Statue B" />
 <protounit id="1173" name="Buddha Statue C" />
@@ -1832,6 +1833,7 @@ WS - Work Speed
 <protounit id="1187" name="Rice Farm" />
 <protounit id="1188" name="Dead Rice Farm" />
 <protounit id="1189" name="Harbor" />
+<protounit id="1222" name="Sharkatzor" />
 
 </units>
 
@@ -2126,7 +2128,7 @@ usual.
 <terrain id="23" color="0054B0" name="Water, Medium" />
 <terrain id="24" color="c0b0b0" name="Road" />
 <terrain id="25" color="c0a5a0" name="Road, Broken" />
-<terrain id="26" color="BDD1FD" name="Ice (no ships)" />
+<terrain id="26" color="BDD1FD" name="Ice (allows ships)" />
 <terrain id="27" color="d59545" name="Dirt 2 (no beach, building residue, dockable)" />
 <terrain id="28" color="905db6" name="Water, Bridge (walkable, no ships)" />
 <terrain id="29" color="42482d" name="Farm 1" />
@@ -2135,7 +2137,7 @@ usual.
 <terrain id="32" color="EAEDFF" name="Snow" />
 <terrain id="33" color="b8c8ef" name="Snow Dirt" />
 <terrain id="34" color="c8f8ff" name="Snow Grass" />
-<terrain id="35" color="D8DFFF" name="Ice (allows ships)" />
+<terrain id="35" color="D8DFFF" name="Ice (no ships)" />
 <terrain id="36" color="c8d8e0" name="Snow Dirt (building residue)" />
 <terrain id="37" color="CFDAFF" name="Ice, Beach (allows ships, build walls only)" />
 <terrain id="38" color="d8d8ff" name="Road, Snow" />
@@ -2145,7 +2147,7 @@ usual.
 <terrain id="42" color="d59545" name="Dirt 4" />
 <terrain id="43" color="d49242" name="Desert Road" />
 <terrain id="44" color="93AC4C" name="Grass 4" />
-<terrain id="45" color="FFD094" name="Desert 2" />
+<terrain id="45" color="FFD094" name="Cracked Earth" />
 <terrain id="46" color="AEB65E" name="Quicksand" />
 <terrain id="47" color="000000" name="Black" />
 <terrain id="48" color="FFE094" name="Dragon Forest" />
@@ -2157,6 +2159,9 @@ usual.
 <terrain id="54" color="5492b0" name="Mangrove Shallow" />
 <terrain id="55" color="94ffe0" name="Mangrove Forest" />
 <terrain id="56" color="94ffe0" name="Rainforest" />
+<terrain id="57" color="94ffe0" name="Water 5, Deep" />
+<terrain id="58" color="94ffe0" name="Water 4, Shallow" />
+<terrain id="59" color="94ffe0" name="Azure Shallow" />
 <terrain id="60" color="339927" name="Jungle Grass" />
 <terrain id="61" color="e09545" name="Jungle Road" />
 <terrain id="62" color="339927" name="Jungle Leaves" />

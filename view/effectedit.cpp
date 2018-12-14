@@ -1108,6 +1108,11 @@ void E_HandleChangeVType(HWND dialog, EditEffect *data)
 	        SetDlgItemInt(dialog, IDC_E_MAXHEALTH, TS_FLOAT_MAX - data->e.amount, TRUE);
             data->e.type = EffectType::DamageObject;
             break;
+		case EffectVirtualTypeUP::TeleportObject:
+			data->e = Effect();
+			data->e.panel = 1;
+			data->e.type = EffectType::TaskObject;
+			break;
         default:
 	        data->e = Effect();
         }

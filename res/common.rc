@@ -181,6 +181,8 @@ BEGIN
     END
     POPUP "&Tools"
     BEGIN
+		MENUITEM "Convert to WololoKingdoms Scenario", ID_TOOLS_WKCONVERT
+		MENUITEM SEPARATOR
         MENUITEM "Raw &compress...",            ID_TOOLS_COMPRESS
         MENUITEM "Raw &decompress....",         ID_TOOLS_DECOMPRESS
         MENUITEM SEPARATOR

@@ -109,7 +109,7 @@ const char welcome[] =
 const char extOpen[] =
 "AoE 2 Scenarios (*.scn, *.scx, *.scx2, *.aoe2scenario)\0*.scn;*.scx;*.scx2;*.aoe2scenario\0Star Wars Scenarios (*.scx, *.sc1)\0*.scx;*.sc1\0All files (*.*)\0*.*\0";
 const char extSave[] =
-"AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.4RC Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0AOAK Scenarios (*.aoe2scenario)\0*.aoe2scenario\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.3 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
+"AOK Scenarios (*.scn)\0*.scn\0AOC 1.0C Scenarios (*.scx)\0*.scx\0AOC 1.5Beta R6 Scenarios (*.scx)\0*.scx\0AOHD Scenarios (*.scx)\0*.scx\0AOF Scenarios (*.scx2)\0*.scx2\0AOAK Scenarios (*.aoe2scenario)\0*.aoe2scenario\0SWGB Scenarios (*.scx)\0*.scx\0Clone Campaigns Scenarios (*.sc1)\0*.sc1\0AOHD 4.3 (2F) (*.scx)\0*.scx\0AOF 4.3 (2F) (*.scx2)\0*.scx2\0All files (*.*)\0*.*\0";
 const char datapath_aok[] = "data_aok.xml";
 const char datapath_swgb[] = "data_swgb.xml";
 
@@ -330,6 +330,24 @@ void FileSave(HWND sheet, bool as, bool write)
         }
     }
 
+
+	if (scen.terrainOverride && conv == UP) {
+		std::string scenName(setts.ScenPath);
+		int index = scenName.rfind('\\') + 1;
+		scenName = scenName.substr(index, scenName.rfind('.') - index);
+		if (scen.triggers.size() == 0) {
+			Trigger t;
+			scen.insert_trigger(&t, -1);
+		}
+		scen.triggers[0].description.set(("up-terrain: " + scenName).c_str());
+
+		std::ifstream  src(std::string(global::exedir)+"\\scenario.zip", std::ios::binary);
+		bool test = src.good();
+		std::ofstream  dst(scenName+".zip", std::ios::binary);
+
+		dst << src.rdbuf();
+	}
+
 	//update scenario data
 	SendMessage(cpage, AOKTS_Saving, 0, 0);
 
@@ -493,6 +511,7 @@ void FileOpen(HWND sheet, bool ask, int recent)
 		    case AOF4:
 		    case AOHD6:
 		    case AOF6:
+			case UP:
 		        ofn.nFilterIndex =	1;
 		        ofn.lpstrDefExt =	"scx";
 		        break;
@@ -1186,7 +1205,7 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 
 	case IDC_P_TOUP:
         if (MessageBox(sheet, "Normally, you will be asked to do this later when you save the scenario to a different format.\nThis menu for fixing broken scenarios. Are you sure you want to do this?", "Convert", MB_YESNOCANCEL) == IDYES) {
-		    scen.hd_to_up();
+		    scen.hd_to_up(true);
 		    SetWindowText(propdata.statusbar, "Trigger effects converted from AoHD to UserPatch");
 		}
 		break;
@@ -1364,6 +1383,10 @@ bool Sheet_HandleCommand(HWND sheet, WORD code, WORD id, HWND control)
 
 	case ID_TOOLS_DECOMPRESS:
 		OnCompressOrDecompress(sheet, false);
+		break;
+
+	case ID_TOOLS_WKCONVERT:
+		scen.hd_to_wk();
 		break;
 
 	case ID_TS_HELP:
