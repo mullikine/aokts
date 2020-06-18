@@ -63,7 +63,7 @@ WS - Work Speed
 <tech id="17" name="Banking" />
 <tech id="18" name="Barracks Huskarl (GOT)" />
 <tech id="19" name="Cartography" />
-<tech id="20" name="Currency (U)" />
+<tech id="20" name="Auto upgrade Scout Feudal Age" />
 <tech id="21" name="Atheism (HUN)" />
 <tech id="22" name="Loom" />
 <tech id="23" name="Coinage" />
@@ -105,7 +105,7 @@ WS - Work Speed
 <tech id="59" name="Kataparuto (JAP)" />
 <tech id="60" name="Elite Conquistador (SPA)" />
 <tech id="61" name="Logistica (BYZ)" />
-<tech id="62" name="Upgrade Castle to Fortress (U)(GAI)" />
+<tech id="62" name="New Research 62 (U)(GAI)" />
 <tech id="63" name="Keep" />
 <tech id="64" name="Bombard Tower" />
 <tech id="65" name="Gillnets" />
@@ -116,23 +116,23 @@ WS - Work Speed
 <tech id="70" name="Start with eagle (U)(INC)" />
 <tech id="71" name="Stone Wall / Gate x2 HP" />
 <tech id="72" name="Fortified Wall / Gate x2 HP (U)" />
-<tech id="73" name="Inf, 2H Swordsman, Pikeman, Spearman +1 MA (U)(GAI)" />
+<tech id="73" name="New Research 73 (U)(GAI)" />
 <tech id="74" name="Scale Mail Armor" />
 <tech id="75" name="Blast Furnace" />
 <tech id="76" name="Chain Mail Armor" />
 <tech id="77" name="Plate Mail Armor" />
 <tech id="78" name="New Research 78 (U)(GAI)" />
-<tech id="79" name="Cavalry, Cav Archers +1/+1 Armor (U)(GAI)" />
+<tech id="79" name="New Research 79 (U)(GAI)" />
 <tech id="80" name="Plate Barding Armor" />
 <tech id="81" name="Scale Barding Armor" />
 <tech id="82" name="Chain Barding Armor" />
 <tech id="83" name="Bearded Axe (FRA)" />
 <tech id="84" name="Missionary (A)(SPA)" />
 <tech id="85" name="Hand Cannoneer (A)" />
-<tech id="86" name="Allow Formations (U)(GAI)" />
-<tech id="87" name="Spearman (A)" />
+<tech id="86" name="New Research 86 (U)(GAI)" />
+<tech id="87" name="Pike (A)" />
 <tech id="88" name="New Research 88 (U)(GAI)" />
-<tech id="89" name="Siege Weapons +20% AP vs Buildings (U)(GAI)" />
+<tech id="89" name="New Research 89 (U)(GAI)" />
 <tech id="90" name="Tracking" />
 <tech id="91" name="New Research 91 (U)(GAI)" />
 <tech id="92" name="New Research 92 (U)(GAI)" />
@@ -142,7 +142,7 @@ WS - Work Speed
 <tech id="96" name="Capped Ram" />
 <tech id="97" name="New Research 97 (U)(GAI)" />
 <tech id="98" name="Elite Skirmisher" />
-<tech id="99" name="Skirmisher (A)" />
+<tech id="99" name="Crossbowman (A)" />
 <tech id="100" name="Crossbowman" />
 <tech id="101" name="Feudal Age" />
 <tech id="102" name="Castle Age" />
@@ -176,15 +176,15 @@ WS - Work Speed
 <tech id="130" name="Shadow Stable Age 2 (U)" />
 <tech id="131" name="Shadow Trade WorkShop Age 2 (U)" />
 <tech id="132" name="Shadow Archery Range Age 2 (U)" />
-<tech id="133" name="Upgrade Palisade Wall to Stone Wall (U)" />
-<tech id="134" name="Upgrade Barracks to Archery Range (U)" />
+<tech id="133" name="New Research 133 (U)(GAI)" />
+<tech id="134" name="Archery Range Upgrade Age 2 (U)" />
 <tech id="135" name="Shadow Node Age 3 (U)" />
-<tech id="136" name="Castle (U)(GAI)" />
-<tech id="137" name="Castle (A)" />
+<tech id="136" name="New Research 136 (U)(GAI)" />
+<tech id="137" name="Castle Age 3 (A)" />
 <tech id="138" name="Shadow Siege Workshop Age 3 (U)" />
-<tech id="139" name="Fortified Wall (U)(GAI)" />
+<tech id="139" name="New Research (U)(GAI)" />
 <tech id="140" name="Guard Tower" />
-<tech id="141" name="Castles +10 MA, +20% HP, +2 Armor (U)(GAI)" />
+<tech id="141" name="New Research 141 (U)(GAI)" />
 <tech id="142" name="Shadow Node Age 4 (U)" />
 <tech id="143" name="Shadow Tower Age 4 (U)" />
 <tech id="144" name="Wonder (A)" />
@@ -195,41 +195,41 @@ WS - Work Speed
 <tech id="149" name="Siege Workshop (A)" />
 <tech id="150" name="University (A)" />
 <tech id="151" name="Archer (A)" />
-<tech id="152" name="Cavalry Archer (U)(GAI)" />
-<tech id="153" name="Trade Cog (U)(GAI)" />
-<tech id="154" name="Skirmisher (U)(GAI)" />
-<tech id="155" name="War Galley (U)(GAI)" />
-<tech id="156" name="Light Camel (U)" />
+<tech id="152" name="New Research 152 (U)(GAI)" />
+<tech id="153" name="New Research 153 (U)(GAI)" />
+<tech id="154" name="New Research 154 (U)(GAI)" />
+<tech id="155" name="New Research 155 (U)(GAI)" />
+<tech id="156" name="Lance Cav (U)" />
 <tech id="157" name="Monk (A)" />
-<tech id="158" name="Spearman (U)" />
-<tech id="159" name="Bandit (U)(GAI)" />
-<tech id="160" name="Man-At-Arms (U)" />
+<tech id="158" name="Pikeman (A)" />
+<tech id="159" name="New Research 159 (U)(GAI)" />
+<tech id="160" name="Swordsman (A)" />
 <tech id="161" name="Trade Cart (A)" />
 <tech id="162" name="Battering Ram (A)" />
-<tech id="163" name="Crossbowman (U)(GAI)" />
-<tech id="164" name="Elite Skirmisher (U)(GAI)" />
-<tech id="165" name="Heavy Swordsman (U)(GAI)" />
+<tech id="163" name="New Research 163 (U)(GAI)" />
+<tech id="164" name="New Research 164 (U)(GAI)" />
+<tech id="165" name="New Research 165 (U)(GAI)" />
 <tech id="166" name="Knight (A)" />
-<tech id="167" name="Mangonel (U)(GAI)" />
-<tech id="168" name="OMTBO (U)(GAI)" />
-<tech id="169" name="Scorpion (U)(GAI)" />
-<tech id="170" name="Galleon (U)(GAI)" />
-<tech id="171" name="Capped Ram (U)(GAI)" />
-<tech id="172" name="Bombard Cannon (U)" />
-<tech id="173" name="Cannon Galleon (U)(GAI)" />
-<tech id="174" name="Hand Cannoner (U)" />
-<tech id="175" name="Cavalier (U)" />
-<tech id="176" name="PMANG (U)(GAI)" />
-<tech id="177" name="Trade Boats Carry +50% (U)(GAI)" />
+<tech id="167" name="New Research 167 (U)(GAI)" />
+<tech id="168" name="New Research 168 (U)(GAI)" />
+<tech id="169" name="New Research 169 (U)(GAI)" />
+<tech id="170" name="New Research 170 (U)(GAI)" />
+<tech id="171" name="New Research 171 (U)(GAI)" />
+<tech id="172" name="Bombard Cannon (A)" />
+<tech id="173" name="New Research 173 (U)(GAI)" />
+<tech id="174" name="Hand Cannoner (A)" />
+<tech id="175" name="Paladin (A)" />
+<tech id="176" name="New Research 176 (U)(GAI)" />
+<tech id="177" name="New Research 177 (U)(GAI)" />
 <tech id="178" name="All Ages (U)" />
 <tech id="179" name="New Research 179 (U)(GAI)" />
 <tech id="180" name="Trade Cog (A)" />
 <tech id="181" name="New Research 181 (U)(GAI)" />
 <tech id="182" name="Gold Shaft Mining" />
 <tech id="183" name="New Research 183 (U)(GAI)" />
-<tech id="184" name="Port (U)(GAI)" />
-<tech id="185" name="Cathedral (U)(GAI)" />
-<tech id="186" name="Long Swordsman (H)" />
+<tech id="184" name="New Research 184 (U)(GAI)" />
+<tech id="185" name="New Research 185 (U)(GAI)" />
+<tech id="186" name="2H Swordsman (A)" />
 <tech id="187" name="Town Center (A)" />
 <tech id="188" name="Bombard Cannon (A)" />
 <tech id="189" name="Stone Wall / Gate (A)" />
@@ -286,7 +286,7 @@ WS - Work Speed
 <tech id="240" name="Galley (A)" />
 <tech id="241" name="New Research 241 (U)(GAI)" />
 <tech id="242" name="Demolition Ship (A)" />
-<tech id="243" name="Fire Ship (A)" />
+<tech id="243" name="Fire Galley (A)" />
 <tech id="244" name="Heavy Demolition Ship" />
 <tech id="245" name="New Research 245 (U)(GAI)" />
 <tech id="246" name="Fast Fire Ship" />
@@ -316,7 +316,7 @@ WS - Work Speed
 <tech id="270" name="Berserker (U)(GOT)" />
 <tech id="271" name="Jannisary (A)(TUR)" />
 <tech id="272" name="Longboat (A)(VIK)" />
-<tech id="273" name="Mangudai (A)(MON)" />
+<tech id="273" name="Mobile Siege Unit (A)(MON)" />
 <tech id="274" name="War Elephant (A)(PER)" />
 <tech id="275" name="Throwing Axemen (A)(FRA)" />
 <tech id="276" name="Teutonic Knight (A)(TEU)" />
@@ -326,41 +326,41 @@ WS - Work Speed
 <tech id="280" name="Town Patrol" />
 <tech id="281" name="Blacksmith (A)" />
 <tech id="282" name="Mine has been built (U)" />
-<tech id="283" name="Buildings +10% HP (BYZ)" />
+<tech id="283" name="Building HP x1.5 (BYZ)" />
 <tech id="284" name="Trash Units Cost -25% (BYZ)" />
 <tech id="285" name="Free Chemistry (U)(TUR)" />
 <tech id="286" name="Cannon Galleons +25% HP (TUR)" />
-<tech id="287" name="Free Horse Collar (U)(FRA)" />
-<tech id="288" name="Free Heavy Plow (U)(FRA)" />
+<tech id="287" name="Free Heavy Plow (U)(FRA)" />
+<tech id="288" name="Free Horse Collar (U)(FRA)" />
 <tech id="289" name="Free Crop Rotation (U)(FRA)" />
-<tech id="290" name="Knights +20% HP (FRA)" />
+<tech id="290" name="Cavalry +20% HP (FRA)" />
 <tech id="291" name="Infantry Cost -50% (H)" />
-<tech id="292" name="New Research 292 (U)(GAI)" />
+<tech id="292" name="Krepost Built (BUL)" />
 <tech id="293" name="Fishing Ships, Trade Cogs +20% MS (H)" />
 <tech id="294" name="Units 2 Conversion Resistance (H)" />
-<tech id="295" name="New Research 295 (U)(GAI)" />
+<tech id="295" name="Cuman Siege Workshop Built (CUM)" />
 <tech id="296" name="New Research 296 (U)(GAI)" />
 <tech id="297" name="New Research 297 (U)(GAI)" />
 <tech id="298" name="New Research 298 (U)(GAI)" />
 <tech id="299" name="New Research 299 (U)(GAI)" />
 <tech id="300" name="Gold Miners +15% WS (TUR)" />
-<tech id="301" name="Gunpowder Units +25% HP (TUR)" />
+<tech id="301" name="Gunpowder Units +50% HP (TUR)" />
 <tech id="302" name="Start With 6 Villagers (CHI)" />
 <tech id="303" name="New Research 303 (U)(GAI)" />
-<tech id="304" name="Techs Cost -0% (CHI)" />
+<tech id="304" name="Techs Cost -15% (CHI)" />
 <tech id="305" name="New Research 305 (U)(GAI)" />
-<tech id="306" name="Fishing Ships X2 HP, +5% WS, +2 PA (JAP)" />
+<tech id="306" name="Archers +20% Attack (JAP)" />
 <tech id="307" name="New Research 307 (U)(GAI)" />
 <tech id="308" name="New Research 308 (U)(GAI)" />
 <tech id="309" name="New Research 309 (U)(GAI)" />
 <tech id="310" name="New Research 310 (U)(GAI)" />
-<tech id="311" name="Transport Ships x2 HP, x2 Garrison (U)" />
+<tech id="311" name="New Research 311 (U)(GAI)" />
 <tech id="312" name="Cav Archers +4 AP vs Buildings (SAR)" />
 <tech id="313" name="New Research 313 (U)(GAI)" />
 <tech id="314" name="Farms Cost -33% (TEU)" />
 <tech id="315" name="Conscription" />
 <tech id="316" name="Redemption" />
-<tech id="317" name="Boarding (H)" />
+<tech id="317" name="Convert Ships (H)" />
 <tech id="318" name="New Research 318 (U)(GAI)" />
 <tech id="319" name="Atonement" />
 <tech id="320" name="Siege Onager" />
@@ -368,26 +368,26 @@ WS - Work Speed
 <tech id="322" name="Murder Holes" />
 <tech id="323" name="New Research 323 (U)(GAI)" />
 <tech id="324" name="New Research 324 (U)(GAI)" />
-<tech id="325" name="Castles Cost -25% (FRA)" />
+<tech id="325" name="Castles Cost -50% (FRA)" />
 <tech id="326" name="New Research 326 (U)(GAI)" />
-<tech id="327" name="Infantry +1 AP vs Buildings (GOT)" />
-<tech id="328" name="New Research 328 (U)(GAI)" />
-<tech id="329" name="New Research 329 (U)(GAI)" />
+<tech id="327" name="Infantry +1 AP vs Buildings Age 2 (GOT)" />
+<tech id="328" name="Infantry +1 AP vs Buildings Age 3 (GOT)" />
+<tech id="329" name="Infantry +1 AP vs Buildings Age 4 (GOT)" />
 <tech id="330" name="New Research 330 (U)(GAI)" />
 <tech id="331" name="Houses Cost, Creation Time 1/3 (U)(GOT)" />
 <tech id="332" name="Outpost (A)" />
 <tech id="333" name="Towers +4 Max Arrows (U)(TEU)" />
-<tech id="334" name="New Research 334 (U)(GAI)" />
-<tech id="335" name="New Research 335 (U)(GAI)" />
-<tech id="336" name="Town Centers +10 Garrison (TEU)" />
+<tech id="334" name="Inf Cav +1 Armor Age 3 (TEU)" />
+<tech id="335" name="Inf Cav +1 Armor Age 4 (TEU)" />
+<tech id="336" name="Town Centers + Attack (TEU)" />
 <tech id="337" name="Transport Ships x2 HP, x2 Garrison (SAR)" />
 <tech id="338" name="Archers 87% Accuracy (H)" />
 <tech id="339" name="Galleys x2 LoS (U)(JAP)" />
 <tech id="340" name="Mills, Lumber/Mining Camps Cost -50% (JAP)" />
 <tech id="341" name="Infantry +25% AS (JAP)" />
 <tech id="342" name="Town Center x2 HP (PER)" />
-<tech id="343" name="Infantry Cost -0% (GOT)" />
-<tech id="344" name="Infantry Cost -25% (GOT)" />
+<tech id="343" name="Free Loom (GOT)" />
+<tech id="344" name="Infantry Cost -20% (U)(GOT)" />
 <tech id="345" name="Infantry Cost -35% (U)(GOT)" />
 <tech id="346" name="Infantry Cost -50% (U)(GOT)" />
 <tech id="347" name="Monks 8 Healing Range (TEU)" />
@@ -421,43 +421,43 @@ WS - Work Speed
 <tech id="375" name="Dry Dock" />
 <tech id="376" name="Elite Cannon Galleon" />
 <tech id="377" name="Siege Engineers" />
-<tech id="378" name="New Research 378 (U)(GAI)" />
+<tech id="378" name="New Research 378 (U)(INC)" />
 <tech id="379" name="Hoardings" />
 <tech id="380" name="Heated Shot" />
 <tech id="381" name="TCs Cost -50% Wood (BRI)" />
 <tech id="382" name="Foot Archers +1 Range (BRI)" />
 <tech id="383" name="Shepherds +25% WS (BRI)" />
 <tech id="384" name="Eagle Warrior" />
-<tech id="385" name="Lumberjacks +15% WS (CEL)" />
-<tech id="386" name="Siege Weapons +20% AS (CEL)" />
+<tech id="385" name="New Research 385 (U)(CEL)" />
+<tech id="386" name="New Research 386 (U)(CEL)" />
 <tech id="387" name="Eagle Scout extra AP (INC)" />
 <tech id="388" name="Light Cavalry, Hussar +30% HP (MON)" />
-<tech id="389" name="Hunters +50% WS (MON)" />
-<tech id="390" name="Fortifications Built 25% Faster (KOR)" />
+<tech id="389" name="Hunters +40% WS (MON)" />
+<tech id="390" name="Units cost -15% wood (KOR)" />
 <tech id="391" name="Infantry +20% HP (VIK)" />
-<tech id="392" name="Free Wheelbarrow (U)(VIK)" />
-<tech id="393" name="Infantry +15% MS (CEL)" />
-<tech id="394" name="Cav Archers +20% AS (MON)" />
+<tech id="392" name="Free Wheelbarrow (VIK)" />
+<tech id="393" name="New Research 393 (U)(CEL)" />
+<tech id="394" name="New Research 394 (U)(MON)" />
 <tech id="395" name="Boats 10% Cheaper (VIK)" />
-<tech id="396" name="Demolition Ships +50% HP (CHI)" />
+<tech id="396" name="Demolition Ships +25% HP (CHI)" />
 <tech id="397" name="Fire Ships +20% AS (BYZ)" />
 <tech id="398" name="Elite Berserk (VIK)" />
 <tech id="399" name="Berserk (A)(VIK)" />
-<tech id="400" name="Free Hand Cart (U)(VIK)" />
-<tech id="401" name="Farmers +15% WS (U)(BYZ)" />
-<tech id="402" name="Hunters +5 AP vs Boars, Carry +15 (GOT)" />
-<tech id="403" name="Foot Archers +2 Range (BRI)" />
+<tech id="400" name="Free Hand Cart (VIK)" />
+<tech id="401" name="Farmers +15% WS (BYZ)" />
+<tech id="402" name="Hunters +3 AP vs Boars, Carry +15 (GOT)" />
+<tech id="403" name="Foot Archers +1 Range (BRI)" />
 <tech id="404" name="Galleys +20% AS (SAR)" />
 <tech id="405" name="Sheep Conversion Resistance (CEL)" />
 <tech id="406" name="Bonus Population +10 (GOT)" />
-<tech id="407" name="Monks 4 Healing Range (H)" />
+<tech id="407" name="Monk Ranged Heal (H)" />
 <tech id="408" name="Spies/Treason" />
-<tech id="409" name="TCs +10%/+15%/+20% WS (PER)" />
-<tech id="410" name="TCs +15% WS (U)(PER)" />
-<tech id="411" name="TCs +20% WS (U)(PER)" />
-<tech id="412" name="Docks +10/+15%/+20% WS (PER)" />
-<tech id="413" name="Docks +15% WS (U)(PER)" />
-<tech id="414" name="Docks +20% WS (U)(PER)" />
+<tech id="409" name="TCs +10% WS (PER)" />
+<tech id="410" name="TCs +15% WS (PER)" />
+<tech id="411" name="TCs +20% WS (PER)" />
+<tech id="412" name="Docks +10% WS (PER)" />
+<tech id="413" name="Docks +15% WS (PER)" />
+<tech id="414" name="Docks +20% WS (PER)" />
 <tech id="415" name="Infantry +15% HP (VIK)" />
 <tech id="416" name="Infantry +10% HP (VIK)" />
 <tech id="417" name="Buildings +20% HP (BYZ)" />
@@ -465,9 +465,9 @@ WS - Work Speed
 <tech id="419" name="Buildings +40% HP (BYZ)" />
 <tech id="420" name="Infantry +15% AS (U)(JAP)" />
 <tech id="421" name="Infantry +20% AS (U)(JAP)" />
-<tech id="422" name="Fishing Ships +10% WS (JAP)" />
-<tech id="423" name="Fishing Ships +15% WS (JAP)" />
-<tech id="424" name="Fishing Ships +20% WS (JAP)" />
+<tech id="422" name="Fishing Ships +10% WS (U)(JAP)" />
+<tech id="423" name="Fishing Ships +15% WS (U)(JAP)" />
+<tech id="424" name="Fishing Ships +20% WS (U)(JAP)" />
 <tech id="425" name="Town Centers +5 Pop (CHI)" />
 <tech id="426" name="Petard (A)" />
 <tech id="427" name="Genitour (A)" />
@@ -494,15 +494,15 @@ WS - Work Speed
 <tech id="448" name="Elite Turtle Ship (KOR)" />
 <tech id="449" name="War Wagon (A)(KOR)" />
 <tech id="450" name="Elite War Wagon (KOR)" />
-<tech id="451" name="Tower +1 range (U)(KOR)" />
+<tech id="451" name="Tower +1 range (KOR)" />
 <tech id="452" name="Tower +2 range (KOR)" />
 <tech id="453" name="Tower +3 range (KOR)" />
-<tech id="454" name="Eagle Scout extra AP (AZT)" />
-<tech id="455" name="Eagle Scout extra AP (MAY)" />
+<tech id="454" name="New Research 454 (U)(GAI)" />
+<tech id="455" name="New Research 455 (U)(GAI)" />
 <tech id="456" name="Herbal Medicine +5 Monk HP (AZT)" />
 <tech id="457" name="Perfusion (GOT)" />
-<tech id="458" name="Cav Archers Cost -25% (HUN)" />
-<tech id="459" name="Cav Archers Cost -30% (HUN)" />
+<tech id="458" name="Cav Archers Cost -35% (HUN)" />
+<tech id="459" name="Cav Archers Cost -40% (HUN)" />
 <tech id="460" name="Atlatl (AZT)" />
 <tech id="461" name="Warwolf (BRI)" />
 <tech id="462" name="Great Wall (CHI)" />
@@ -512,7 +512,7 @@ WS - Work Speed
 <tech id="466" name="Free War Galley (ITA)" />
 <tech id="467" name="Genoese Crossbowman (A)(ITA)" />
 <tech id="468" name="Elite Genoese Crossbowman (ITA)" />
-<tech id="469" name="New Research (U)(GAI)" />
+<tech id="469" name="New Research 469 (U)(GAI)" />
 <tech id="470" name="Wonder Built (U)(GAI)" />
 <tech id="471" name="Magyar Huszar (A)(MAG)" />
 <tech id="472" name="Elite Magyar Huszar (MAG)" />
@@ -531,7 +531,7 @@ WS - Work Speed
 <tech id="485" name="Tlatoani (MAY)" />
 <tech id="486" name="Panokseon (KOR)" />
 <tech id="487" name="Nomads (MON)" />
-<tech id="488" name="Boiling Oil (PER)" />
+<tech id="488" name="Kamandaran (PER)" />
 <tech id="489" name="Ironclad (TEU)" />
 <tech id="490" name="Madrasah (SARA)" />
 <tech id="491" name="Sipahi (TUR)" />
@@ -561,7 +561,7 @@ WS - Work Speed
 <tech id="515" name="Recurve Bow (MAG)" />
 <tech id="516" name="Andean Sling (INC)" />
 <tech id="517" name="Couriers (INC)" />
-<tech id="518" name="Fisher Carry +25 (IND)" />
+<tech id="518" name="Fishermen 10% Faster Gather (IND)" />
 <tech id="519" name="Buildings Cost -20% Stone (INC)" />
 <tech id="520" name="Archer HP (U)(MAG)" />
 <tech id="521" name="Imperial Camel (IND)" />
@@ -629,7 +629,7 @@ WS - Work Speed
 <tech id="583" name="Civ: Berbers (BER)" />
 <tech id="584" name="Villagers +10% faster (BER)" />
 <tech id="585" name="Ships +10% faster (BER)" />
-<tech id="586" name="Stable units cost -20% (BER)" />
+<tech id="586" name="Stable units cost -15% (BER)" />
 <tech id="587" name="+100 gold/food, Feudal (ETH)" />
 <tech id="588" name="+100 gold/food, Castle (ETH)" />
 <tech id="589" name="+100 gold/food, Imperial (ETH)" />
@@ -638,7 +638,7 @@ WS - Work Speed
 <tech id="592" name="+1 pierce armor infantry, Castle (MAL)" />
 <tech id="593" name="+1 pierce armor infantry, Imperial (MAL)" />
 <tech id="594" name="Free mining upgrades (MAL)" />
-<tech id="595" name="Buildings cost -25% wood (MAL)" />
+<tech id="595" name="Buildings cost -15% wood (MAL)" />
 <tech id="596" name="Caravel (A) (POR)" />
 <tech id="597" name="Elite Caravel (POR)" />
 <tech id="598" name="Berbers Genitour (A) (U) (BER)" />
@@ -652,6 +652,11 @@ WS - Work Speed
 <tech id="606" name="Elite Berbers Genitour (REV)" />
 <tech id="607" name="Archers fire +15% faster (ETH)" />
 <tech id="608" name="Arrowslits" />
+<tech id="609" name="Chemistry + Torsion (ETH)" />
+<tech id="610" name="Arrowslits Guard Tower" />
+<tech id="611" name="Arrowslits Keep" />
+<tech id="612" name="Fire ships auto ballistics" />
+<tech id="613" name="Stable Units -20% (BER)" />
 <tech id="614" name="Ballisita Elephant (A) (KHM)" />
 <tech id="615" name="Elite Ballisita Elephant (KHM)" />
 <tech id="616" name="Karambit Warrior (A) (MLY)" />
@@ -670,10 +675,19 @@ WS - Work Speed
 <tech id="629" name="Paper Money (VIT)" />
 <tech id="630" name="Battle Elephant (A)" />
 <tech id="631" name="Elite Battle Elephant" />
-<tech id="632" name="Archer HP +10% (VIT)" />
+<tech id="632" name="Archer HP +20% (VIT)" />
 <tech id="633" name="Infantry +1 Attack, Dark Age (BUR)" />
 <tech id="634" name="Age up Faster (MLY)" />
-<tech id="635" name="Fishing Ships Fish Traps -33% Cheaper (MLY)" />
+<tech id="635" name="Fishing Ships Fish Traps -25% Cheaper (MLY)" />
+<tech id="636" name="Aztec Demolition Ship (REV)(AZT)"
+<tech id="637" name="Infinite Fish Traps (MLY)"
+<tech id="638" name="Khmer Requirement (U)(KHM)"
+<tech id="639" name="Town Center Spawn"
+<tech id="640" name="Disable TC Spawn"
+<tech id="641" name="Imperial Nomads (U)(MON)"
+<tech id="642" name="+2% Arc HP Feudal (MLY)"
+<tech id="643" name="+2% Arc HP Castle (MLY)"
+<tech id="644" name="+2% Arc HP Imperial (MLY)"
 <tech id="645" name="Free Lumberjack Upgrade (BUR)" />
 <tech id="646" name="Infantry +1 Attack, Fedual Age (BUR)" />
 <tech id="647" name="Infantry +1 Attack, Castle Age (BUR)" />
@@ -683,14 +697,91 @@ WS - Work Speed
 <tech id="651" name="Civ: Malay (MLY)" />
 <tech id="652" name="Civ: Burmese (BUR)" />
 <tech id="653" name="Civ: Vietnamese (VIT)" />
+<tech id="654" name="RESERVED" />
 <tech id="655" name="Imperial Skirmisher" />
 <tech id="656" name="Imperial Skirmisher (REV)" />
 <tech id="657" name="Houses Garrison (KHM)" />
-<tech id="662" name="Age up Faster (MLY)" />
+<tech id="658" name="Set Max Pop No Houses" />
+<tech id="659" name="Shadow Node+ for Age 2" />
+<tech id="660" name="Shadow Node+ for Age 3" />
+<tech id="661" name="Shadow Node+ for Age 4" />
+<tech id="662" name="Battle Elephant Cheaper (MLY)" />
 <tech id="663" name="Archer HP +15% (VIT)" />
 <tech id="664" name="Archer HP +20% (VIT)" />
 <tech id="665" name="Disable Vietnamese Vision (VIT)" />
-<tech id="672" name="Battle Elephant +15% Faster (KHM)" />
+<tech id="666" name="Shadow Node Mill (KHM)" />
+<tech id="̛667" name="Shadow Node Barracks (KHM)" />
+<tech id="̛668" name="Shadow Node Blacksmith (KHM)" />
+<tech id="̛669" name="Thalassocracy + Fletching" />
+<tech id="̛670" name="Thalassocracy + Bodkin" />
+<tech id="̛671" name="Thalassocracy + Bracer" />
+<tech id="̛672" name="C-Bonus, Battle ele +15% faster (KHM)" />
+<tech id="̛673" name="Civ: Bulgarians (BUL)" />
+<tech id="̛674" name="Civ: Tatars (TAT)" />
+<tech id="̛675" name="Civ: Cumans (CUM)" />
+<tech id="̛676" name="Civ: Lithuanians (LIT)" />
+<tech id="̛677" name="Konnik (A)" />
+<tech id="̛678" name="Elite Konnik" />
+<tech id="̛679" name="Keshik (A)" />
+<tech id="̛680" name="Elite Keshik" />
+<tech id="̛681" name="Kipchak (A)" />
+<tech id="̛682" name="Elite Kipchak" />
+<tech id="̛683" name="Leitis (A)" />
+<tech id="̛684" name="Elite Leitis" />
+<tech id="̛685" name="Stirrups (BUL)" />
+<tech id="̛686" name="Bagains (BUL)" />
+<tech id="̛687" name="Silk Armor (TAT)" />
+<tech id="̛688" name="Timurid Siegecraft (TAT)" />
+<tech id="̛689" name="Steppe Husbandry (CUM)" />
+<tech id="̛690" name="Cuman Mercenaries (CUM)" />
+<tech id="̛691" name="Hill Forts (LIT)" />
+<tech id="̛692" name="Tower Shields (LIT)" />
+<tech id="̛693" name="Free Militia upgrades (BUL)" />
+<tech id="̛694" name="TC Cost 1/2 Stone (BUL)" />
+<tech id="̛695" name="Enable Krepost (BUL)" />
+<tech id="̛696" name="Elevation Bonus (TAT)" />
+<tech id="̛697" name="+150 food (LIT)" />
+<tech id="̛698" name="Free Parthian Tactics (TAT)" />
+<tech id="̛699" name="Relic +1 cav attack 1 (LIT)" />
+<tech id="̛700" name="Relic +1 cav attack 2 (LIT)" />
+<tech id="̛701" name="Relic +1 cav attack 3 (LIT)" />
+<tech id="̛702" name="Relic +1 cav attack 4 (LIT)" />
+<tech id="̛703" name="RESERVED" />
+<tech id="̛704" name="Sheep +50% food (TAT)" />
+<tech id="̛705" name="Siege Wksp (A)(CUM)" />
+<tech id="̛706" name="Upgrade Rams in Castle (CUM)" />
+<tech id="̛707" name="Cuman Merc (A)" />
+<tech id="̛708" name="Cuman Merc (REV)" />
+<tech id="̛709" name="Feudal TC (CUM)" />
+<tech id="̛710" name="Skirms Pikes 10% faster (LIT)" />
+<tech id="̛711" name="Cavalry +5% speed Age2 (CUM)" />
+<tech id="̛712" name="Upgrade Rams" />
+<tech id="̛713" name="Rename Units" />
+<tech id="̛714" name="Steppe Lancer (A)" />
+<tech id="̛715" name="Elite Steppe Lancer" />
+<tech id="̛716" name="Tracking (Supplies)" />
+<tech id="̛717" name="Move Lancers in full tech tree" />
+<tech id="̛718" name="Move Tarkans in full tech tree" />
+<tech id="̛719" name="Move Huskarls in full tech tree" />
+<tech id="̛720" name="Move Slingers in full tech tree" />
+<tech id="̛721" name="Slavic team bonus (SLA)" />
+<tech id="̛722" name="Shadow TC -- Age One" />
+<tech id="̛723" name="Change TC construction time1 (CUM)" />
+<tech id="̛724" name="Change TC construction time2 (CUM)" />
+<tech id="̛725" name="Archers vs buildings Age3 (SAR)" />
+<tech id="̛726" name="Archers vs buildings Age4 (SAR)" />
+<tech id="̛727" name="Cavalry +5% speed Age3 (CUM)" />
+<tech id="̛728" name="Cavalry +5% speed Age4 (CUM)" />
+<tech id="̛729" name="Monument Resources" />
+<tech id="̛730" name="Start w/ Llama (INC)" />
+<tech id="̛731" name="Infantry Cost -25% (GOT)" />
+<tech id="̛732" name="Infantry Cost -30% (GOT)" />
+<tech id="̛733" name="Infantry Cost -35% (GOT)" />
+<tech id="̛734" name="Thalassocracy + Chemistry" />
+<tech id="̛735" name="Thalassocracy + Murder Holes" />
+<tech id="̛736" name="Thalassocracy + Heated Shot" />
+<tech id="̛737" name="RESERVED" />
+<!--738 - 800 RESERVED-->
 
 </techs>
  
